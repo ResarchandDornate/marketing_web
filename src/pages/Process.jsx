@@ -60,7 +60,6 @@ export default function Process() {
               <div key={item.title}>
                 <h3 className="text-sm font-bold text-text-primary mb-2 tracking-tight">{item.title}</h3>
                 <p className="text-xs text-text-secondary leading-relaxed mb-4">{item.desc}</p>
-                <img src={item.img} alt={item.title} className="w-full h-auto object-contain" />
               </div>
             ))}
           </div>

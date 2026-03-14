@@ -43,13 +43,7 @@ export default function About() {
           <SectionHeading badge="Leadership" title="Meet our director." subtitle="The visionary driving UnityESS forward." />
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
-              <div className="md:w-[280px] shrink-0">
-                <img
-                  src="/products/Aditya-400x400.jpg"
-                  alt="Aditya Goel"
-                  className="w-full h-full object-cover md:min-h-[320px]"
-                />
-              </div>
+
               <div className="p-6 md:py-8 md:pr-8 md:pl-6">
                 <h3 className="text-xl font-bold text-text-primary tracking-tight">Aditya Goel</h3>
                 <div className="w-12 h-0.5 bg-brand-orange rounded-full my-3"></div>

@@ -43,7 +43,7 @@ export default function Products() {
                 className="feat-card group block rounded-2xl overflow-hidden hover:!border-accent/25"
               >
                 <div className="img-container h-48 mb-4 rounded-xl bg-bg-deep">
-                  <img src={product.image} alt={product.name} className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out" />
+                  
                 </div>
                 <div className="text-left">
                   {product.isNew && (
