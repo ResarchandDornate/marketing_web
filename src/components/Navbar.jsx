@@ -38,7 +38,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center shrink-0 group">
-            <span className={`text-xl font-bold tracking-tight transition-all duration-500 ${isLight ? 'text-brand-blue-dark' : 'text-white'}`}>UnityESS</span>
+            <img 
+              src="/products/unityess-logo.svg" 
+              alt="UnityESS" 
+              className={`h-6 sm:h-7 w-auto transition-all duration-500 ${isLight ? '' : 'brightness-0 invert'}`}
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
