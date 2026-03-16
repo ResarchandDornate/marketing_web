@@ -185,7 +185,7 @@ export const products = [
     tagline: 'Industrial ESS Tower',
     shortDesc: 'Heavy-duty industrial energy storage tower with advanced thermal management and crane-ready design.',
     category: 'industrial',
-    image: '/products/modelC.png',
+    image: '/products/model c.jpeg',
     specs: {
       capacity: '200-500 kWh',
       power: '100-250 kW',
