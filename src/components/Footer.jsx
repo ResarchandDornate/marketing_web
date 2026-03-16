@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-
+/////////////changes 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-border pt-16 pb-8">
