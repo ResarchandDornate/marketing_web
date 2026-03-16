@@ -1,7 +1,68 @@
+import { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight, Clock, Send, Shield, Zap, Globe } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 
 export default function Contact() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+  const [interestedIn, setInterestedIn] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    firstName,
+    lastName,
+    email,
+    company,
+    interestedIn,
+    message,
+  };
+
+  setLoading(true);
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbwGlQvb8Fj-A1IOHLp-XuP9asuX3ZB9lnkqiNCu3ex44zRZdVzuzn0NUgFd-Q0Yt1qj8g/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    if (response.ok) {
+      // ✅ Reset form states
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setCompany("");
+      setInterestedIn("");
+      setMessage("");
+
+      // ✅ Extra reset safety
+      e.target.reset();
+
+      alert("Query submitted successfully!");
+    } else {
+      alert("Submission failed. Please try again.");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Network error occurred.");
+  } finally {
+    setLoading(false);
+  }
+};
+
   return (
     <div className="bg-bg-deep min-h-screen pt-14">
       {/* Hero */}
@@ -56,41 +117,41 @@ export default function Contact() {
                     <p className="text-xs text-text-tertiary">We'll get back to you within 2 business hours.</p>
                   </div>
                 </div>
-                <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">First Name</label>
-                    <input type="text" placeholder="John" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="John" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Last Name</label>
-                    <input type="text" placeholder="Doe" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="text" required value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Doe" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Work Email</label>
-                    <input type="email" placeholder="john@company.com" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="john@company.com" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Company</label>
-                    <input type="text" placeholder="Acme Corp" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Corp" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="sm:col-span-2 space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Interested In</label>
-                    <select className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all appearance-none cursor-pointer">
-                      <option>Select a solution...</option>
-                      <option>Industrial BESS Solutions</option>
-                      <option>Commercial Energy Storage</option>
-                      <option>Residential Backup Systems</option>
-                      <option>Distribution Partnership</option>
-                      <option>Custom Enterprise Solution</option>
+                    <select value={interestedIn} onChange={(e) => setInterestedIn(e.target.value)} className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all appearance-none cursor-pointer">
+                      <option value="">Select a solution...</option>
+                      <option value="Industrial BESS Solutions">Industrial BESS Solutions</option>
+                      <option value="Commercial Energy Storage">Commercial Energy Storage</option>
+                      <option value="Residential Backup Systems">Residential Backup Systems</option>
+                      <option value="Distribution Partnership">Distribution Partnership</option>
+                      <option value="Custom Enterprise Solution">Custom Enterprise Solution</option>
                     </select>
                   </div>
                   <div className="sm:col-span-2 space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Message</label>
-                    <textarea rows="3" placeholder="Tell us about your project and what you're trying to accomplish..." className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary resize-none"></textarea>
+                    <textarea rows="3" required value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Tell us about your project and what you're trying to accomplish..." className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary resize-none"></textarea>
                   </div>
                   <div className="sm:col-span-2 pt-1">
-                    <button type="button" className="btn-pill btn-unity w-full">
-                      Send Message <ArrowRight className="w-4 h-4" />
+                    <button type="submit" disabled={loading} className="btn-pill btn-unity w-full">
+                      {loading ? 'Sending...' : 'Send Message'} {!loading && <ArrowRight className="w-4 h-4" />}
                     </button>
                   </div>
                 </form>
@@ -100,7 +161,7 @@ export default function Contact() {
             {/* Side Info */}
             <div className="lg:col-span-2 space-y-4">
               {/* Why Contact Us */}
-              <div className="bg-[#062b50] rounded-2xl p-6 text-white">
+              <div className="bg-brand-blue-dark rounded-2xl p-6 text-white">
                 <h4 className="text-sm font-bold mb-4 tracking-tight">Why work with UnityESS?</h4>
                 <div className="space-y-3">
                   {[

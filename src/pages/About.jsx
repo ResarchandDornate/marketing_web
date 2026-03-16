@@ -20,6 +20,13 @@ const milestones = [
   { year: '2025', event: 'Next-gen product lines with AI-powered BMS' },
 ];
 
+const team = [
+  { name: 'Dhatresh Patnam', role: 'Team Member', img: '/products/dhatresh patnam.jpg' },
+  { name: 'Fateh Brar', role: 'Team Member', img: '/products/fateh brar.jpg' },
+  { name: 'Kedar Balasubarmanayam', role: 'Team Member', img: '/products/kedar balasubarmanayam.jpg' },
+  { name: 'Vishal Pundir', role: 'Team Member', img: '/products/vishal pundir.png' },
+];
+
 const certs = ['UL 9540', 'IEC 62619', 'UN38.3', 'CE', 'TUV', 'ISO 9001', 'ISO 14001', 'ISO 45001'];
 
 export default function About() {
@@ -40,7 +47,7 @@ export default function About() {
       {/* Leadership */}
       <section className="py-16 bg-white border-y border-border">
         <div className="max-w-5xl mx-auto px-6">
-          <SectionHeading badge="Leadership" title="Meet our director." subtitle="The visionary driving UnityESS forward." />
+          <SectionHeading badge="Leadership" title="Meet our leaders." subtitle="The visionaries driving UnityESS forward." />
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
               <div className="md:w-[280px] shrink-0">
@@ -67,6 +74,86 @@ export default function About() {
                 </a>
               </div>
             </div>
+          </div>
+
+          {/* Raghav Jain */}
+          <div className="max-w-4xl mx-auto mt-6">
+            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
+              <div className="md:w-[280px] shrink-0">
+                <img
+                  src="/products/raghav jain.jpg"
+                  alt="Raghav Jain"
+                  className="w-full h-full object-cover md:min-h-[320px]"
+                />
+              </div>
+              <div className="p-6 md:py-8 md:pr-8 md:pl-6">
+                <h3 className="text-xl font-bold text-text-primary tracking-tight">Raghav Jain</h3>
+                <div className="w-12 h-0.5 bg-brand-orange rounded-full my-3"></div>
+                <p className="text-sm font-bold text-brand-green mb-3">Co-Founder</p>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  Raghav Jain is an entrepreneur and startup founder based in Delhi, currently serving as the Co-Founder of Inverted, a technology-driven venture. He is an alumnus of Indian Institute of Technology (BHU) and has a background in engineering and technology innovation. His professional focus lies in building products and businesses in the startup ecosystem, with interests in technology, growth, and digital platforms. Through his work, he engages with founders, investors, and operators to develop scalable solutions. Jain is also active in the startup community, contributing to discussions around product building and entrepreneurship.
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/raghav-jain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white hover:bg-brand-blue transition-colors mt-4"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Rahul Raj */}
+          <div className="max-w-4xl mx-auto mt-6">
+            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
+              <div className="md:w-[280px] shrink-0">
+                <img
+                  src="/products/rahul raj.jpg"
+                  alt="Rahul Raj"
+                  className="w-full h-full object-cover md:min-h-[320px]"
+                />
+              </div>
+              <div className="p-6 md:py-8 md:pr-8 md:pl-6">
+                <h3 className="text-xl font-bold text-text-primary tracking-tight">Rahul Raj</h3>
+                <div className="w-12 h-0.5 bg-brand-orange rounded-full my-3"></div>
+                <p className="text-sm font-bold text-brand-green mb-3">Business Analyst</p>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  Rahul Raj is a professional with experience in business analytics, sales strategy, and marketing analytics, often working at the intersection of data and business decision-making. He has worked as a business analyst and consultant, including roles related to incentive compensation analytics and strategic insights. Alongside his corporate career, he describes himself as an engineer, poet, and energy enthusiast, reflecting a mix of analytical and creative interests. His work typically involves leveraging data to support organizational strategy and performance improvement.
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/rahul-raj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white hover:bg-brand-blue transition-colors mt-4"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Members */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <SectionHeading badge="Our Team" title="The people behind UnityESS." subtitle="Meet the talented professionals powering our mission." />
+          <div className="flex flex-wrap justify-center gap-10">
+            {team.map((member) => (
+              <div key={member.name} className="group text-center">
+                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent/40 transition-all shadow-md">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h4 className="text-sm font-bold text-text-primary tracking-tight">{member.name}</h4>
+                <p className="text-xs text-text-secondary mt-1">{member.role}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
