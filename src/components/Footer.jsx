@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-
+/////////////changes 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-border pt-16 pb-8">
@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-xl font-bold text-brand-blue-dark">UnityESS</span>
+              <img src="/products/unityess-logo.svg" alt="UnityESS" className="h-8 w-auto" />
             </Link>
             <p className="text-sm text-text-secondary leading-relaxed mb-6 max-w-sm">
               Building the future of energy storage — intelligent, scalable systems trusted by organizations across 50+ countries.

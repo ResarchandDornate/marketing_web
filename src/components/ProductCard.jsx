@@ -7,7 +7,11 @@ export default function ProductCard({ product }) {
       className="product-card group block bg-apple-bg rounded-2xl overflow-hidden text-center"
     >
       <div className="relative pt-8 px-6 pb-4">
-        
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-56 w-auto mx-auto object-contain group-hover:scale-105 transition-transform duration-700"
+        />
       </div>
       <div className="px-6 py-5">
         {product.isNew && (

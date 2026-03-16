@@ -43,7 +43,7 @@ export default function ProductDetail() {
             {/* Left — Product image */}
             <div className="flex justify-center animate-fadeIn">
               <div className="bg-white p-10 rounded-2xl border border-border shadow-sm w-full max-w-md">
-                
+                <img src={product.image} alt={product.name} className="max-h-72 w-auto mx-auto object-contain hover:scale-105 transition-transform duration-700 ease-out" />
               </div>
             </div>
 
@@ -144,7 +144,7 @@ export default function ProductDetail() {
             {otherProducts.map((p) => (
               <Link key={p.id} to={`/products/${p.id}`} className="feat-card group block rounded-2xl overflow-hidden text-center">
                 <div className="h-40 flex items-center justify-center mb-4 rounded-xl bg-bg-deep">
-                  
+                  <img src={p.image} alt={p.name} className="max-h-32 object-contain group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <h3 className="text-base font-bold text-text-primary group-hover:text-accent transition-colors">{p.name}</h3>
                 <p className="text-[10px] text-text-tertiary font-bold uppercase tracking-widest mt-1">{p.series}</p>

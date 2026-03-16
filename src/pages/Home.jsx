@@ -57,6 +57,22 @@ export default function Home() {
           <div className="relative flex items-end justify-center gap-3 sm:gap-5 lg:gap-8 animate-fadeIn max-w-3xl mx-auto">
             {/* Glow */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-[50%] bg-brand-green/6 blur-[60px] rounded-full"></div>
+
+            <div className="relative z-10 flex-shrink-0 w-[42%] max-w-[280px] animate-float" style={{ animationDelay: '0s' }}>
+              <img src="/products/Unity-infinity.png" className="w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(0,184,83,0.12)] hover:scale-105 transition-transform duration-500" alt="Unity Infinity" />
+            </div>
+
+            <div className="relative z-10 flex-shrink-0 w-[20%] max-w-[120px] animate-float" style={{ animationDelay: '1.2s' }}>
+              <img src="/products/modelA.png" className="w-full h-auto object-contain drop-shadow-[0_0_18px_rgba(0,150,255,0.12)] hover:scale-105 transition-transform duration-500" alt="Unity Model A" />
+            </div>
+
+            <div className="relative z-20 flex-shrink-0 w-[28%] max-w-[200px] animate-float" style={{ animationDelay: '0.6s' }}>
+              <img src="/products/261Kwh BESS.96.png" className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(0,184,83,0.2)]" alt="UnityESS Flagship System" />
+            </div>
+
+            <div className="relative z-10 flex-shrink-0 w-[20%] max-w-[120px] animate-float" style={{ animationDelay: '1.8s' }}>
+              <img src="/products/unityess (1).png" className="w-full h-auto object-contain drop-shadow-[0_0_18px_rgba(0,120,255,0.12)] hover:scale-105 transition-transform duration-500" alt="UnityESS Energy System" />
+            </div>
           </div>
         </div>
       </section>
@@ -110,7 +126,11 @@ export default function Home() {
                 {/* Clean Image Container with subtle inner shadow */}
                 <div className="bg-[#f8f9fa] p-6 h-[220px] flex items-center justify-center relative shadow-[inset_0_-20px_20px_rgba(0,0,0,0.02)] border-b border-black/5">
                   <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/5 transition-colors duration-500"></div>
-                  
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out relative z-10 drop-shadow-xl"
+                  />
                   {/* Subtle model badge */}
                   <div className="absolute top-4 left-4 border border-black/10 bg-white/50 backdrop-blur-sm text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded text-text-secondary">
                     Model
@@ -226,7 +246,7 @@ export default function Home() {
             </div>
             {/* Right — image */}
             <div className="rounded-xl overflow-hidden border border-border max-w-[300px] mx-auto lg:ml-auto">
-              
+              <img src="/products/image00.png" alt="UnityESS Manufacturing Facility" className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>
@@ -307,7 +327,7 @@ export default function Home() {
               <Link key={item.title} to="/products" className="group bg-[#fafafa] rounded-2xl overflow-hidden border border-black/5 hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
                 <div className="p-4 h-40 flex items-center justify-center relative">
                   <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/5 transition-colors duration-500 rounded-t-2xl"></div>
-                  
+                  <img src={item.img} alt={item.title} className="max-h-32 w-auto object-contain relative z-10 group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="px-5 pb-5 text-center">
                   <h3 className="text-sm font-bold text-brand-blue-dark mb-1.5 group-hover:text-brand-green transition-colors">{item.title}</h3>
