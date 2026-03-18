@@ -34,19 +34,18 @@ export default function About() {
   return (
     <div className="bg-bg-deep min-h-screen pt-14">
       {/* Hero */}
-      <section className="relative pt-12 pb-8 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-250 h-125 bg-accent/5 blur-[120px] rounded-full -z-10 opacity-60"></div>
-        <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center">
-          <SectionHeading
-            badge="Our Story"
-            title="Empowering with clean energy."
-            subtitle="UnityESS is a global leader in energy storage solutions, delivering safe, reliable, and scalable systems for a sustainable future."
-          />
+      <section className="relative bg-[#070E1A] pt-15  pb-16 overflow-hidden">
+        <div className="absolute top-[-80px] left-1/4 w-[500px] h-[500px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-60px] right-1/4 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-widest uppercase text-white/50 mb-6">Our Story</div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">Empowering with clean energy.</h1>
+          <p className="text-base text-white/40 max-w-2xl mx-auto leading-relaxed">UnityESS is a global leader in energy storage solutions, delivering safe, reliable, and scalable systems for a sustainable future.</p>
         </Reveal>
       </section>
 
       {/* Leadership */}
-      <section className="py-16 bg-white border-y border-border">
+      <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <Reveal animation="fade-up">
             <SectionHeading badge="Leadership" title="Meet our leaders." subtitle="The visionaries driving UnityESS forward." />
@@ -54,7 +53,7 @@ export default function About() {
 
           {/* Aditya Goel */}
           <Reveal animation="fade-right" duration={800} className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
+            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
                   src="/products/Aditya-400x400.jpg"
@@ -83,7 +82,7 @@ export default function About() {
 
           {/* Raghav Jain */}
           <Reveal animation="fade-left" delay={100} duration={800} className="max-w-4xl mx-auto mt-6">
-            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
+            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
                   src="/products/raghav jain.jpg"
@@ -112,7 +111,7 @@ export default function About() {
 
           {/* Rahul Raj */}
           <Reveal animation="fade-right" delay={100} duration={800} className="max-w-4xl mx-auto mt-6">
-            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
+            <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
                   src="/products/rahul raj.jpg"
@@ -142,7 +141,7 @@ export default function About() {
       </section>
 
       {/* Team Members */}
-      <section className="py-16">
+      <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal animation="fade-up">
             <SectionHeading badge="Our Team" title="The people behind UnityESS." subtitle="Meet the talented professionals powering our mission." />
@@ -150,15 +149,17 @@ export default function About() {
           <Reveal stagger staggerDelay={150} className="flex flex-wrap justify-center gap-10">
             {team.map((member) => (
               <RevealItem key={member.name} animation="zoom-in" className="group text-center">
-                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent/40 transition-all shadow-md">
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+                  <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent/40 transition-all shadow-md">
+                    <img
+                      src={member.img}
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h4 className="text-sm font-bold text-text-primary tracking-tight">{member.name}</h4>
+                  <p className="text-xs text-text-secondary mt-1">{member.role}</p>
                 </div>
-                <h4 className="text-sm font-bold text-text-primary tracking-tight">{member.name}</h4>
-                <p className="text-xs text-text-secondary mt-1">{member.role}</p>
               </RevealItem>
             ))}
           </Reveal>
@@ -166,11 +167,11 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Reveal animation="fade-right">
-              <div className="feat-card !rounded-3xl !p-8 lg:!p-10 h-full">
+              <div className="feat-card !rounded-3xl !p-8 lg:!p-10 h-full bg-gradient-to-br from-white to-[#f5f7fa]">
                 <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center mb-6">
                   <Target className="w-5 h-5 text-accent" />
                 </div>
@@ -182,7 +183,7 @@ export default function About() {
               </div>
             </Reveal>
             <Reveal animation="fade-left" delay={150}>
-              <div className="feat-card !rounded-3xl !p-8 lg:!p-10 h-full">
+              <div className="feat-card !rounded-3xl !p-8 lg:!p-10 h-full bg-gradient-to-br from-white to-[#f5f7fa]">
                 <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center mb-6">
                   <Eye className="w-5 h-5 text-accent" />
                 </div>
@@ -198,7 +199,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-white border-y border-border">
+      <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal animation="fade-up">
             <SectionHeading badge="Core Values" title="What drives us." subtitle="Our core values guide every decision we make." />
@@ -218,7 +219,7 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <Reveal animation="fade-up">
             <SectionHeading badge="Timeline" title="Our journey." subtitle="From a startup vision to a global leader." />
@@ -241,14 +242,14 @@ export default function About() {
       </section>
 
       {/* Certifications */}
-      <section className="py-16 bg-white border-y border-border">
+      <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <Reveal animation="fade-up">
             <SectionHeading title="Certifications." subtitle="Our products meet international safety and performance standards." />
           </Reveal>
           <Reveal stagger staggerDelay={80} className="flex flex-wrap justify-center gap-3 mt-8">
             {certs.map((c) => (
-              <RevealItem key={c} animation="zoom-in" className="flex items-center gap-2 px-4 py-2.5 bg-bg-deep rounded-xl border border-border hover:border-accent/30 transition-all shadow-sm">
+              <RevealItem key={c} animation="zoom-in" className="flex items-center gap-2 px-4 py-2.5 bg-white rounded-xl border border-border hover:border-accent/30 transition-all shadow-sm">
                 <Award className="w-4 h-4 text-accent" />
                 <span className="text-xs font-bold tracking-wider text-text-primary uppercase">{c}</span>
               </RevealItem>
@@ -258,8 +259,10 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="relative py-16 bg-[#070E1A] overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]"></div>
+        <div className="absolute top-[-60px] left-1/3 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
           <Reveal stagger staggerDelay={200} className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
             {[
               { icon: Globe, val: '50+', label: 'Countries Served' },
@@ -267,11 +270,11 @@ export default function About() {
               { icon: Award, val: '2 GWh', label: 'Deployed Capacity' },
             ].map((s) => (
               <RevealItem key={s.label} animation="fade-up" className="group">
-                <div className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center mx-auto mb-5 group-hover:border-accent/30 transition-all shadow-sm">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-5 group-hover:border-accent/30 transition-all">
                   <s.icon className="w-6 h-6 text-accent" />
                 </div>
-                <div className="text-4xl font-extrabold text-text-primary mb-2 tracking-tight">{s.val}</div>
-                <div className="text-xs text-text-tertiary uppercase tracking-widest font-bold">{s.label}</div>
+                <div className="text-4xl font-extrabold text-white mb-2 tracking-tight">{s.val}</div>
+                <div className="text-xs text-white/40 uppercase tracking-widest font-bold">{s.label}</div>
               </RevealItem>
             ))}
           </Reveal>
@@ -279,10 +282,11 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <Reveal as="section" animation="zoom-in" className="py-20 bg-white border-t border-border">
-        <div className="max-w-xl mx-auto px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-text-primary">Partner with <span className="text-brand-green">UnityESS.</span></h2>
-          <p className="text-base text-text-secondary mb-8 leading-relaxed">Join our global network of distributors and energy partners to shape the future of power.</p>
+      <Reveal as="section" animation="zoom-in" className="relative py-20 bg-[#070E1A] overflow-hidden">
+        <div className="absolute bottom-[-80px] right-1/3 w-[400px] h-[400px] bg-[#00b853]/8 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="max-w-xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-white">Partner with <span className="bg-gradient-to-r from-[#60a5fa] to-[#00b853] bg-clip-text text-transparent">UnityESS.</span></h2>
+          <p className="text-base text-white/50 mb-8 leading-relaxed">Join our global network of distributors and energy partners to shape the future of power.</p>
           <Link to="/contact" className="btn-pill btn-unity">Get in Touch <ArrowRight className="w-4 h-4" /></Link>
         </div>
       </Reveal>

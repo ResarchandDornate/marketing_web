@@ -12,21 +12,22 @@ export default function Products() {
     <div className="bg-bg-deep min-h-screen pt-14 overflow-x-hidden">
 
       {/* Compact Header */}
-      <section className="relative pt-10 pb-6 overflow-hidden bg-white border-b border-border">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-50 bg-accent/4 blur-[100px] rounded-full -z-10"></div>
-        <Reveal animation="fade-up" className="max-w-7xl mx-auto px-6 text-center">
-          <div className="section-badge mb-4 mx-auto">All Products</div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-700 tracking-tight leading-[1.1] mb-2">
-            Energy Storage <span className="text-brand-blue-dark">Solutions</span>
+      <section className="relative bg-[#070E1A] pt-16 pb-10 overflow-hidden">
+        <div className="absolute top-[-60px] left-1/3 w-[450px] h-[450px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-40px] right-1/4 w-[350px] h-[350px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <Reveal animation="fade-up" className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-widest uppercase text-[#00b853] mb-4">All Products</div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-[1.1] mb-2">
+            Energy Storage <span className="text-[#60a5fa]">Solutions</span>
           </h1>
-          <p className="text-sm text-text-secondary max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm text-white/40 max-w-lg mx-auto leading-relaxed">
             From portable power stations to utility-scale containerized systems — engineered for absolute reliability.
           </p>
         </Reveal>
       </section>
 
       {/* Category Filter */}
-      <section className="sticky top-14 z-30 bg-white/80 backdrop-blur-xl border-b border-border">
+      <section className="sticky top-14 z-30 bg-white/95 backdrop-blur-xl border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-3 overflow-x-auto no-scrollbar">
           {categories.map((cat) => (
             <button
@@ -48,7 +49,7 @@ export default function Products() {
       </section>
 
       {/* Product Grid */}
-      <section className="py-10 sm:py-14">
+      <section className="py-10 sm:py-14 bg-[#f5f7fa]">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal stagger staggerDelay={80} threshold={0.05} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" key={activeCategory}>
             {filtered.map((product) => (
@@ -108,7 +109,7 @@ export default function Products() {
 
           {filtered.length === 0 && (
             <div className="text-center py-24">
-              <div className="w-16 h-16 rounded-2xl bg-bg-deep border border-border flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-white border border-border flex items-center justify-center mx-auto mb-4">
                 <Battery className="w-7 h-7 text-text-tertiary" />
               </div>
               <p className="text-text-secondary text-base font-medium">No products found in this category.</p>
@@ -121,19 +122,21 @@ export default function Products() {
       </section>
 
       {/* Bottom CTA */}
-      <Reveal as="section" animation="zoom-in" className="py-14 bg-white border-t border-border">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-700 tracking-tight mb-3 leading-[1.1]">
-            Need help choosing the right <span className="text-brand-blue-dark">system?</span>
+      <Reveal as="section" animation="zoom-in" className="relative py-14 bg-[#070E1A] overflow-hidden">
+        <div className="absolute top-[-60px] left-1/3 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-40px] right-1/4 w-[300px] h-[300px] bg-[#00b853]/8 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3 leading-[1.1]">
+            Need help choosing the right <span className="bg-gradient-to-r from-[#60a5fa] to-[#00b853] bg-clip-text text-transparent">system?</span>
           </h2>
-          <p className="text-sm text-text-secondary font-medium mb-6 max-w-xl mx-auto">
+          <p className="text-sm text-white/50 font-medium mb-6 max-w-xl mx-auto">
             Our engineering team can recommend the optimal solution based on your load profile and requirements.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Link to="/contact" className="btn-pill btn-unity text-sm">
               Talk to Engineering <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/process" className="btn-pill btn-unity-outline text-sm">
+            <Link to="/process" className="btn-pill text-sm bg-transparent text-white/60 border border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
               How It Works <ChevronRight className="w-4 h-4" />
             </Link>
           </div>

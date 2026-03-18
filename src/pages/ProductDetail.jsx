@@ -41,7 +41,7 @@ export default function ProductDetail() {
       </div>
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0f4f8] to-[#f5f7fa]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-225 h-100 bg-accent/4 blur-[120px] rounded-full -z-10"></div>
 
         <div className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
@@ -51,8 +51,8 @@ export default function ProductDetail() {
             <Reveal animation="fade-right" duration={800} className="flex justify-center">
               <div className="relative w-full max-w-md">
                 {/* Glow behind */}
-                <div className="absolute inset-0 bg-accent/5 blur-[50px] rounded-full scale-75"></div>
-                <div className="relative bg-white p-10 sm:p-14 rounded-3xl border border-border shadow-[0_8px_40px_rgba(0,0,0,0.04)]">
+                <div className="absolute inset-0 bg-accent/10 blur-[70px] rounded-full scale-75"></div>
+                <div className="relative bg-gradient-to-br from-white to-[#f0f4f8] p-10 sm:p-14 rounded-3xl border border-border shadow-[0_16px_50px_rgba(0,0,0,0.08)]">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -84,7 +84,7 @@ export default function ProductDetail() {
               {/* Highlight cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-6">
                 {product.highlights.map((h) => (
-                  <div key={h.label} className="bg-white px-3 py-3 rounded-xl border border-border text-center shadow-sm hover:shadow-md hover:border-accent/20 transition-all">
+                  <div key={h.label} className="bg-gradient-to-br from-white to-[#f5f7fa] px-3 py-3 rounded-xl border border-border text-center shadow-sm hover:shadow-md hover:border-accent/20 transition-all">
                     <span className="text-lg font-extrabold text-accent block leading-tight">{h.value}</span>
                     <span className="text-[9px] text-text-tertiary uppercase tracking-widest font-bold mt-0.5 block">{h.label}</span>
                   </div>
@@ -92,7 +92,7 @@ export default function ProductDetail() {
               </div>
 
               {/* Short description */}
-              <div className="bg-[#f8f9fa] rounded-xl p-4 border border-border mb-6">
+              <div className="bg-gradient-to-r from-accent/5 to-transparent rounded-xl p-4 border border-border mb-6">
                 <p className="text-xs text-text-secondary leading-relaxed italic">
                   &ldquo;{product.shortDesc}&rdquo;
                 </p>
@@ -125,15 +125,15 @@ export default function ProductDetail() {
                 </div>
                 <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Technical Specifications</h2>
               </div>
-              <div className="bg-[#f8f9fa] rounded-2xl overflow-hidden border border-border">
+              <div className="bg-white rounded-2xl overflow-hidden border border-border">
                 {Object.entries(product.specs).map(([key, value], i) => {
                   const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase());
                   return (
                     <div
                       key={key}
-                      className={`flex items-center justify-between py-3.5 px-5 hover:bg-white transition-colors ${
-                        i < Object.entries(product.specs).length - 1 ? 'border-b border-border' : ''
-                      }`}
+                      className={`flex items-center justify-between py-3.5 px-5 hover:bg-accent/5 transition-colors ${
+                        i % 2 === 0 ? 'bg-[#f5f7fa]' : 'bg-white'
+                      } ${i < Object.entries(product.specs).length - 1 ? 'border-b border-border' : ''}`}
                     >
                       <span className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">{label}</span>
                       <span className="text-sm text-text-primary font-bold text-right">{value}</span>
@@ -155,7 +155,7 @@ export default function ProductDetail() {
                 {product.features.map((feature) => (
                   <div
                     key={feature}
-                    className="flex items-start gap-3 bg-[#f8f9fa] p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
+                    className="flex items-start gap-3 bg-gradient-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
                   >
                     <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5 border border-brand-green/15 group-hover:bg-brand-green group-hover:border-brand-green transition-all">
                       <Check className="w-3 h-3 text-brand-green group-hover:text-white transition-colors" />
@@ -170,7 +170,7 @@ export default function ProductDetail() {
       </section>
 
       {/* Applications */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 bg-[#f5f7fa]">
         <div className="max-w-5xl mx-auto px-6">
           <Reveal animation="fade-up" className="text-center mb-8">
             <h2 className="text-2xl font-extrabold text-text-primary tracking-tight mb-2">Applications</h2>
@@ -178,8 +178,8 @@ export default function ProductDetail() {
           </Reveal>
           <Reveal stagger staggerDelay={80} className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
             {product.applications.map((app) => (
-              <RevealItem key={app} animation="zoom-in" className="flex items-center gap-3 px-4 py-3.5 bg-white rounded-xl border border-border hover:border-accent/20 hover:shadow-md transition-all group">
-                <div className="w-2.5 h-2.5 rounded-full bg-linear-to-r from-accent to-brand-green shrink-0 group-hover:scale-125 transition-transform" />
+              <RevealItem key={app} animation="zoom-in" className="flex items-center gap-3 px-4 py-3.5 bg-white shadow-sm rounded-xl border border-border hover:border-accent/20 hover:shadow-md transition-all group">
+                <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-accent to-brand-green shrink-0 group-hover:scale-125 transition-transform" />
                 <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{app}</span>
               </RevealItem>
             ))}
@@ -199,7 +199,7 @@ export default function ProductDetail() {
               <RevealItem key={p.id} animation="fade-up">
                 <Link
                   to={`/products/${p.id}`}
-                  className="group bg-[#f8f9fa] rounded-2xl overflow-hidden border border-border hover:bg-white hover:border-accent/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block h-full"
+                  className="group bg-gradient-to-b from-[#f0f4f8] to-white rounded-2xl overflow-hidden border border-border hover:border-accent/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block h-full"
                 >
                   <div className="p-5 h-44 flex items-center justify-center relative">
                     <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/3 transition-colors duration-500 rounded-t-2xl"></div>
@@ -221,7 +221,7 @@ export default function ProductDetail() {
 
       {/* CTA */}
       <Reveal as="section" animation="zoom-in" className="py-14 sm:py-16 bg-brand-blue-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)]" style={{ backgroundSize: '28px 28px' }}></div>
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:28px_28px]"></div>
         <div className="absolute -top-25 -right-12.5 w-75 h-75 bg-brand-green/8 rounded-full blur-[100px]"></div>
 
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
@@ -235,7 +235,7 @@ export default function ProductDetail() {
             <Link to="/contact" className="btn-corporate btn-corp-green text-sm">
               Contact Solutions Team <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/products" className="btn-corporate btn-corp-outline text-sm">
+            <Link to="/products" className="btn-corporate text-sm bg-transparent text-white/60 border-1.5 border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
               View All Products
             </Link>
           </div>
