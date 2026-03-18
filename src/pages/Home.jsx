@@ -173,20 +173,30 @@ export default function Home() {
 
           <Reveal stagger staggerDelay={150} className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
             {[
-              { icon: ShieldCheck, title: '3-Tiered BMS', subtitle: 'Advanced Battery Management Architecture', desc: 'Built with module-level, rack-level, and system-level protection to ensure real-time monitoring, thermal control, and fault isolation for maximum safety and performance.', tag: 'Multi-Level Intelligence' },
-              { icon: Activity, title: '314Ah LFP Cells', subtitle: 'High-Reliability Battery Core', desc: 'Powered by premium 314Ah Lithium Iron Phosphate (LFP) cells engineered for long cycle life, enhanced thermal stability, and consistent high-performance output.', tag: 'Engineered for Longevity' },
-              { icon: Sun, title: 'Solar & Grid Ready', subtitle: 'Seamless Clean Energy Integration', desc: 'Designed to integrate effortlessly with solar PV systems and grid infrastructure, enabling reliable energy storage, peak shaving, and backup power.', tag: 'Flexible Energy Deployment' },
+              { icon: ShieldCheck, title: '3-Tiered BMS', subtitle: 'Advanced Battery Management Architecture', desc: 'Built with module-level, rack-level, and system-level protection to ensure real-time monitoring, thermal control, and fault isolation.', tag: 'Multi-Level Intelligence', img: '/products/pict1.jpeg' },
+              { icon: Activity, title: '314Ah LFP Cells', subtitle: 'High-Reliability Battery Core', desc: 'Powered by premium 314Ah LFP cells engineered for long cycle life, enhanced thermal stability, and consistent output.', tag: 'Engineered for Longevity', img: '/products/pict2.jpeg' },
+              { icon: Sun, title: 'Solar & Grid Ready', subtitle: 'Seamless Clean Energy Integration', desc: 'Integrate effortlessly with solar PV systems and grid infrastructure for reliable storage, peak shaving, and backup.', tag: 'Flexible Energy Deployment', img: '/products/pict3.jpeg' },
             ].map((item) => (
               <RevealItem key={item.title} animation="fade-up">
-                <div className="group bg-[#f8f9fa] rounded-xl p-5 border border-black/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-9 h-9 rounded-lg bg-brand-blue-dark/8 flex items-center justify-center mb-3">
-                    <item.icon className="w-4 h-4 text-brand-blue-dark" />
+                <div className="group bg-white rounded-xl overflow-hidden border border-black/5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-400 h-full">
+                  {/* Image */}
+                  <div className="h-52 bg-[#f0f3f7] flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,98,151,0.04)_0%,transparent_70%)]"></div>
+                    <img src={item.img} alt={item.title} className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <h3 className="text-base font-extrabold text-gray-800 mb-0.5 tracking-tight">{item.title}</h3>
-                  <p className="text-[11px] font-semibold text-brand-blue-dark mb-2">{item.subtitle}</p>
-                  <p className="text-[11px] text-text-secondary leading-relaxed mb-3">{item.desc}</p>
-                  <div className="pt-2 border-t border-black/5">
-                    <span className="text-[10px] font-bold text-brand-blue-dark/70 uppercase tracking-widest">{item.tag}</span>
+                  {/* Content */}
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-7 h-7 rounded-md bg-accent/8 flex items-center justify-center">
+                        <item.icon className="w-3.5 h-3.5 text-accent" />
+                      </div>
+                      <h3 className="text-sm font-bold text-text-primary tracking-tight">{item.title}</h3>
+                    </div>
+                    <p className="text-[10px] font-semibold text-accent mb-1.5">{item.subtitle}</p>
+                    <p className="text-[11px] text-text-secondary leading-relaxed mb-3">{item.desc}</p>
+                    <div className="pt-2 border-t border-black/4">
+                      <span className="text-[9px] font-bold text-accent/60 uppercase tracking-widest">{item.tag}</span>
+                    </div>
                   </div>
                 </div>
               </RevealItem>
