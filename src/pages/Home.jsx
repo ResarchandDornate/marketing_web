@@ -30,8 +30,8 @@ export default function Home() {
                 Solar peaks at noon <br /> Demands peaks at dusk.
               </h1>
                   <span className="text-2xl font-bold text-brand-blue-dark">The gap between them is where Unity lives</span>
-              <p className="text-xs sm:text-sm text-white/50 mb-6 leading-relaxed max-w-md">
-                India's own BESS , built to deliver safe ,sustainable and reliable energy.
+              <p className="text-xs sm:text-sm text-white/50 mb-6 leading-relaxed max-w-lg">
+                India's own BESS, built to deliver safe, sustainable and reliable energy.
               </p>
 
               <div className="flex flex-wrap gap-2.5">
@@ -324,17 +324,25 @@ const advantageTabs = [
     title: 'Solar Energy Capture & Backup',
     desc: 'Store excess solar generation during peak production hours and deploy stored energy during outages — with instant switchover and deep cycle reserves for uninterrupted power.',
     img: '/products/modelA.png',
-    stat: '8,000+',
-    statLabel: 'Deep Cycle Life',
+    features: ['Instant switchover during grid outages', 'Deep cycle reserves for 8,000+ cycles', 'Peak shaving & load shifting', 'Seamless solar integration'],
+    stats: [
+      { val: '8,000+', label: 'Cycle Life' },
+      { val: '314Ah', label: 'LFP Cells' },
+      { val: 'IP54', label: 'Protection' },
+    ],
   },
   {
     id: 'grid',
     label: 'Grid Stability',
     title: 'Grid Stability & Independence',
-    desc: 'Stabilize voltage and frequency fluctuations while reducing reliance on unstable grid infrastructure. Autonomous energy reserves ensure operational continuity.',
+    desc: 'Stabilize voltage and frequency fluctuations while reducing reliance on unstable grid infrastructure. Autonomous energy reserves ensure operational continuity around the clock.',
     img: '/products/261Kwh BESS.96.png',
-    stat: '<10ms',
-    statLabel: 'Grid Switchover',
+    features: ['Voltage & frequency regulation', 'Autonomous energy reserves', '<10ms grid switchover', '24/7 real-time monitoring'],
+    stats: [
+      { val: '<10ms', label: 'Switchover' },
+      { val: '99.99%', label: 'Uptime' },
+      { val: '3-Tier', label: 'BMS' },
+    ],
   },
   {
     id: 'scale',
@@ -342,8 +350,12 @@ const advantageTabs = [
     title: 'Scalable & Future-Ready',
     desc: 'Modular architecture allows seamless expansion from kilowatt to megawatt scale. Millisecond-fast automatic transfer switching ensures zero downtime during scaling.',
     img: '/products/modelC.png',
-    stat: '6.25 MWh',
-    statLabel: 'Max Capacity',
+    features: ['kW to MW seamless expansion', '20ft containerized form factor', 'Plug-and-operate deployment', 'C4 corrosion resistance'],
+    stats: [
+      { val: '6.25', label: 'MWh Max' },
+      { val: '2.5 MW', label: 'AC Power' },
+      { val: '20ft', label: 'Container' },
+    ],
   },
   {
     id: 'cost',
@@ -351,8 +363,12 @@ const advantageTabs = [
     title: 'Lower Costs & Carbon Footprint',
     desc: 'Optimize energy usage with peak shaving and load shifting, dramatically cutting operational costs while reducing carbon emissions through stored renewable energy.',
     img: '/products/modelB.png',
-    stat: '>94%',
-    statLabel: 'Round-Trip Efficiency',
+    features: ['Peak shaving & demand response', '>94% round-trip efficiency', 'Diesel generator replacement', 'Multiple revenue streams'],
+    stats: [
+      { val: '>94%', label: 'RTE' },
+      { val: '522kWh', label: 'Hybrid' },
+      { val: '300kW', label: 'Max PV' },
+    ],
   },
 ];
 
@@ -363,71 +379,92 @@ function AdvantagesSection() {
   return (
     <section className="py-16 sm:py-24 bg-[#070E1A] relative overflow-hidden">
       {/* Ambient glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-blue-dark/15 blur-[180px] rounded-full -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-accent/10 blur-[150px] rounded-full translate-y-1/2"></div>
+      <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-brand-blue-dark/12 blur-[200px] rounded-full"></div>
+      <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-accent/8 blur-[180px] rounded-full"></div>
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <Reveal animation="fade-up">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
-              <p className="text-[11px] font-bold text-brand-blue-light/60 uppercase tracking-[0.2em] mb-2">Why BESS</p>
+              <p className="text-[11px] font-bold text-[#60a5fa]/50 uppercase tracking-[0.2em] mb-3">Why Energy Storage</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-[1.08]">
                 Intelligent, Powerful and<br />
-                <span className="text-brand-blue-light">Built for India</span>
+                <span className="bg-gradient-to-r from-[#60a5fa] to-[#00b853] bg-clip-text text-transparent">Built for India</span>
               </h2>
             </div>
-            <Link to="/products" className="text-xs font-bold text-white/30 border border-white/10 rounded-full px-5 py-2.5 hover:text-white hover:border-white/30 transition-all whitespace-nowrap">
+            <Link to="/products" className="text-xs font-bold text-white/30 border border-white/10 rounded-full px-5 py-2.5 hover:text-white hover:border-white/25 transition-all whitespace-nowrap self-start sm:self-auto">
               View full specs <ArrowRight className="w-3.5 h-3.5 inline ml-1" />
             </Link>
           </div>
         </Reveal>
 
-        {/* Content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[380px]">
-          {/* Left — Product image */}
-          <div className="relative flex items-center justify-center py-8">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,98,151,0.08)_0%,transparent_70%)]"></div>
-            {/* Reflection surface */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-            <img
-              key={tab.id}
-              src={tab.img}
-              alt={tab.title}
-              className="max-h-72 sm:max-h-80 w-auto object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fadeIn"
-            />
-          </div>
-
-          {/* Right — Tab content */}
-          <div>
-            <div className="mb-6">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-3 tracking-tight">{tab.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed max-w-md">{tab.desc}</p>
-            </div>
-
-            {/* Stat highlight */}
-            <div className="inline-flex items-baseline gap-3 bg-white/5 border border-white/8 rounded-xl px-5 py-3 mb-8">
-              <span className="text-3xl font-extrabold text-brand-blue-light">{tab.stat}</span>
-              <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">{tab.statLabel}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Tab pills */}
-        <div className="flex flex-wrap justify-center gap-2 mt-8">
+        {/* Tab pills — top */}
+        <div className="flex flex-wrap gap-2 mb-10">
           {advantageTabs.map((t, i) => (
             <button
               key={t.id}
               onClick={() => setActive(i)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-300 border ${
                 active === i
-                  ? 'bg-white text-[#070E1A] border-white shadow-[0_0_20px_rgba(255,255,255,0.15)]'
-                  : 'bg-transparent text-white/40 border-white/10 hover:text-white/70 hover:border-white/20'
+                  ? 'bg-white text-[#070E1A] border-white shadow-[0_0_25px_rgba(255,255,255,0.12)]'
+                  : 'bg-white/[0.03] text-white/40 border-white/8 hover:text-white/70 hover:border-white/15 hover:bg-white/[0.05]'
               }`}
             >
               {t.label}
             </button>
           ))}
+        </div>
+
+        {/* Main content card */}
+        <div className="bg-white/[0.03] border border-white/[0.06] rounded-3xl overflow-hidden backdrop-blur-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[420px]">
+
+            {/* Left — Product image (3 cols) */}
+            <div className="lg:col-span-2 relative flex items-center justify-center p-8 sm:p-12 bg-gradient-to-br from-white/[0.02] to-transparent">
+              {/* Radial glow behind product */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.06)_0%,transparent_60%)]"></div>
+              {/* Reflection line */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[40%] h-[40px] bg-white/[0.02] blur-xl rounded-full"></div>
+              <img
+                key={tab.id}
+                src={tab.img}
+                alt={tab.title}
+                className="max-h-64 sm:max-h-72 lg:max-h-80 w-auto object-contain relative z-10 drop-shadow-[0_25px_60px_rgba(0,0,0,0.6)] animate-fadeIn"
+              />
+            </div>
+
+            {/* Right — Content (3 cols) */}
+            <div className="lg:col-span-3 p-8 sm:p-10 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/[0.06]">
+              {/* Title & desc */}
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-3 tracking-tight leading-tight">{tab.title}</h3>
+              <p className="text-sm text-white/35 leading-relaxed mb-6 max-w-lg">{tab.desc}</p>
+
+              {/* Feature bullets */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
+                {tab.features.map((f) => (
+                  <div key={f} className="flex items-center gap-2.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] shrink-0"></div>
+                    <span className="text-xs text-white/50 font-medium">{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Stats row */}
+              <div className="flex gap-3">
+                {tab.stats.map((s) => (
+                  <div key={s.label} className="flex-1 bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-3 text-center">
+                    <p className="text-lg sm:text-xl font-extrabold text-white leading-tight">{s.val}</p>
+                    <p className="text-[9px] font-bold text-white/25 uppercase tracking-widest mt-1">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight, Clock, Send, Shield, Zap, Globe } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
 import Reveal, { RevealItem } from '../components/Reveal';
 
 export default function Contact() {
@@ -63,21 +62,20 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div className="bg-bg-deep min-h-screen pt-14">
-      {/* Hero */}
-      <section className="relative pt-10 pb-6 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-250 h-100 bg-accent/5 blur-[120px] rounded-full -z-10 opacity-40"></div>
-        <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center">
-          <SectionHeading
-            badge="Get In Touch"
-            title="Let's power your next project."
-            subtitle="Whether you're evaluating solutions, need a demo, or have a specific question — our team typically responds within 2 hours."
-          />
+    <div className="min-h-screen">
+      {/* Hero — dark */}
+      <section className="relative bg-[#070E1A] pt-28 pb-12 overflow-hidden">
+        <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-accent/10 blur-[160px] rounded-full -z-0 pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-blue-500/8 blur-[140px] rounded-full -z-0 pointer-events-none"></div>
+        <Reveal animation="fade-up" className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-6">Get In Touch</span>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-5">Let's power your next project.</h1>
+          <p className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto leading-relaxed">Whether you're evaluating solutions, need a demo, or have a specific question — our team typically responds within 2 hours.</p>
         </Reveal>
       </section>
 
       {/* Quick Contact Strip */}
-      <section className="py-4">
+      <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <Reveal stagger staggerDelay={100} className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
@@ -86,7 +84,7 @@ const handleSubmit = async (e) => {
               { icon: MapPin, title: 'Office', val: 'Energy Innovation Park, CA' },
               { icon: Clock, title: 'Hours', val: 'Mon-Fri, 9am-6pm PST' },
             ].map((item) => (
-              <RevealItem key={item.title} animation="fade-up" className="flex items-center gap-3 bg-white rounded-xl border border-border p-3.5 hover:border-accent/30 hover:shadow-sm transition-all group">
+              <RevealItem key={item.title} animation="fade-up" className="flex items-center gap-3 bg-gradient-to-br from-white to-[#f5f7fa] rounded-xl border border-border p-3.5 hover:border-accent/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
                 <div className="w-9 h-9 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center shrink-0 group-hover:bg-accent/15 transition-all">
                   <item.icon className="w-4 h-4 text-accent" />
                 </div>
@@ -101,12 +99,12 @@ const handleSubmit = async (e) => {
       </section>
 
       {/* Form + Side Info */}
-      <section className="py-10">
+      <section className="py-10 bg-[#f5f7fa]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Form */}
             <Reveal animation="fade-right" duration={800} className="lg:col-span-3">
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
                     <Send className="w-4 h-4 text-accent" />
@@ -119,23 +117,23 @@ const handleSubmit = async (e) => {
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">First Name</label>
-                    <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="John" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="John" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Last Name</label>
-                    <input type="text" required value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Doe" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="text" required value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Doe" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Work Email</label>
-                    <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="john@company.com" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="john@company.com" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Company</label>
-                    <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Corp" className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                    <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Acme Corp" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="sm:col-span-2 space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Interested In</label>
-                    <select value={interestedIn} onChange={(e) => setInterestedIn(e.target.value)} className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all appearance-none cursor-pointer">
+                    <select value={interestedIn} onChange={(e) => setInterestedIn(e.target.value)} className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all appearance-none cursor-pointer">
                       <option value="">Select a solution...</option>
                       <option value="Industrial BESS Solutions">Industrial BESS Solutions</option>
                       <option value="Commercial Energy Storage">Commercial Energy Storage</option>
@@ -146,7 +144,7 @@ const handleSubmit = async (e) => {
                   </div>
                   <div className="sm:col-span-2 space-y-1">
                     <label className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">Message</label>
-                    <textarea rows="3" required value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Tell us about your project and what you're trying to accomplish..." className="w-full bg-bg-deep border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary resize-none"></textarea>
+                    <textarea rows="3" required value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Tell us about your project and what you're trying to accomplish..." className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary resize-none"></textarea>
                   </div>
                   <div className="sm:col-span-2 pt-1">
                     <button type="submit" disabled={loading} className="btn-pill btn-unity w-full">
@@ -182,7 +180,7 @@ const handleSubmit = async (e) => {
 
               {/* Quick Stats */}
               <Reveal animation="fade-left" delay={200}>
-                <div className="bg-white rounded-2xl border border-border p-6">
+                <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-6">
                   <h4 className="text-sm font-bold text-text-primary mb-4 tracking-tight">By the numbers</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {[
@@ -191,7 +189,7 @@ const handleSubmit = async (e) => {
                       { stat: '99.9%', label: 'System Uptime' },
                       { stat: '<2hr', label: 'Avg Response Time' },
                     ].map((item) => (
-                      <div key={item.label} className="bg-bg-deep rounded-xl p-3 text-center">
+                      <div key={item.label} className="bg-accent/5 rounded-xl p-3 text-center border border-accent/10">
                         <p className="text-lg font-extrabold text-accent">{item.stat}</p>
                         <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider mt-0.5">{item.label}</p>
                       </div>
