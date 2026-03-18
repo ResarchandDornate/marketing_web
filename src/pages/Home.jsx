@@ -113,42 +113,37 @@ export default function Home() {
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   to={`/products/${product.id}`}
-                  className="group relative bg-gradient-to-b from-[#f0f4f8] to-white rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col h-full border border-black/5"
+                  className="group bg-white rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)] transition-all duration-400 flex flex-col h-full border border-black/6"
                 >
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue-dark via-accent to-brand-blue-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-
-                  {/* Image area */}
-                  <div className="relative p-6 pt-8 pb-4 h-56 flex items-center justify-center">
-                    {/* Subtle radial glow behind product */}
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,98,151,0.04)_0%,transparent_70%)] group-hover:bg-[radial-gradient(ellipse_at_center,rgba(0,98,151,0.08)_0%,transparent_70%)] transition-all duration-500"></div>
+                  {/* Image */}
+                  <div className="bg-[#f5f7fa] p-4 h-44 flex items-center justify-center">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="max-h-full w-auto object-contain transform group-hover:scale-110 transition-transform duration-700 ease-out relative z-10 drop-shadow-lg"
+                      className="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 pt-3 flex flex-col flex-1 border-t border-black/5 bg-white">
-                    <p className="text-[10px] font-bold text-accent uppercase tracking-[0.15em] mb-1.5">{product.series}</p>
-                    <h3 className="text-lg font-extrabold text-brand-blue-dark mb-1 group-hover:text-accent transition-colors tracking-tight">{product.name}</h3>
-                    <p className="text-xs text-text-secondary mb-3 leading-relaxed">{product.tagline}</p>
+                  <div className="p-4 flex flex-col flex-1 border-t border-black/4">
+                    <p className="text-[9px] font-semibold text-accent uppercase tracking-[0.12em] mb-1">{product.series}</p>
+                    <h3 className="text-sm font-bold text-text-primary mb-0.5 group-hover:text-accent transition-colors">{product.name}</h3>
+                    <p className="text-[11px] text-text-secondary mb-2.5 leading-relaxed line-clamp-2">{product.tagline}</p>
 
-                    {/* Key specs row */}
-                    <div className="flex gap-2 mb-4">
+                    {/* Specs */}
+                    <div className="flex gap-1.5 mb-3">
                       {product.highlights?.slice(0, 2).map((h) => (
-                        <div key={h.label} className="flex-1 bg-[#f4f7fa] rounded-lg px-3 py-2 text-center border border-black/3">
-                          <p className="text-sm font-extrabold text-brand-blue-dark leading-tight">{h.value}</p>
-                          <p className="text-[8px] font-bold text-text-tertiary uppercase tracking-wider mt-0.5">{h.label}</p>
+                        <div key={h.label} className="flex-1 bg-[#f5f7fa] rounded-md px-2 py-1.5 text-center">
+                          <p className="text-xs font-bold text-text-primary leading-tight">{h.value}</p>
+                          <p className="text-[7px] font-semibold text-text-tertiary uppercase tracking-wider">{h.label}</p>
                         </div>
                       ))}
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-auto flex items-center justify-between text-[13px] font-bold text-white bg-brand-blue-dark group-hover:bg-accent py-3 px-4 rounded-xl transition-all duration-300">
-                      <span>Explore System</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                    <div className="mt-auto flex items-center justify-between text-xs font-semibold text-accent group-hover:text-white bg-accent/5 group-hover:bg-accent py-2 px-3 rounded-lg transition-all duration-300">
+                      <span>View Details</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -418,47 +413,43 @@ function AdvantagesSection() {
           ))}
         </div>
 
-        {/* Main content card */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-3xl overflow-hidden backdrop-blur-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[420px]">
+        {/* Main content card — compact */}
+        <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden backdrop-blur-sm max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
 
-            {/* Left — Product image (3 cols) */}
-            <div className="lg:col-span-2 relative flex items-center justify-center p-8 sm:p-12 bg-gradient-to-br from-white/[0.02] to-transparent">
-              {/* Radial glow behind product */}
+            {/* Left — Product image */}
+            <div className="relative flex items-center justify-center p-6 sm:p-8 bg-gradient-to-br from-white/[0.02] to-transparent">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.06)_0%,transparent_60%)]"></div>
-              {/* Reflection line */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[40%] h-[40px] bg-white/[0.02] blur-xl rounded-full"></div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[50%] h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
               <img
                 key={tab.id}
                 src={tab.img}
                 alt={tab.title}
-                className="max-h-64 sm:max-h-72 lg:max-h-80 w-auto object-contain relative z-10 drop-shadow-[0_25px_60px_rgba(0,0,0,0.6)] animate-fadeIn"
+                className="max-h-48 sm:max-h-56 w-auto object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fadeIn"
               />
             </div>
 
-            {/* Right — Content (3 cols) */}
-            <div className="lg:col-span-3 p-8 sm:p-10 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/[0.06]">
-              {/* Title & desc */}
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-3 tracking-tight leading-tight">{tab.title}</h3>
-              <p className="text-sm text-white/35 leading-relaxed mb-6 max-w-lg">{tab.desc}</p>
+            {/* Right — Content */}
+            <div className="p-6 sm:p-8 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/[0.06]">
+              <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 tracking-tight leading-tight">{tab.title}</h3>
+              <p className="text-xs text-white/35 leading-relaxed mb-4">{tab.desc}</p>
 
               {/* Feature bullets */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-5">
                 {tab.features.map((f) => (
-                  <div key={f} className="flex items-center gap-2.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] shrink-0"></div>
-                    <span className="text-xs text-white/50 font-medium">{f}</span>
+                  <div key={f} className="flex items-center gap-2">
+                    <div className="w-1 h-1 rounded-full bg-[#60a5fa] shrink-0"></div>
+                    <span className="text-[11px] text-white/45 font-medium">{f}</span>
                   </div>
                 ))}
               </div>
 
               {/* Stats row */}
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 {tab.stats.map((s) => (
-                  <div key={s.label} className="flex-1 bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-3 text-center">
-                    <p className="text-lg sm:text-xl font-extrabold text-white leading-tight">{s.val}</p>
-                    <p className="text-[9px] font-bold text-white/25 uppercase tracking-widest mt-1">{s.label}</p>
+                  <div key={s.label} className="flex-1 bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-2 text-center">
+                    <p className="text-base font-extrabold text-white leading-tight">{s.val}</p>
+                    <p className="text-[8px] font-bold text-white/25 uppercase tracking-widest mt-0.5">{s.label}</p>
                   </div>
                 ))}
               </div>
