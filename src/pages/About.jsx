@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Target, Eye, Award, Users, Globe, Lightbulb, Shield, Leaf, Heart, ArrowRight, Linkedin } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
+import Reveal, { RevealItem } from '../components/Reveal';
 
 const values = [
   { icon: Lightbulb, title: 'Innovation', desc: 'Pushing the boundaries of energy storage technology with continuous R&D.' },
@@ -35,20 +36,24 @@ export default function About() {
       {/* Hero */}
       <section className="relative pt-12 pb-8 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-250 h-125 bg-accent/5 blur-[120px] rounded-full -z-10 opacity-60"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center">
           <SectionHeading
             badge="Our Story"
             title="Empowering with clean energy."
             subtitle="UnityESS is a global leader in energy storage solutions, delivering safe, reliable, and scalable systems for a sustainable future."
           />
-        </div>
+        </Reveal>
       </section>
 
       {/* Leadership */}
       <section className="py-16 bg-white border-y border-border">
         <div className="max-w-5xl mx-auto px-6">
-          <SectionHeading badge="Leadership" title="Meet our leaders." subtitle="The visionaries driving UnityESS forward." />
-          <div className="max-w-4xl mx-auto">
+          <Reveal animation="fade-up">
+            <SectionHeading badge="Leadership" title="Meet our leaders." subtitle="The visionaries driving UnityESS forward." />
+          </Reveal>
+
+          {/* Aditya Goel */}
+          <Reveal animation="fade-right" duration={800} className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
@@ -74,10 +79,10 @@ export default function About() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Raghav Jain */}
-          <div className="max-w-4xl mx-auto mt-6">
+          <Reveal animation="fade-left" delay={100} duration={800} className="max-w-4xl mx-auto mt-6">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
@@ -103,10 +108,10 @@ export default function About() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Rahul Raj */}
-          <div className="max-w-4xl mx-auto mt-6">
+          <Reveal animation="fade-right" delay={100} duration={800} className="max-w-4xl mx-auto mt-6">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl border border-border overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
@@ -132,17 +137,19 @@ export default function About() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Team Members */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionHeading badge="Our Team" title="The people behind UnityESS." subtitle="Meet the talented professionals powering our mission." />
-          <div className="flex flex-wrap justify-center gap-10">
+          <Reveal animation="fade-up">
+            <SectionHeading badge="Our Team" title="The people behind UnityESS." subtitle="Meet the talented professionals powering our mission." />
+          </Reveal>
+          <Reveal stagger staggerDelay={150} className="flex flex-wrap justify-center gap-10">
             {team.map((member) => (
-              <div key={member.name} className="group text-center">
+              <RevealItem key={member.name} animation="zoom-in" className="group text-center">
                 <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent/40 transition-all shadow-md">
                   <img
                     src={member.img}
@@ -152,9 +159,9 @@ export default function About() {
                 </div>
                 <h4 className="text-sm font-bold text-text-primary tracking-tight">{member.name}</h4>
                 <p className="text-xs text-text-secondary mt-1">{member.role}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -162,26 +169,30 @@ export default function About() {
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="feat-card !rounded-3xl !p-8 lg:!p-10">
-              <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center mb-6">
-                <Target className="w-5 h-5 text-accent" />
+            <Reveal animation="fade-right">
+              <div className="feat-card !rounded-3xl !p-8 lg:!p-10 h-full">
+                <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center mb-6">
+                  <Target className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-text-primary">Our Mission</h3>
+                <p className="text-base text-text-secondary leading-relaxed">
+                  To accelerate the global transition to clean energy by providing accessible, safe,
+                  and high-performance solutions that enable energy independence worldwide.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-text-primary">Our Mission</h3>
-              <p className="text-base text-text-secondary leading-relaxed">
-                To accelerate the global transition to clean energy by providing accessible, safe,
-                and high-performance solutions that enable energy independence worldwide.
-              </p>
-            </div>
-            <div className="feat-card !rounded-3xl !p-8 lg:!p-10">
-              <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center mb-6">
-                <Eye className="w-5 h-5 text-accent" />
+            </Reveal>
+            <Reveal animation="fade-left" delay={150}>
+              <div className="feat-card !rounded-3xl !p-8 lg:!p-10 h-full">
+                <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center mb-6">
+                  <Eye className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-text-primary">Our Vision</h3>
+                <p className="text-base text-text-secondary leading-relaxed">
+                  A world where clean, reliable energy storage is available to everyone — powering homes,
+                  businesses, and infrastructure with sustainable technology.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-text-primary">Our Vision</h3>
-              <p className="text-base text-text-secondary leading-relaxed">
-                A world where clean, reliable energy storage is available to everyone — powering homes,
-                businesses, and infrastructure with sustainable technology.
-              </p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -189,29 +200,33 @@ export default function About() {
       {/* Values */}
       <section className="py-16 bg-white border-y border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionHeading badge="Core Values" title="What drives us." subtitle="Our core values guide every decision we make." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <Reveal animation="fade-up">
+            <SectionHeading badge="Core Values" title="What drives us." subtitle="Our core values guide every decision we make." />
+          </Reveal>
+          <Reveal stagger staggerDelay={120} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v) => (
-              <div key={v.title} className="feat-card group">
+              <RevealItem key={v.title} animation="fade-up" className="feat-card group">
                 <div className="w-12 h-12 rounded-xl bg-bg-deep border border-border flex items-center justify-center mb-5 group-hover:bg-accent/8 group-hover:border-accent/20 transition-all">
                   <v.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h4 className="text-lg font-bold mb-2 text-text-primary group-hover:text-accent transition-colors">{v.title}</h4>
                 <p className="text-sm text-text-secondary leading-relaxed">{v.desc}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Timeline */}
       <section className="py-16">
         <div className="max-w-2xl mx-auto px-6">
-          <SectionHeading badge="Timeline" title="Our journey." subtitle="From a startup vision to a global leader." />
-          <div className="relative">
+          <Reveal animation="fade-up">
+            <SectionHeading badge="Timeline" title="Our journey." subtitle="From a startup vision to a global leader." />
+          </Reveal>
+          <Reveal stagger staggerDelay={100} className="relative">
             <div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
             {milestones.map((m) => (
-              <div key={m.year} className="relative flex gap-8 pb-10 last:pb-0 group">
+              <RevealItem key={m.year} animation="fade-right" className="relative flex gap-8 pb-10 last:pb-0 group">
                 <div className="relative z-10 w-10 h-10 rounded-full bg-white border-2 border-border group-hover:border-accent flex items-center justify-center shrink-0 transition-colors shadow-sm">
                   <div className="w-2 h-2 rounded-full bg-accent" />
                 </div>
@@ -219,56 +234,58 @@ export default function About() {
                   <span className="text-xs text-accent font-bold tracking-widest uppercase">{m.year}</span>
                   <p className="text-base text-text-primary mt-1 font-medium group-hover:text-accent transition-colors">{m.event}</p>
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Certifications */}
       <section className="py-16 bg-white border-y border-border">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <SectionHeading title="Certifications." subtitle="Our products meet international safety and performance standards." />
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
+          <Reveal animation="fade-up">
+            <SectionHeading title="Certifications." subtitle="Our products meet international safety and performance standards." />
+          </Reveal>
+          <Reveal stagger staggerDelay={80} className="flex flex-wrap justify-center gap-3 mt-8">
             {certs.map((c) => (
-              <div key={c} className="flex items-center gap-2 px-4 py-2.5 bg-bg-deep rounded-xl border border-border hover:border-accent/30 transition-all shadow-sm">
+              <RevealItem key={c} animation="zoom-in" className="flex items-center gap-2 px-4 py-2.5 bg-bg-deep rounded-xl border border-border hover:border-accent/30 transition-all shadow-sm">
                 <Award className="w-4 h-4 text-accent" />
                 <span className="text-xs font-bold tracking-wider text-text-primary uppercase">{c}</span>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Stats */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+          <Reveal stagger staggerDelay={200} className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
             {[
               { icon: Globe, val: '50+', label: 'Countries Served' },
               { icon: Users, val: '500+', label: 'Installations' },
               { icon: Award, val: '2 GWh', label: 'Deployed Capacity' },
             ].map((s) => (
-              <div key={s.label} className="group">
+              <RevealItem key={s.label} animation="fade-up" className="group">
                 <div className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center mx-auto mb-5 group-hover:border-accent/30 transition-all shadow-sm">
                   <s.icon className="w-6 h-6 text-accent" />
                 </div>
                 <div className="text-4xl font-extrabold text-text-primary mb-2 tracking-tight">{s.val}</div>
                 <div className="text-xs text-text-tertiary uppercase tracking-widest font-bold">{s.label}</div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white border-t border-border">
+      <Reveal as="section" animation="zoom-in" className="py-20 bg-white border-t border-border">
         <div className="max-w-xl mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-text-primary">Partner with <span className="text-brand-green">UnityESS.</span></h2>
           <p className="text-base text-text-secondary mb-8 leading-relaxed">Join our global network of distributors and energy partners to shape the future of power.</p>
           <Link to="/contact" className="btn-pill btn-unity">Get in Touch <ArrowRight className="w-4 h-4" /></Link>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }

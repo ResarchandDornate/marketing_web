@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download } from 'lucide-react';
 import { getProductById, products } from '../data/products';
+import Reveal, { RevealItem } from '../components/Reveal';
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -47,7 +48,7 @@ export default function ProductDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Left — Product image */}
-            <div className="flex justify-center">
+            <Reveal animation="fade-right" duration={800} className="flex justify-center">
               <div className="relative w-full max-w-md">
                 {/* Glow behind */}
                 <div className="absolute inset-0 bg-accent/5 blur-[50px] rounded-full scale-75"></div>
@@ -66,10 +67,10 @@ export default function ProductDetail() {
                   )}
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Right — Product info */}
-            <div>
+            <Reveal animation="fade-left" delay={200} duration={800}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/15 bg-accent/5 text-accent font-bold text-[10px] uppercase tracking-widest mb-4">
                 <Battery className="w-3 h-3" /> {product.series}
               </div>
@@ -106,7 +107,7 @@ export default function ProductDetail() {
                   <Download className="w-4 h-4" /> Download Datasheet
                 </button>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -117,7 +118,7 @@ export default function ProductDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
             {/* Specs */}
-            <div>
+            <Reveal animation="fade-right">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
                   <Zap className="w-4 h-4 text-accent" />
@@ -140,10 +141,10 @@ export default function ProductDetail() {
                   );
                 })}
               </div>
-            </div>
+            </Reveal>
 
             {/* Features */}
-            <div>
+            <Reveal animation="fade-left" delay={150}>
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center">
                   <Shield className="w-4 h-4 text-brand-green" />
@@ -151,7 +152,7 @@ export default function ProductDetail() {
                 <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Key Features</h2>
               </div>
               <div className="space-y-2.5">
-                {product.features.map((feature, i) => (
+                {product.features.map((feature) => (
                   <div
                     key={feature}
                     className="flex items-start gap-3 bg-[#f8f9fa] p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
@@ -163,7 +164,7 @@ export default function ProductDetail() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -171,54 +172,55 @@ export default function ProductDetail() {
       {/* Applications */}
       <section className="py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-8">
+          <Reveal animation="fade-up" className="text-center mb-8">
             <h2 className="text-2xl font-extrabold text-text-primary tracking-tight mb-2">Applications</h2>
             <p className="text-sm text-text-secondary">Where the {product.name} excels</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
+          </Reveal>
+          <Reveal stagger staggerDelay={80} className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
             {product.applications.map((app) => (
-              <div key={app} className="flex items-center gap-3 px-4 py-3.5 bg-white rounded-xl border border-border hover:border-accent/20 hover:shadow-md transition-all group">
+              <RevealItem key={app} animation="zoom-in" className="flex items-center gap-3 px-4 py-3.5 bg-white rounded-xl border border-border hover:border-accent/20 hover:shadow-md transition-all group">
                 <div className="w-2.5 h-2.5 rounded-full bg-linear-to-r from-accent to-brand-green shrink-0 group-hover:scale-125 transition-transform" />
                 <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{app}</span>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* More Products */}
       <section className="py-12 sm:py-16 bg-white border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-8">
+          <Reveal animation="fade-up" className="text-center mb-8">
             <h2 className="text-2xl font-extrabold text-text-primary tracking-tight mb-2">Explore More Systems</h2>
             <p className="text-sm text-text-secondary">Find the right solution for your needs</p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          </Reveal>
+          <Reveal stagger staggerDelay={100} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {otherProducts.map((p) => (
-              <Link
-                key={p.id}
-                to={`/products/${p.id}`}
-                className="group bg-[#f8f9fa] rounded-2xl overflow-hidden border border-border hover:bg-white hover:border-accent/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="p-5 h-44 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/3 transition-colors duration-500 rounded-t-2xl"></div>
-                  <img src={p.image} alt={p.name} className="max-h-32 object-contain relative z-10 group-hover:scale-105 transition-transform duration-500 drop-shadow-md" />
-                </div>
-                <div className="px-4 pb-4 text-center">
-                  <h3 className="text-sm font-bold text-text-primary group-hover:text-accent transition-colors">{p.name}</h3>
-                  <p className="text-[10px] text-text-tertiary font-bold uppercase tracking-widest mt-1">{p.series}</p>
-                  <div className="mt-3 flex items-center justify-center gap-1 text-[11px] font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                    View Details <ArrowRight className="w-3 h-3" />
+              <RevealItem key={p.id} animation="fade-up">
+                <Link
+                  to={`/products/${p.id}`}
+                  className="group bg-[#f8f9fa] rounded-2xl overflow-hidden border border-border hover:bg-white hover:border-accent/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block h-full"
+                >
+                  <div className="p-5 h-44 flex items-center justify-center relative">
+                    <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/3 transition-colors duration-500 rounded-t-2xl"></div>
+                    <img src={p.image} alt={p.name} className="max-h-32 object-contain relative z-10 group-hover:scale-105 transition-transform duration-500 drop-shadow-md" />
                   </div>
-                </div>
-              </Link>
+                  <div className="px-4 pb-4 text-center">
+                    <h3 className="text-sm font-bold text-text-primary group-hover:text-accent transition-colors">{p.name}</h3>
+                    <p className="text-[10px] text-text-tertiary font-bold uppercase tracking-widest mt-1">{p.series}</p>
+                    <div className="mt-3 flex items-center justify-center gap-1 text-[11px] font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                      View Details <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </div>
+                </Link>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-14 sm:py-16 bg-brand-blue-dark relative overflow-hidden">
+      <Reveal as="section" animation="zoom-in" className="py-14 sm:py-16 bg-brand-blue-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)]" style={{ backgroundSize: '28px 28px' }}></div>
         <div className="absolute -top-25 -right-12.5 w-75 h-75 bg-brand-green/8 rounded-full blur-[100px]"></div>
 
@@ -238,7 +240,7 @@ export default function ProductDetail() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }
