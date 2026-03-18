@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight, Clock, Send, Shield, Zap, Globe } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
+import Reveal, { RevealItem } from '../components/Reveal';
 
 export default function Contact() {
   const [firstName, setFirstName] = useState('');
@@ -39,7 +40,6 @@ const handleSubmit = async (e) => {
     );
 
     if (response.ok) {
-      // ✅ Reset form states
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -47,7 +47,6 @@ const handleSubmit = async (e) => {
       setInterestedIn("");
       setMessage("");
 
-      // ✅ Extra reset safety
       e.target.reset();
 
       alert("Query submitted successfully!");
@@ -68,26 +67,26 @@ const handleSubmit = async (e) => {
       {/* Hero */}
       <section className="relative pt-10 pb-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-250 h-100 bg-accent/5 blur-[120px] rounded-full -z-10 opacity-40"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center">
           <SectionHeading
             badge="Get In Touch"
             title="Let's power your next project."
             subtitle="Whether you're evaluating solutions, need a demo, or have a specific question — our team typically responds within 2 hours."
           />
-        </div>
+        </Reveal>
       </section>
 
       {/* Quick Contact Strip */}
       <section className="py-4">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <Reveal stagger staggerDelay={100} className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { icon: Mail, title: 'Email', val: 'solutions@unityess.com' },
               { icon: Phone, title: 'Phone', val: '+1 (800) 555-UNITY' },
               { icon: MapPin, title: 'Office', val: 'Energy Innovation Park, CA' },
               { icon: Clock, title: 'Hours', val: 'Mon-Fri, 9am-6pm PST' },
             ].map((item) => (
-              <div key={item.title} className="flex items-center gap-3 bg-white rounded-xl border border-border p-3.5 hover:border-accent/30 hover:shadow-sm transition-all group">
+              <RevealItem key={item.title} animation="fade-up" className="flex items-center gap-3 bg-white rounded-xl border border-border p-3.5 hover:border-accent/30 hover:shadow-sm transition-all group">
                 <div className="w-9 h-9 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center shrink-0 group-hover:bg-accent/15 transition-all">
                   <item.icon className="w-4 h-4 text-accent" />
                 </div>
@@ -95,9 +94,9 @@ const handleSubmit = async (e) => {
                   <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">{item.title}</p>
                   <p className="text-xs font-semibold text-text-primary truncate">{item.val}</p>
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -106,7 +105,7 @@ const handleSubmit = async (e) => {
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Form */}
-            <div className="lg:col-span-3">
+            <Reveal animation="fade-right" duration={800} className="lg:col-span-3">
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border shadow-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
@@ -156,54 +155,60 @@ const handleSubmit = async (e) => {
                   </div>
                 </form>
               </div>
-            </div>
+            </Reveal>
 
             {/* Side Info */}
             <div className="lg:col-span-2 space-y-4">
               {/* Why Contact Us */}
-              <div className="bg-brand-blue-dark rounded-2xl p-6 text-white">
-                <h4 className="text-sm font-bold mb-4 tracking-tight">Why work with UnityESS?</h4>
-                <div className="space-y-3">
-                  {[
-                    { icon: Zap, text: 'Custom-engineered solutions for your exact energy needs' },
-                    { icon: Shield, text: 'Industry-leading safety with LFP cell technology' },
-                    { icon: Globe, text: 'Global deployment with 24/7 remote monitoring' },
-                  ].map((item) => (
-                    <div key={item.text} className="flex items-start gap-3">
-                      <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <item.icon className="w-3.5 h-3.5 text-white/80" />
+              <Reveal animation="fade-left" delay={100}>
+                <div className="bg-brand-blue-dark rounded-2xl p-6 text-white">
+                  <h4 className="text-sm font-bold mb-4 tracking-tight">Why work with UnityESS?</h4>
+                  <div className="space-y-3">
+                    {[
+                      { icon: Zap, text: 'Custom-engineered solutions for your exact energy needs' },
+                      { icon: Shield, text: 'Industry-leading safety with LFP cell technology' },
+                      { icon: Globe, text: 'Global deployment with 24/7 remote monitoring' },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-start gap-3">
+                        <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <item.icon className="w-3.5 h-3.5 text-white/80" />
+                        </div>
+                        <p className="text-xs text-white/70 leading-relaxed">{item.text}</p>
                       </div>
-                      <p className="text-xs text-white/70 leading-relaxed">{item.text}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
               {/* Quick Stats */}
-              <div className="bg-white rounded-2xl border border-border p-6">
-                <h4 className="text-sm font-bold text-text-primary mb-4 tracking-tight">By the numbers</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { stat: '500+', label: 'Systems Deployed' },
-                    { stat: '30+', label: 'Countries Served' },
-                    { stat: '99.9%', label: 'System Uptime' },
-                    { stat: '<2hr', label: 'Avg Response Time' },
-                  ].map((item) => (
-                    <div key={item.label} className="bg-bg-deep rounded-xl p-3 text-center">
-                      <p className="text-lg font-extrabold text-accent">{item.stat}</p>
-                      <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider mt-0.5">{item.label}</p>
-                    </div>
-                  ))}
+              <Reveal animation="fade-left" delay={200}>
+                <div className="bg-white rounded-2xl border border-border p-6">
+                  <h4 className="text-sm font-bold text-text-primary mb-4 tracking-tight">By the numbers</h4>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { stat: '500+', label: 'Systems Deployed' },
+                      { stat: '30+', label: 'Countries Served' },
+                      { stat: '99.9%', label: 'System Uptime' },
+                      { stat: '<2hr', label: 'Avg Response Time' },
+                    ].map((item) => (
+                      <div key={item.label} className="bg-bg-deep rounded-xl p-3 text-center">
+                        <p className="text-lg font-extrabold text-accent">{item.stat}</p>
+                        <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-wider mt-0.5">{item.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
               {/* Trusted note */}
-              <div className="bg-accent/5 rounded-2xl border border-accent/15 p-5 text-center">
-                <p className="text-xs text-text-secondary leading-relaxed">
-                  <span className="font-bold text-text-primary">Trusted by enterprises worldwide.</span><br />
-                  From startups to Fortune 500 — we scale energy solutions to match your ambition.
-                </p>
-              </div>
+              <Reveal animation="fade-left" delay={300}>
+                <div className="bg-accent/5 rounded-2xl border border-accent/15 p-5 text-center">
+                  <p className="text-xs text-text-secondary leading-relaxed">
+                    <span className="font-bold text-text-primary">Trusted by enterprises worldwide.</span><br />
+                    From startups to Fortune 500 — we scale energy solutions to match your ambition.
+                  </p>
+                </div>
+              </Reveal>
             </div>
           </div>
         </div>
