@@ -12,61 +12,68 @@ export default function Home() {
     <div className="bg-white min-h-screen font-sans overflow-x-hidden selection:bg-brand-green selection:text-white">
 
       {/* 1. DARK HERO */}
-      <section className="relative w-full overflow-hidden pt-28 pb-14 bg-[#020B18]">
-        {/* Scenic background */}
+      <section className="relative w-full overflow-hidden pt-32 pb-28 min-h-screen flex items-center bg-[#020B18]">
+        {/* Full background image */}
         <div className="absolute inset-0">
-          <img src="/hero-bg3.svg" alt="" className="w-full h-full object-cover" />
+          <img src="/products/1001.jpeg" alt="" className="w-full h-full object-cover opacity-80 object-right" />
         </div>
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-[#020B18]/30"></div>
+        {/* Left side dark for text, right side shows image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020B18] from-30% via-[#020B18]/60 via-50% to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020B18] via-transparent to-[#020B18]/40"></div>
+        {/* Animated energy pulse rings */}
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px]">
+          <div className="absolute inset-0 rounded-full border border-cyan-400/10 animate-ping" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute inset-8 rounded-full border border-cyan-400/8 animate-ping" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
+          <div className="absolute inset-16 rounded-full border border-cyan-400/5 animate-ping" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
+        </div>
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute w-1 h-1 bg-cyan-400/40 rounded-full top-[20%] left-[15%] animate-float" style={{ animationDuration: '6s' }}></div>
+          <div className="absolute w-1.5 h-1.5 bg-blue-400/30 rounded-full top-[40%] left-[70%] animate-float" style={{ animationDuration: '8s', animationDelay: '2s' }}></div>
+          <div className="absolute w-1 h-1 bg-cyan-300/30 rounded-full top-[60%] left-[25%] animate-float" style={{ animationDuration: '7s', animationDelay: '1s' }}></div>
+          <div className="absolute w-2 h-2 bg-blue-500/20 rounded-full top-[30%] left-[80%] animate-float" style={{ animationDuration: '9s', animationDelay: '3s' }}></div>
+          <div className="absolute w-1 h-1 bg-cyan-400/25 rounded-full top-[75%] left-[60%] animate-float" style={{ animationDuration: '5s', animationDelay: '0.5s' }}></div>
+        </div>
+        {/* Scanning line animation */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent animate-scan-line"></div>
+        </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
-            {/* Left — Text */}
+          <div className="max-w-2xl">
             <Reveal animation="fade-up" duration={800}>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-[1.1] tracking-tight mb-4">
-                Solar peaks at noon <br /> Demands peaks at dusk.
+             
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-[1.08] tracking-tight mb-4">
+                Solar peaks at noon <br /> Demands peaks at dusk
               </h1>
-                  <span className="text-2xl font-bold text-brand-blue-dark">The gap between them is where Unity lives</span>
-              <p className="text-xs sm:text-sm text-white/50 mb-6 leading-relaxed max-w-lg">
+              <p className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-3">
+                The gap between them is where Unity lives
+              </p>
+              <p className="text-sm text-white/50 mb-8 leading-relaxed max-w-lg">
                 India's own BESS, built to deliver safe, sustainable and reliable energy.
               </p>
 
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-1.5 bg-white text-black px-5 py-2.5 rounded-full font-bold text-xs hover:scale-105 active:scale-95 transition-transform"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-7 py-3 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-cyan-500/25"
                 >
-                  Start Building <ChevronRight className="w-3.5 h-3.5" />
+                  Start Building <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/products"
-                  className="inline-flex items-center justify-center gap-1.5 bg-white/5 text-white border border-white/10 px-5 py-2.5 rounded-full font-bold text-xs hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-7 py-3 rounded-full font-bold text-sm hover:bg-white/15 backdrop-blur-sm transition-all"
                 >
                   Explore UnityESS
                 </Link>
               </div>
             </Reveal>
-
-            {/* Right — Two product images merged */}
-            <Reveal animation="fade-left" delay={300} duration={900}>
-              <div className="relative flex items-end justify-center -space-x-8 sm:-space-x-12">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[50%] bg-white/3 blur-[60px] rounded-full"></div>
-
-                <div className="relative z-10 flex items-end justify-center animate-float" style={{ animationDelay: '0s' }}>
-                  <img src="/products/modelA.png" className="h-64 sm:h-80 lg:h-96 w-auto object-contain drop-shadow-[0_0_30px_rgba(0,107,166,0.2)] hover:scale-105 transition-transform duration-500" alt="Unity Model A" />
-                </div>
-
-                <div className="relative z-20 flex items-end justify-center animate-float" style={{ animationDelay: '0.8s' }}>
-                  <img src="/products/261Kwh BESS.96.png" className="h-80 sm:h-96 lg:h-112 w-auto object-contain drop-shadow-[0_0_30px_rgba(0,107,166,0.2)] hover:scale-105 transition-transform duration-500" alt="261kWh BESS System" />
-                </div>
-              </div>
-            </Reveal>
-
           </div>
         </div>
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#020B18] to-transparent"></div>
       </section>
 
       {/* 2. LOGOS / METRICS STRIP */}
