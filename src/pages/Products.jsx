@@ -12,15 +12,15 @@ export default function Products() {
     <div className="bg-bg-deep min-h-screen pt-14 overflow-x-hidden">
 
       {/* Compact Header */}
-      <section className="relative bg-[#070E1A] pt-16 pb-10 overflow-hidden">
+      <section className="relative bg-[#070E1A] pt-20 pb-14 overflow-hidden">
         <div className="absolute top-[-60px] left-1/3 w-[450px] h-[450px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[-40px] right-1/4 w-[350px] h-[350px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
-        <Reveal animation="fade-up" className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-widest uppercase text-[#00b853] mb-4">All Products</div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-[1.1] mb-2">
+        <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-widest uppercase text-[#00b853] mb-6">All Products</div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
             Energy Storage <span className="text-[#60a5fa]">Solutions</span>
           </h1>
-          <p className="text-sm text-white/40 max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm text-white/40 max-w-2xl mx-auto leading-relaxed">
             From portable power stations to utility-scale containerized systems — engineered for absolute reliability.
           </p>
         </Reveal>
@@ -28,12 +28,12 @@ export default function Products() {
 
       {/* Category Filter */}
       <section className="sticky top-14 z-30 bg-white/95 backdrop-blur-xl border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-3 overflow-x-auto no-scrollbar">
+        <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
                 activeCategory === cat.id
                   ? 'bg-accent text-white shadow-md shadow-accent/20'
                   : 'bg-transparent text-text-secondary hover:bg-bg-deep hover:text-text-primary'
@@ -42,65 +42,44 @@ export default function Products() {
               {cat.name}
             </button>
           ))}
-          <div className="ml-auto hidden sm:flex items-center text-xs text-text-tertiary font-medium">
+          <div className="ml-auto hidden sm:flex items-center text-[10px] text-text-tertiary font-medium">
             {filtered.length} product{filtered.length !== 1 ? 's' : ''}
           </div>
         </div>
       </section>
 
       {/* Product Grid */}
-      <section className="py-10 sm:py-14 bg-[#f5f7fa]">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal stagger staggerDelay={80} threshold={0.05} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" key={activeCategory}>
+      <section className="py-8 sm:py-10 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal stagger staggerDelay={60} threshold={0.05} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" key={activeCategory}>
             {filtered.map((product) => (
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   to={`/products/${product.id}`}
-                  className="group relative bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(0,107,166,0.12)] transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+                  className="group relative block rounded-2xl overflow-hidden h-[280px] sm:h-[340px] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-400"
                 >
-                  {/* Top accent bar */}
-                  <div className="h-1 bg-linear-to-r from-brand-blue-dark via-accent to-brand-blue-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                  {/* Image */}
-                  <div className="relative bg-linear-to-br from-[#f4f7fa] via-[#edf1f5] to-[#e8ecf0] px-6 pt-8 pb-6 flex items-center justify-center min-h-56">
-                    <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/[0.02] transition-colors duration-700"></div>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="max-h-44 max-w-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-700 ease-out drop-shadow-xl"
-                    />
-                    {product.isNew && (
-                      <div className="absolute top-4 left-4 z-20">
-                        <span className="inline-flex items-center gap-1 text-[10px] font-extrabold tracking-widest uppercase bg-accent text-white px-3 py-1.5 rounded-lg shadow-lg shadow-accent/25">
-                          New
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute top-4 right-4 z-20">
-                      <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-accent/70 bg-white/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-accent/10 shadow-sm">
-                        {product.series.replace(' Series', '')}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5 pt-4 flex flex-col flex-1 border-t border-border/50">
-                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-accent mb-1.5">{product.series}</p>
-                    <h3 className="text-lg font-extrabold text-text-primary mb-1 group-hover:text-brand-blue-dark transition-colors duration-300 tracking-tight leading-tight">
+                  {/* Full cover image */}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                  {/* Category badge */}
+                  <span className="absolute top-3 right-3 text-[7px] font-bold tracking-wider uppercase text-white/80 bg-white/15 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                    {product.series.replace(' Series', '')}
+                  </span>
+                  {/* Content at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                    <h3 className="text-sm font-bold text-white mb-0.5 group-hover:text-cyan-200 transition-colors tracking-tight">
                       {product.name}
                     </h3>
-                    <p className="text-xs text-text-secondary leading-relaxed mb-3">{product.tagline}</p>
-
-                    {/* Spec highlight */}
-                    <div className="text-sm font-bold text-brand-blue-dark mb-4">
-                      {product.highlights[0]?.value}
-                    </div>
-
-                    {/* CTA */}
-                    <div className="mt-auto flex items-center justify-between text-sm font-bold text-accent group-hover:text-white bg-accent/[0.04] group-hover:bg-accent py-3 px-5 rounded-xl transition-all duration-400 border border-accent/10 group-hover:border-accent group-hover:shadow-lg group-hover:shadow-accent/15">
-                      <span>Explore System</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-                    </div>
+                    <p className="text-[10px] text-white/50 font-medium">{product.highlights[0]?.value} {product.highlights[0]?.label}</p>
+                  </div>
+                  {/* Hover arrow */}
+                  <div className="absolute top-3 left-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowRight className="w-3.5 h-3.5 text-white" />
                   </div>
                 </Link>
               </RevealItem>
@@ -108,12 +87,12 @@ export default function Products() {
           </Reveal>
 
           {filtered.length === 0 && (
-            <div className="text-center py-24">
-              <div className="w-16 h-16 rounded-2xl bg-white border border-border flex items-center justify-center mx-auto mb-4">
-                <Battery className="w-7 h-7 text-text-tertiary" />
+            <div className="text-center py-20">
+              <div className="w-12 h-12 rounded-xl bg-white border border-border flex items-center justify-center mx-auto mb-3">
+                <Battery className="w-5 h-5 text-text-tertiary" />
               </div>
-              <p className="text-text-secondary text-base font-medium">No products found in this category.</p>
-              <button onClick={() => setActiveCategory('all')} className="mt-3 text-accent text-sm font-semibold hover:underline">
+              <p className="text-text-secondary text-sm font-medium">No products found.</p>
+              <button onClick={() => setActiveCategory('all')} className="mt-2 text-accent text-xs font-semibold hover:underline">
                 View all products
               </button>
             </div>
@@ -122,22 +101,21 @@ export default function Products() {
       </section>
 
       {/* Bottom CTA */}
-      <Reveal as="section" animation="zoom-in" className="relative py-14 bg-[#070E1A] overflow-hidden">
+      <Reveal as="section" animation="zoom-in" className="relative py-10 bg-[#070E1A] overflow-hidden">
         <div className="absolute top-[-60px] left-1/3 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-40px] right-1/4 w-[300px] h-[300px] bg-[#00b853]/8 blur-[150px] rounded-full pointer-events-none"></div>
-        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3 leading-[1.1]">
+        <div className="max-w-2xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2 leading-[1.1]">
             Need help choosing the right <span className="bg-gradient-to-r from-[#60a5fa] to-[#00b853] bg-clip-text text-transparent">system?</span>
           </h2>
-          <p className="text-sm text-white/50 font-medium mb-6 max-w-xl mx-auto">
-            Our engineering team can recommend the optimal solution based on your load profile and requirements.
+          <p className="text-xs text-white/50 font-medium mb-5 max-w-md mx-auto">
+            Our engineering team can recommend the optimal solution based on your load profile.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link to="/contact" className="btn-pill btn-unity text-sm">
-              Talk to Engineering <ArrowRight className="w-4 h-4" />
+          <div className="flex flex-col sm:flex-row justify-center gap-2.5">
+            <Link to="/contact" className="btn-pill btn-unity text-xs">
+              Talk to Engineering <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-            <Link to="/process" className="btn-pill text-sm bg-transparent text-white/60 border border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
-              How It Works <ChevronRight className="w-4 h-4" />
+            <Link to="/process" className="btn-pill text-xs bg-transparent text-white/60 border border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
+              How It Works <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

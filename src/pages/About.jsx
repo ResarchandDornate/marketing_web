@@ -11,14 +11,12 @@ const values = [
 ];
 
 const milestones = [
-  { year: '2018', event: 'UnityESS founded with a vision for accessible energy storage' },
-  { year: '2019', event: 'First residential ESS product launched' },
-  { year: '2020', event: 'Expanded to commercial & industrial solutions' },
-  { year: '2021', event: 'Reached 100+ installations across 20 countries' },
-  { year: '2022', event: 'Launched containerized utility-scale BESS' },
-  { year: '2023', event: 'Surpassed 1 GWh of total deployed capacity' },
-  { year: '2024', event: 'Expanded to 50+ countries with 500+ installations' },
-  { year: '2025', event: 'Next-gen product lines with AI-powered BMS' },
+  { year: '2017', event: 'Inverted Energy founded by IIT engineers — Li-ion battery R&D begins' },
+  { year: '2019', event: 'Rapid scale-up — becomes one of India\'s largest lithium battery companies' },
+  { year: '2021', event: 'Portfolio expands from 12V to MW-scale battery systems' },
+  { year: '2023', event: 'Strategic partnership with Ornate Solar for integrated storage solutions' },
+  { year: '2024', event: 'Unity ESS launched — integrated BESS platform for C&I, utility & residential' },
+  { year: '2025', event: '6.5 GWh manufacturing facility — 1.25 lakh sq. ft., 100km from Delhi' },
 ];
 
 const team = [
@@ -34,7 +32,7 @@ export default function About() {
   return (
     <div className="bg-bg-deep min-h-screen pt-14">
       {/* Hero */}
-      <section className="relative bg-[#070E1A] pt-15  pb-16 overflow-hidden">
+      <section className="relative bg-[#070E1A] pt-20 pb-14 overflow-hidden">
         <div className="absolute top-[-80px] left-1/4 w-[500px] h-[500px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[-60px] right-1/4 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
@@ -199,7 +197,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-[#f5f7fa]">
+      <section className="py-16 bg-[#e4e6eb]">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal animation="fade-up">
             <SectionHeading badge="Core Values" title="What drives us." subtitle="Our core values guide every decision we make." />
@@ -219,21 +217,26 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-white">
-        <div className="max-w-2xl mx-auto px-6">
-          <Reveal animation="fade-up">
-            <SectionHeading badge="Timeline" title="Our journey." subtitle="From a startup vision to a global leader." />
+      <section className="py-14 bg-[#070E1A] relative overflow-hidden">
+        <div className="absolute top-0 left-[30%] w-96 h-96 bg-accent/8 blur-[150px] rounded-full"></div>
+        <div className="absolute bottom-0 right-[20%] w-80 h-80 bg-brand-blue-dark/10 blur-[120px] rounded-full"></div>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <Reveal animation="fade-up" className="text-center mb-10">
+            <p className="text-[9px] font-bold text-accent/60 uppercase tracking-[0.2em] mb-2">Our Evolution</p>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">From Battery Startup to Integrated BESS Platform</h2>
           </Reveal>
-          <Reveal stagger staggerDelay={100} className="relative">
-            <div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
-            {milestones.map((m) => (
-              <RevealItem key={m.year} animation="fade-right" className="relative flex gap-8 pb-10 last:pb-0 group">
-                <div className="relative z-10 w-10 h-10 rounded-full bg-white border-2 border-border group-hover:border-accent flex items-center justify-center shrink-0 transition-colors shadow-sm">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                </div>
-                <div className="pt-2">
-                  <span className="text-xs text-accent font-bold tracking-widest uppercase">{m.year}</span>
-                  <p className="text-base text-text-primary mt-1 font-medium group-hover:text-accent transition-colors">{m.event}</p>
+          <Reveal stagger staggerDelay={80} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {milestones.map((m, i) => (
+              <RevealItem key={m.year} animation="fade-up" className="group">
+                <div className="bg-white/5 border border-white/8 rounded-xl p-4 h-full hover:bg-white/10 hover:border-accent/30 transition-all duration-300 relative">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-accent shrink-0"></div>
+                    <span className="text-sm font-extrabold text-accent">{m.year}</span>
+                  </div>
+                  <p className="text-[10px] text-white/50 leading-relaxed font-medium">{m.event}</p>
+                  {i < milestones.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-1.5 w-3 h-px bg-white/15"></div>
+                  )}
                 </div>
               </RevealItem>
             ))}
@@ -241,8 +244,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-16 bg-[#f5f7fa]">
+      
+      {/* <section className="py-16 bg-[#f5f7fa]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <Reveal animation="fade-up">
             <SectionHeading title="Certifications." subtitle="Our products meet international safety and performance standards." />
@@ -256,7 +259,7 @@ export default function About() {
             ))}
           </Reveal>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats */}
       <section className="relative py-16 bg-[#070E1A] overflow-hidden">

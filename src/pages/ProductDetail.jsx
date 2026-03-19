@@ -41,31 +41,27 @@ export default function ProductDetail() {
       </div>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0f4f8] to-[#f5f7fa]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-225 h-100 bg-accent/4 blur-[120px] rounded-full -z-10"></div>
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-225 h-100 bg-accent/3 blur-[120px] rounded-full -z-10"></div>
 
         <div className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Left — Product image */}
             <Reveal animation="fade-right" duration={800} className="flex justify-center">
-              <div className="relative w-full max-w-md">
-                {/* Glow behind */}
-                <div className="absolute inset-0 bg-accent/10 blur-[70px] rounded-full scale-75"></div>
-                <div className="relative bg-gradient-to-br from-white to-[#f0f4f8] p-10 sm:p-14 rounded-3xl border border-border shadow-[0_16px_50px_rgba(0,0,0,0.08)]">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="max-h-72 w-auto mx-auto object-contain hover:scale-105 transition-transform duration-700 ease-out drop-shadow-xl"
-                  />
-                  {product.isNew && (
-                    <div className="absolute top-5 left-5">
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-widest uppercase bg-brand-green text-white px-3 py-1.5 rounded-full shadow-md shadow-brand-green/20">
-                        New
-                      </span>
-                    </div>
-                  )}
-                </div>
+              <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {product.isNew && (
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-widest uppercase bg-brand-green text-white px-3 py-1.5 rounded-full shadow-md shadow-brand-green/20">
+                      New
+                    </span>
+                  </div>
+                )}
               </div>
             </Reveal>
 
@@ -188,29 +184,24 @@ export default function ProductDetail() {
       </section>
 
       {/* More Products */}
-      <section className="py-12 sm:py-16 bg-white border-t border-border">
-        <div className="max-w-6xl mx-auto px-6">
-          <Reveal animation="fade-up" className="text-center mb-8">
-            <h2 className="text-2xl font-extrabold text-text-primary tracking-tight mb-2">Explore More Systems</h2>
-            <p className="text-sm text-text-secondary">Find the right solution for your needs</p>
+      <section className="py-10 sm:py-14 bg-[#f0f2f5]">
+        <div className="max-w-5xl mx-auto px-6">
+          <Reveal animation="fade-up" className="text-center mb-6">
+            <h2 className="text-xl font-extrabold text-text-primary tracking-tight mb-1">Explore More Systems</h2>
+            <p className="text-xs text-text-secondary">Find the right solution for your needs</p>
           </Reveal>
-          <Reveal stagger staggerDelay={100} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <Reveal stagger staggerDelay={80} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {otherProducts.map((p) => (
               <RevealItem key={p.id} animation="fade-up">
                 <Link
                   to={`/products/${p.id}`}
-                  className="group bg-gradient-to-b from-[#f0f4f8] to-white rounded-2xl overflow-hidden border border-border hover:border-accent/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block h-full"
+                  className="group relative block rounded-2xl overflow-hidden h-[240px] cursor-pointer"
                 >
-                  <div className="p-5 h-44 flex items-center justify-center relative">
-                    <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/3 transition-colors duration-500 rounded-t-2xl"></div>
-                    <img src={p.image} alt={p.name} className="max-h-32 object-contain relative z-10 group-hover:scale-105 transition-transform duration-500 drop-shadow-md" />
-                  </div>
-                  <div className="px-4 pb-4 text-center">
-                    <h3 className="text-sm font-bold text-text-primary group-hover:text-accent transition-colors">{p.name}</h3>
-                    <p className="text-[10px] text-text-tertiary font-bold uppercase tracking-widest mt-1">{p.series}</p>
-                    <div className="mt-3 flex items-center justify-center gap-1 text-[11px] font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                      View Details <ArrowRight className="w-3 h-3" />
-                    </div>
+                  <img src={p.image} alt={p.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+                    <h3 className="text-xs font-bold text-white group-hover:text-cyan-200 transition-colors">{p.name}</h3>
+                    <p className="text-[8px] text-white/50 font-bold uppercase tracking-widest mt-0.5">{p.series}</p>
                   </div>
                 </Link>
               </RevealItem>

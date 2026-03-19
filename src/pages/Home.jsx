@@ -4,7 +4,7 @@ import { ArrowRight, ShieldCheck, Zap, ChevronRight, BarChart3, Activity, Server
 import { products } from '../data/products';
 import Reveal, { RevealItem } from '../components/Reveal';
 
-const featuredIds = ['model-a', 'model-a2', 'model-b', 'model-c'];
+const featuredIds = ['model-a', 'unity-infinity', 'model-b', 'model-c'];
 const featuredModels = featuredIds.map(id => products.find(p => p.id === id)).filter(Boolean);
 
 export default function Home() {
@@ -15,11 +15,11 @@ export default function Home() {
       <section className="relative w-full overflow-hidden pt-32 pb-28 min-h-screen flex items-center bg-[#020B18]">
         {/* Full background image */}
         <div className="absolute inset-0">
-          <img src="/products/1001.jpeg" alt="" className="w-full h-full object-cover opacity-80 object-right" />
+          <img src="/products/1001.jpeg" alt="" className="w-full h-full object-cover opacity-100 object-right brightness-125 contrast-110 saturate-110" />
         </div>
-        {/* Left side dark for text, right side shows image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020B18] from-30% via-[#020B18]/60 via-50% to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020B18] via-transparent to-[#020B18]/40"></div>
+        {/* Left side dark for text, right side shows image clearly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020B18] from-25% via-[#020B18]/50 via-45% to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020B18]/80 via-transparent to-[#020B18]/20"></div>
         {/* Animated energy pulse rings */}
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px]">
           <div className="absolute inset-0 rounded-full border border-cyan-400/10 animate-ping" style={{ animationDuration: '4s' }}></div>
@@ -110,48 +110,35 @@ export default function Home() {
               Industrial-grade hardware.<br />
               <span className="text-gray-700">Architecturally refined.</span>
             </h2>
-            <p className="text-sm text-text-secondary leading-relaxed">
+            <p className="text-xs text-text-secondary leading-relaxed">
               We build smart, reliable energy storage systems that grow with your needs — from commercial sites to utility-scale projects
             </p>
           </Reveal>
 
-          <Reveal stagger staggerDelay={120} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Reveal stagger staggerDelay={120} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {featuredModels.map((product) => (
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   to={`/products/${product.id}`}
-                  className="group bg-white rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)] transition-all duration-400 flex flex-col h-full border border-black/6"
+                  className="group relative block rounded-2xl overflow-hidden h-[320px] sm:h-[360px] cursor-pointer"
                 >
-                  {/* Image */}
-                  <div className="bg-[#f5f7fa] p-4 h-44 flex items-center justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
+                  {/* Full cover image */}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                  {/* Content at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                    <p className="text-[8px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1">{product.series}</p>
+                    <h3 className="text-sm font-bold text-white mb-1 group-hover:text-cyan-200 transition-colors">{product.name}</h3>
+                    <p className="text-[10px] text-white/50 font-medium">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-4 flex flex-col flex-1 border-t border-black/4">
-                    <p className="text-[9px] font-semibold text-accent uppercase tracking-[0.12em] mb-1">{product.series}</p>
-                    <h3 className="text-sm font-bold text-text-primary mb-0.5 group-hover:text-accent transition-colors">{product.name}</h3>
-                    <p className="text-[11px] text-text-secondary mb-2.5 leading-relaxed line-clamp-2">{product.tagline}</p>
-
-                    {/* Specs */}
-                    <div className="flex gap-1.5 mb-3">
-                      {product.highlights?.slice(0, 2).map((h) => (
-                        <div key={h.label} className="flex-1 bg-[#f5f7fa] rounded-md px-2 py-1.5 text-center">
-                          <p className="text-xs font-bold text-text-primary leading-tight">{h.value}</p>
-                          <p className="text-[7px] font-semibold text-text-tertiary uppercase tracking-wider">{h.label}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    <div className="mt-auto flex items-center justify-between text-xs font-semibold text-accent group-hover:text-white bg-accent/5 group-hover:bg-accent py-2 px-3 rounded-lg transition-all duration-300">
-                      <span>View Details</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                  {/* Hover arrow */}
+                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowRight className="w-3.5 h-3.5 text-white" />
                   </div>
                 </Link>
               </RevealItem>
@@ -160,49 +147,46 @@ export default function Home() {
 
           <Reveal animation="fade-up" delay={200} className="mt-10 text-center">
             <Link to="/products" className="inline-flex items-center justify-center gap-2 text-[15px] font-bold text-text-secondary hover:text-brand-blue-dark transition-colors px-6 py-3 rounded-full border border-black/10 hover:bg-gray-50 hover:shadow-sm">
-              View Entire Hardware Lineup <ArrowRight className="w-4 h-4" />
+              View Entire Hardware Lineup <ArrowRight className="w-3 h-3s" />
             </Link>
           </Reveal>
         </div>
       </section>
 
       {/* 4. INTELLIGENT TECHNOLOGY */}
-      <section className="py-10 sm:py-14 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <Reveal animation="fade-up" className="text-center max-w-xl mx-auto mb-6">
+      <section className="pt-2 pb-10 sm:pb-14 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal animation="fade-up" className="text-center max-w-xl mx-auto mb-8">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 tracking-tight leading-[1.15] mb-2">
               Built with <span className="text-brand-blue-dark">intelligence</span> at every layer.
             </h2>
-            <p className="text-xs text-text-secondary leading-relaxed">
-              Advanced hardware engineering with AI-powered software for unmatched performance, safety, and longevity.
-            </p>
+           
           </Reveal>
 
-          <Reveal stagger staggerDelay={150} className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+          <Reveal stagger staggerDelay={150} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
             {[
               { icon: ShieldCheck, title: '3-Tiered BMS', subtitle: 'Advanced Battery Management Architecture', desc: 'Built with module-level, rack-level, and system-level protection to ensure real-time monitoring, thermal control, and fault isolation.', tag: 'Multi-Level Intelligence', img: '/products/pict1.jpeg' },
               { icon: Activity, title: '314Ah LFP Cells', subtitle: 'High-Reliability Battery Core', desc: 'Powered by premium 314Ah LFP cells engineered for long cycle life, enhanced thermal stability, and consistent output.', tag: 'Engineered for Longevity', img: '/products/pict2.jpeg' },
               { icon: Sun, title: 'Solar & Grid Ready', subtitle: 'Seamless Clean Energy Integration', desc: 'Integrate effortlessly with solar PV systems and grid infrastructure for reliable storage, peak shaving, and backup.', tag: 'Flexible Energy Deployment', img: '/products/pict3.jpeg' },
             ].map((item) => (
               <RevealItem key={item.title} animation="fade-up">
-                <div className="group bg-white rounded-xl overflow-hidden border border-black/5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-400 h-full">
-                  {/* Image */}
-                  <div className="h-52 bg-[#f0f3f7] flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,98,151,0.04)_0%,transparent_70%)]"></div>
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  {/* Content */}
-                  <div className="p-4">
+                <div className="group relative rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-400 h-[420px] cursor-pointer">
+                  {/* Background Image */}
+                  <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  {/* Dark overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 group-hover:from-black/95 group-hover:via-black/50 transition-all duration-500"></div>
+                  {/* Content on top */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-5 z-10">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-7 h-7 rounded-md bg-accent/8 flex items-center justify-center">
-                        <item.icon className="w-3.5 h-3.5 text-accent" />
+                      <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                        <item.icon className="w-4 h-4 text-white" />
                       </div>
-                      <h3 className="text-sm font-bold text-text-primary tracking-tight">{item.title}</h3>
+                      <h3 className="text-base font-bold text-white tracking-tight">{item.title}</h3>
                     </div>
-                    <p className="text-[10px] font-semibold text-accent mb-1.5">{item.subtitle}</p>
-                    <p className="text-[11px] text-text-secondary leading-relaxed mb-3">{item.desc}</p>
-                    <div className="pt-2 border-t border-black/4">
-                      <span className="text-[9px] font-bold text-accent/60 uppercase tracking-widest">{item.tag}</span>
+                    <p className="text-xs font-semibold text-cyan-300 mb-1.5">{item.subtitle}</p>
+                    <p className="text-[11px] text-white/70 leading-relaxed mb-3">{item.desc}</p>
+                    <div className="pt-2 border-t border-white/15">
+                      <span className="text-[9px] font-bold text-cyan-400/80 uppercase tracking-widest">{item.tag}</span>
                     </div>
                   </div>
                 </div>
@@ -287,7 +271,7 @@ Alwar district, Rajasthan.
             ].map((item) => (
               <RevealItem key={item.title} animation="fade-up">
                 <Link to="/products" className="group bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block h-full">
-                  <div className="h-44 overflow-hidden relative">
+                  <div className="h-64 overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10"></div>
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
                   </div>
@@ -335,7 +319,7 @@ const advantageTabs = [
     label: 'Solar Capture',
     title: 'Solar Energy Capture & Backup',
     desc: 'Store excess solar generation during peak production hours and deploy stored energy during outages — with instant switchover and deep cycle reserves for uninterrupted power.',
-    img: '/products/modelA.png',
+    img: '/products/pict1.jpeg',
     features: ['Instant switchover during grid outages', 'Deep cycle reserves for 8,000+ cycles', 'Peak shaving & load shifting', 'Seamless solar integration'],
     stats: [
       { val: '8,000+', label: 'Cycle Life' },
@@ -348,7 +332,7 @@ const advantageTabs = [
     label: 'Grid Stability',
     title: 'Grid Stability & Independence',
     desc: 'Stabilize voltage and frequency fluctuations while reducing reliance on unstable grid infrastructure. Autonomous energy reserves ensure operational continuity around the clock.',
-    img: '/products/261Kwh BESS.96.png',
+    img: '/products/pict2.jpeg',
     features: ['Voltage & frequency regulation', 'Autonomous energy reserves', '<10ms grid switchover', '24/7 real-time monitoring'],
     stats: [
       { val: '<10ms', label: 'Switchover' },
@@ -361,7 +345,7 @@ const advantageTabs = [
     label: 'Scalability',
     title: 'Scalable & Future-Ready',
     desc: 'Modular architecture allows seamless expansion from kilowatt to megawatt scale. Millisecond-fast automatic transfer switching ensures zero downtime during scaling.',
-    img: '/products/modelC.png',
+    img: '/products/pict3.jpeg',
     features: ['kW to MW seamless expansion', '20ft containerized form factor', 'Plug-and-operate deployment', 'C4 corrosion resistance'],
     stats: [
       { val: '6.25', label: 'MWh Max' },
@@ -374,7 +358,7 @@ const advantageTabs = [
     label: 'Lower Costs',
     title: 'Lower Costs & Carbon Footprint',
     desc: 'Optimize energy usage with peak shaving and load shifting, dramatically cutting operational costs while reducing carbon emissions through stored renewable energy.',
-    img: '/products/modelB.png',
+    img: '/products/product B.jpeg',
     features: ['Peak shaving & demand response', '>94% round-trip efficiency', 'Diesel generator replacement', 'Multiple revenue streams'],
     stats: [
       { val: '>94%', label: 'RTE' },
@@ -389,37 +373,36 @@ function AdvantagesSection() {
   const tab = advantageTabs[active];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#070E1A] relative overflow-hidden">
+    <section className="py-10 sm:py-14 bg-[#070E1A] relative overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-brand-blue-dark/12 blur-[200px] rounded-full"></div>
       <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-accent/8 blur-[180px] rounded-full"></div>
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]"></div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Header */}
         <Reveal animation="fade-up">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
             <div>
-              <p className="text-[11px] font-bold text-[#60a5fa]/50 uppercase tracking-[0.2em] mb-3">Why Energy Storage</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-[1.08]">
+              <p className="text-[9px] font-bold text-[#60a5fa]/50 uppercase tracking-[0.2em] mb-2">Why Energy Storage</p>
+              <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-[1.1]">
                 Intelligent, Powerful and<br />
                 <span className="bg-gradient-to-r from-[#60a5fa] to-[#00b853] bg-clip-text text-transparent">Built for India</span>
               </h2>
             </div>
-            <Link to="/products" className="text-xs font-bold text-white/30 border border-white/10 rounded-full px-5 py-2.5 hover:text-white hover:border-white/25 transition-all whitespace-nowrap self-start sm:self-auto">
-              View full specs <ArrowRight className="w-3.5 h-3.5 inline ml-1" />
+            <Link to="/products" className="text-[10px] font-bold text-white/30 border border-white/10 rounded-full px-4 py-2 hover:text-white hover:border-white/25 transition-all whitespace-nowrap self-start sm:self-auto">
+              View full specs <ArrowRight className="w-3 h-3 inline ml-1" />
             </Link>
           </div>
         </Reveal>
 
-        {/* Tab pills — top */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        {/* Tab pills — smaller */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {advantageTabs.map((t, i) => (
             <button
               key={t.id}
               onClick={() => setActive(i)}
-              className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-300 border ${
+              className={`px-3.5 py-1.5 rounded-full text-[11px] font-semibold transition-all duration-300 border ${
                 active === i
                   ? 'bg-white text-[#070E1A] border-white shadow-[0_0_25px_rgba(255,255,255,0.12)]'
                   : 'bg-white/[0.03] text-white/40 border-white/8 hover:text-white/70 hover:border-white/15 hover:bg-white/[0.05]'
@@ -431,32 +414,30 @@ function AdvantagesSection() {
         </div>
 
         {/* Main content card — compact */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden backdrop-blur-sm max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="rounded-xl overflow-hidden max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5">
 
-            {/* Left — Product image */}
-            <div className="relative flex items-center justify-center p-6 sm:p-8 bg-gradient-to-br from-white/[0.02] to-transparent">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.06)_0%,transparent_60%)]"></div>
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[50%] h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
+            {/* Left — Product image (bigger, cover style) */}
+            <div className="relative lg:col-span-3 min-h-[220px] sm:min-h-[260px]">
               <img
                 key={tab.id}
                 src={tab.img}
                 alt={tab.title}
-                className="max-h-48 sm:max-h-56 w-auto object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fadeIn"
+                className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
               />
             </div>
 
-            {/* Right — Content */}
-            <div className="p-6 sm:p-8 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/[0.06]">
-              <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 tracking-tight leading-tight">{tab.title}</h3>
-              <p className="text-xs text-white/35 leading-relaxed mb-4">{tab.desc}</p>
+            {/* Right — Content (compact) */}
+            <div className="lg:col-span-2 p-5 sm:p-6 flex flex-col justify-center bg-[#0a1628]">
+              <h3 className="text-base sm:text-lg font-extrabold text-white mb-1.5 tracking-tight leading-tight">{tab.title}</h3>
+              <p className="text-[11px] text-white/35 leading-relaxed mb-3">{tab.desc}</p>
 
               {/* Feature bullets */}
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-5">
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1 mb-4">
                 {tab.features.map((f) => (
-                  <div key={f} className="flex items-center gap-2">
+                  <div key={f} className="flex items-center gap-1.5">
                     <div className="w-1 h-1 rounded-full bg-[#60a5fa] shrink-0"></div>
-                    <span className="text-[11px] text-white/45 font-medium">{f}</span>
+                    <span className="text-[10px] text-white/45 font-medium">{f}</span>
                   </div>
                 ))}
               </div>
@@ -464,9 +445,9 @@ function AdvantagesSection() {
               {/* Stats row */}
               <div className="flex gap-2">
                 {tab.stats.map((s) => (
-                  <div key={s.label} className="flex-1 bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-2 text-center">
-                    <p className="text-base font-extrabold text-white leading-tight">{s.val}</p>
-                    <p className="text-[8px] font-bold text-white/25 uppercase tracking-widest mt-0.5">{s.label}</p>
+                  <div key={s.label} className="flex-1 bg-white/[0.04] border border-white/[0.06] rounded-lg px-2.5 py-1.5 text-center">
+                    <p className="text-sm font-extrabold text-white leading-tight">{s.val}</p>
+                    <p className="text-[7px] font-bold text-white/25 uppercase tracking-widest mt-0.5">{s.label}</p>
                   </div>
                 ))}
               </div>

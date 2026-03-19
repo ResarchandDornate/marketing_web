@@ -17,13 +17,13 @@ export default function Process() {
   return (
     <div className="min-h-screen">
       {/* Hero — dark */}
-      <section className="relative bg-[#070E1A] pt-28 pb-15 overflow-hidden">
-        <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-accent/10 blur-[160px] rounded-full -z-0 pointer-events-none"></div>
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/8 blur-[140px] rounded-full -z-0 pointer-events-none"></div>
-        <Reveal animation="fade-up" className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <span className="inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-6">Our Process</span>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-5">How it works.</h1>
-          <p className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto leading-relaxed">From consultation to commissioning — our streamlined process ensures the perfect solution for your energy needs.</p>
+      <section className="relative bg-[#070E1A] pt-20 pb-14 overflow-hidden">
+        <div className="absolute top-[-60px] left-1/4 w-[500px] h-[500px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-40px] right-1/4 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <Reveal animation="fade-up" className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-widest uppercase text-white/50 mb-6">Our Process</div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">How it works.</h1>
+          <p className="text-sm text-white/40 max-w-2xl mx-auto leading-relaxed">From consultation to commissioning — our streamlined process ensures the perfect solution for your energy needs.</p>
         </Reveal>
       </section>
 
