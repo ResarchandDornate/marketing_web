@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download, Factory, Server, Building2, Sun, Plug, HeartPulse, Camera, Tent, HardHat, Briefcase, Truck, Radio, BarChart3, BatteryCharging, Warehouse, Hospital, Lightbulb, Wind } from 'lucide-react';
 import { getProductById, products } from '../data/products';
@@ -201,7 +202,9 @@ export default function ProductDetail() {
             <h2 className="text-2xl font-extrabold text-text-primary tracking-tight mb-2">Applications</h2>
             <p className="text-sm text-text-secondary">Where the {product.name} delivers unstoppable performance</p>
           </Reveal>
-          <Reveal stagger staggerDelay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+
+          {/* Desktop grid */}
+          <Reveal stagger staggerDelay={100} className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {product.applications.map((app) => {
               const { icon: Icon, caption } = getAppMeta(app);
               return (
@@ -217,6 +220,11 @@ export default function ProductDetail() {
               );
             })}
           </Reveal>
+
+          {/* Mobile swipeable carousel */}
+          <div className="sm:hidden">
+            <AppCarousel applications={product.applications} />
+          </div>
         </div>
       </section>
 
@@ -269,6 +277,56 @@ export default function ProductDetail() {
           </div>
         </div>
       </Reveal>
+    </div>
+  );
+}
+
+/* ═══════ Mobile App Carousel ═══════ */
+function AppCarousel({ applications }) {
+  const [active, setActive] = useState(0);
+  const touchStart = useRef(0);
+  const total = applications.length;
+
+  const next = useCallback(() => setActive((prev) => (prev + 1) % total), [total]);
+  const prev = useCallback(() => setActive((prev) => (prev - 1 + total) % total), [total]);
+
+  // Auto-swipe every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(next, 3000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const handleTouchStart = (e) => { touchStart.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e) => {
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    else if (diff < -50) prev();
+  };
+
+  const { icon: Icon, caption } = getAppMeta(applications[active]);
+
+  return (
+    <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <div className="bg-[rgb(58,88,129)] rounded-2xl border border-white/10 p-6 min-h-[160px] transition-all duration-300">
+        <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center mb-3">
+          <Icon className="w-5 h-5 text-white" />
+        </div>
+        <h3 className="text-base font-bold text-white mb-1">{applications[active]}</h3>
+        <p className="text-xs text-white/60 leading-relaxed">{caption}</p>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-1.5 mt-4">
+        {applications.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === active ? 'bg-brand-blue-dark w-5' : 'bg-black/15'
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
