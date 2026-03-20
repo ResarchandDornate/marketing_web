@@ -23,9 +23,7 @@ const handleSubmit = async (e) => {
   setLoading(true);
   try {
     // 1. Point this to your backend dynamically so it works on mobile devices!
-    const backendUrl = window.location.hostname === 'localhost' 
-      ? 'http://localhost:5000' 
-      : `http://${window.location.hostname}:5000`;
+    const backendUrl = 'http://192.168.0.128:5000';
 
     const response = await fetch(`${backendUrl}/api/send-query`, {
       method: "POST",
