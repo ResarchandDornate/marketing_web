@@ -58,15 +58,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-text-secondary">
                 <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                <span>100 Innovation Drive<br />Tech Park, TP 12345</span>
+                <span>A-87, Okhla Phase – II<br />New Delhi</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-text-secondary">
                 <Phone className="w-4 h-4 text-accent shrink-0" />
-                <span>+1 (800) 555-0199</span>
+                <span>+91-1800-2026-252</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-text-secondary">
                 <Mail className="w-4 h-4 text-accent shrink-0" />
-                <span>solutions@unityess.com</span>
+                <span>info@ornatesolar.com</span>
               </li>
             </ul>
           </div>
