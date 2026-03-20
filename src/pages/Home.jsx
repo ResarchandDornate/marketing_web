@@ -454,21 +454,21 @@ function ProductCarousel({ products }) {
     <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <Link
         to={`/products/${product.id}`}
-        className="relative block rounded-2xl overflow-hidden h-[380px] cursor-pointer"
+        className="relative block rounded-2xl overflow-hidden h-[480px] cursor-pointer"
       >
         <img
           key={product.id}
           src={product.image}
           alt={product.name}
-          className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
+          className="absolute inset-0 w-full h-full object-cover object-center animate-fadeIn brightness-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 via-50% to-black/10"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-          <p className="text-[10px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1 drop-shadow-md">{product.series}</p>
-          <h3 className="text-xl font-bold text-white mb-1 drop-shadow-md">{product.name}</h3>
-          <p className="text-sm text-white font-medium drop-shadow-md">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 from-5% via-transparent via-50% to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+          <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1.5 drop-shadow-lg">{product.series}</p>
+          <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">{product.name}</h3>
+          <p className="text-base text-white font-medium drop-shadow-lg">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
         </div>
-        <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+        <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
           <ArrowRight className="w-4 h-4 text-white" />
         </div>
       </Link>

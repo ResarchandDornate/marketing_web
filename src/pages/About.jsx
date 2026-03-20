@@ -145,18 +145,18 @@ export default function About() {
             <p className="text-[18px] font-bold text-brand-blue-dark uppercase tracking-widest mb-1">Our Team</p>
             <h2 className="text-2xl font-extrabold text-text-primary tracking-tight">The people behind UnityESS.</h2>
           </Reveal>
-          <Reveal stagger staggerDelay={150} className="flex flex-wrap justify-center gap-10">
+          <Reveal stagger staggerDelay={150} className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {team.map((member) => (
               <RevealItem key={member.name} animation="zoom-in" className="group text-center">
-                <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-                  <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent/40 transition-all shadow-md">
+                <div className="bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] h-full flex flex-col items-center">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-3 rounded-full overflow-hidden border-2 border-border group-hover:border-accent/40 transition-all shadow-md">
                     <img
                       src={member.img}
                       alt={member.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="text-lg font-bold text-text-primary tracking-tight">{member.name}</h4>
+                  <h4 className="text-sm sm:text-base font-bold text-text-primary tracking-tight">{member.name}</h4>
                   <p className="text-xs text-text-secondary mt-1">{member.role}</p>
                 </div>
               </RevealItem>
