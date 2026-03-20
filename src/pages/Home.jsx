@@ -27,7 +27,7 @@ export default function Home() {
             <Reveal animation="fade-up" duration={800}>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-[1.12] tracking-tight mb-3 sm:mb-4">
-                Solar peaks at noon <br /> Demands peaks at dusk
+                Solar Peaks at Noon <br /> Demands Peaks at Dusk
               </h1>
               <p className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-3">
                 The gap between them is where Unity lives
@@ -61,19 +61,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-6 md:py-8 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 text-center">
           <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
             <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">99.99%</h3>
-            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Guaranteed Uptime</p>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">System Uptime</p>
           </div>
           <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
             <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">&lt;10ms</h3>
-            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Grid Switchover</p>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Switchover Speed</p>
           </div>
           <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
-            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">27/4</h3>
-            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Monitoring</p>
+            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">24/7</h3>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Live Monitoring</p>
           </div>
           <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
             <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">Tier 1</h3>
-            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Global Safety Rating</p>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Safety Certified</p>
           </div>
         </div>
       </Reveal>
