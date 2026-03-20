@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, ChevronRight, Activity, Building2, Sun, TrendingDown, BarChart3, PlugZap, Radio } from 'lucide-react';
 import { products } from '../data/products';
@@ -12,40 +12,40 @@ export default function Home() {
     <div className="bg-white min-h-screen font-sans overflow-x-hidden selection:bg-brand-green selection:text-white">
 
       {/* 1. HERO */}
-      <section className="relative w-full overflow-hidden pt-32 pb-28 min-h-screen flex items-center bg-white">
+      <section className="relative w-full overflow-hidden pt-20 pb-10 sm:pt-32 sm:pb-28 min-h-[50vh] sm:min-h-screen flex items-end sm:items-center bg-white">
         {/* Full background image */}
         <div className="absolute inset-0">
-          <img src="/products/image.png" alt="" className="w-full h-full object-cover object-right animate-hero-zoom" />
+          <img src="/products/image.png" alt="" className="w-full h-full object-cover object-center sm:object-right animate-hero-zoom" />
         </div>
-        {/* Left dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 from-5% via-black/30 via-35% to-transparent"></div>
-
+        {/* Overlay — stronger on mobile for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 sm:bg-none"></div>
+        <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-black/60 from-5% via-black/30 via-35% to-transparent"></div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 w-full">
           <div className="max-w-2xl">
             <Reveal animation="fade-up" duration={800}>
 
-              <h1 className="text-3xl font-extrabold text-white leading-[1.08] tracking-tight mb-4">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-[1.12] tracking-tight mb-3 sm:mb-4">
                 Solar peaks at noon <br /> Demands peaks at dusk
               </h1>
-              <p className="text-xl font-bold text-white mb-3">
+              <p className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-3">
                 The gap between them is where Unity lives
               </p>
-              <p className="text-sm text-white/70 mb-8 leading-relaxed max-w-lg">
+              <p className="text-xs sm:text-sm text-white/70 mb-6 sm:mb-8 leading-relaxed max-w-lg">
                 India's own BESS, built to deliver safe, sustainable and reliable energy.
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5 sm:gap-3">
                 <Link
                   to="/contact"
-                  className="btn-pill btn-unity text-sm"
+                  className="btn-pill btn-unity text-xs sm:text-sm"
                 >
                   Start Building <ChevronRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/products"
-                  className="btn-pill text-sm text-white border border-white/30 hover:border-white/60 hover:bg-white/10 transition-all"
+                  className="btn-pill text-xs sm:text-sm text-white border border-white/30 hover:border-white/60 hover:bg-white/10 transition-all"
                 >
                   Explore UnityESS
                 </Link>
@@ -58,25 +58,22 @@ export default function Home() {
 
       {/* 2. LOGOS / METRICS STRIP */}
       <Reveal as="section" animation="fade-up" duration={600} className="border-b border-black/5 bg-[#fafafa]">
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 text-center md:text-left">
-          <div>
-            <h3 className="text-2xl font-extrabold text-brand-blue-dark tracking-tight">99.99%</h3>
-            <p className="text-sm font-semibold text-text-secondary uppercase tracking-wider mt-1">Guaranteed Uptime</p>
+        <div className="max-w-7xl mx-auto px-6 py-6 md:py-8 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 text-center">
+          <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
+            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">99.99%</h3>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Guaranteed Uptime</p>
           </div>
-          <div className="hidden md:block w-px h-10 bg-black/10"></div>
-          <div>
-            <h3 className="text-2xl font-extrabold text-brand-blue-dark tracking-tight">&lt;10ms</h3>
-            <p className="text-sm font-semibold text-text-secondary uppercase tracking-wider mt-1">Grid Switchover</p>
+          <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
+            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">&lt;10ms</h3>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Grid Switchover</p>
           </div>
-          <div className="hidden md:block w-px h-10 bg-black/10"></div>
-          <div>
-            <h3 className="text-2xl font-extrabold text-brand-blue-dark tracking-tight">27/4</h3>
-            <p className="text-sm font-semibold text-text-secondary uppercase tracking-wider mt-1">Monitoring </p>
+          <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
+            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">27/4</h3>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Monitoring</p>
           </div>
-          <div className="hidden md:block w-px h-10 bg-black/10"></div>
-          <div>
-            <h3 className="text-2xl font-extrabold text-brand-blue-dark tracking-tight">Tier 1</h3>
-            <p className="text-sm font-semibold text-text-secondary uppercase tracking-wider mt-1">Global Safety Rating</p>
+          <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
+            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">Tier 1</h3>
+            <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Global Safety Rating</p>
           </div>
         </div>
       </Reveal>
@@ -95,28 +92,25 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Reveal stagger staggerDelay={120} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Desktop grid */}
+          <Reveal stagger staggerDelay={120} className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
             {featuredModels.map((product) => (
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   to={`/products/${product.id}`}
                   className="group relative block rounded-2xl overflow-hidden h-[320px] sm:h-[360px] cursor-pointer"
                 >
-                  {/* Full cover image */}
                   <img
                     src={product.image}
                     alt={product.name}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                  {/* Content at bottom */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
                     <p className="text-[9px] font-bold text-white uppercase tracking-[0.15em] mb-1">{product.series}</p>
                     <h3 className="text-lg font-bold text-white mb-1">{product.name}</h3>
                     <p className="text-sm text-white/70 font-medium">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
                   </div>
-                  {/* Hover arrow */}
                   <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ArrowRight className="w-3.5 h-3.5 text-white" />
                   </div>
@@ -124,6 +118,11 @@ export default function Home() {
               </RevealItem>
             ))}
           </Reveal>
+
+          {/* Mobile swipeable carousel */}
+          <div className="sm:hidden">
+            <ProductCarousel products={featuredModels} />
+          </div>
 
           <Reveal animation="fade-up" delay={200} className="mt-10 text-center">
             <Link to="/products" className="inline-flex items-center justify-center gap-2 text-[15px] font-bold text-text-secondary hover:text-brand-blue-dark transition-colors px-6 py-3 rounded-full border border-black/10 hover:bg-gray-50 hover:shadow-sm">
@@ -425,5 +424,67 @@ function AdvantagesSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ═══════ Mobile Product Carousel ═══════ */
+function ProductCarousel({ products }) {
+  const [active, setActive] = useState(0);
+  const touchStart = useRef(0);
+  const total = products.length;
+
+  const next = useCallback(() => setActive((prev) => (prev + 1) % total), [total]);
+  const prev = useCallback(() => setActive((prev) => (prev - 1 + total) % total), [total]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 3000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const handleTouchStart = (e) => { touchStart.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e) => {
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    else if (diff < -50) prev();
+  };
+
+  const product = products[active];
+
+  return (
+    <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <Link
+        to={`/products/${product.id}`}
+        className="relative block rounded-2xl overflow-hidden h-[380px] cursor-pointer"
+      >
+        <img
+          key={product.id}
+          src={product.image}
+          alt={product.name}
+          className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 via-50% to-black/10"></div>
+        <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+          <p className="text-[10px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1 drop-shadow-md">{product.series}</p>
+          <h3 className="text-xl font-bold text-white mb-1 drop-shadow-md">{product.name}</h3>
+          <p className="text-sm text-white font-medium drop-shadow-md">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
+        </div>
+        <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+          <ArrowRight className="w-4 h-4 text-white" />
+        </div>
+      </Link>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-1.5 mt-4">
+        {products.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === active ? 'bg-brand-blue-dark w-5' : 'bg-black/15'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
