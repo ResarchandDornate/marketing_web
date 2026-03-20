@@ -13,7 +13,6 @@ export default function Contact() {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-
   const formData = {
     firstName,
     phone,
@@ -21,38 +20,30 @@ const handleSubmit = async (e) => {
     company,
     message,
   };
-
   setLoading(true);
-
   try {
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwGlQvb8Fj-A1IOHLp-XuP9asuX3ZB9lnkqiNCu3ex44zRZdVzuzn0NUgFd-Q0Yt1qj8g/exec",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(formData),
-      }
-    );
-
-    if (response.ok) {
+    // 1. Point this to your new localhost backend instead of the Google Script
+    const response = await fetch("http://localhost:5000/api/send-query", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // 2. Change to application/json
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json(); // 3. Parse JSON response
+    if (data.success) { // 4. Check for success from your backend
       setFirstName("");
       setPhone("");
       setEmail("");
       setCompany("");
       setMessage("");
-
-      e.target.reset();
-
-      alert("Query submitted successfully!");
+      alert("Query submitted successfully to company email!");
     } else {
       alert("Submission failed. Please try again.");
     }
-
   } catch (error) {
     console.error("Error:", error);
-    alert("Network error occurred.");
+    alert("Network error occurred. Is your backend running?");
   } finally {
     setLoading(false);
   }
