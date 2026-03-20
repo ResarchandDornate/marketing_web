@@ -9,18 +9,18 @@ export default function Products() {
   const filtered = activeCategory === 'all' ? products : products.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="bg-bg-deep min-h-screen pt-14 overflow-x-hidden">
+    <div className="bg-bg-deep min-h-screen pt-8 overflow-x-hidden">
 
       {/* Compact Header */}
-      <section className="relative bg-[#070E1A] pt-20 pb-14 overflow-hidden">
-        <div className="absolute top-[-60px] left-1/3 w-[450px] h-[450px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+      <section className="relative bg-[rgb(58,88,129)] pt-13 pb-14 overflow-hidden">
+        <div className="absolute top-[-60px] left-1/3 w-[450px] h-[450px]  rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[-40px] right-1/4 w-[350px] h-[350px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-widest uppercase text-[#00b853] mb-6">All Products</div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5   text-xs font-bold tracking-widest uppercase text-white mb-6">All Products</div>
+          <h1 className="text-2xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
             Energy Storage <span className="text-[#60a5fa]">Solutions</span>
           </h1>
-          <p className="text-sm text-white/40 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm text-white max-w-2xl mx-auto leading-relaxed">
             From portable power stations to utility-scale containerized systems — engineered for absolute reliability.
           </p>
         </Reveal>
@@ -72,10 +72,10 @@ export default function Products() {
                   </span>
                   {/* Content at bottom */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                    <h3 className="text-sm font-bold text-white mb-0.5 group-hover:text-cyan-200 transition-colors tracking-tight">
+                    <h3 className="text-lg font-bold text-white mb-0.5 group-hover:text-cyan-200 transition-colors tracking-tight">
                       {product.name}
                     </h3>
-                    <p className="text-[10px] text-white/50 font-medium">{product.highlights[0]?.value} {product.highlights[0]?.label}</p>
+                    <p className="text-sm text-white/70 font-medium">{product.highlights[0]?.value} {product.highlights[0]?.label}</p>
                   </div>
                   {/* Hover arrow */}
                   <div className="absolute top-3 left-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -101,20 +101,20 @@ export default function Products() {
       </section>
 
       {/* Bottom CTA */}
-      <Reveal as="section" animation="zoom-in" className="relative py-10 bg-[#070E1A] overflow-hidden">
+      <Reveal as="section" animation="zoom-in" className="relative py-10 bg-[rgb(58,88,129)] overflow-hidden">
         <div className="absolute top-[-60px] left-1/3 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="max-w-2xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight mb-2 leading-[1.1]">
-            Need help choosing the right <span className="bg-gradient-to-r from-[#60a5fa] to-[#00b853] bg-clip-text text-transparent">system?</span>
+          <h2 className="text-2xl font-extrabold text-white tracking-tight mb-2 leading-[1.1]">
+            Need help choosing the right <span className="text-brand-blue-light">system?</span>
           </h2>
-          <p className="text-xs text-white/50 font-medium mb-5 max-w-md mx-auto">
+          <p className="text-sm text-white font-medium mb-5 max-w-md mx-auto">
             Our engineering team can recommend the optimal solution based on your load profile.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-2.5">
             <Link to="/contact" className="btn-pill btn-unity text-xs">
               Talk to Engineering <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-            <Link to="/process" className="btn-pill text-xs bg-transparent text-white/60 border border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
+            <Link to="/process" className="btn-pill text-xs bg-transparent text-white border border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
               How It Works <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>

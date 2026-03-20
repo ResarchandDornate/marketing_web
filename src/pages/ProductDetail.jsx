@@ -1,7 +1,36 @@
 import { useParams, Link } from 'react-router-dom';
-import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download } from 'lucide-react';
+import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download, Factory, Server, Building2, Sun, Plug, HeartPulse, Camera, Tent, HardHat, Briefcase, Truck, Radio, BarChart3, BatteryCharging, Warehouse, Hospital, Lightbulb, Wind } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import Reveal, { RevealItem } from '../components/Reveal';
+
+
+const appMetaMap = {
+  'Emergency backup power': { icon: Zap, caption: 'Instant failover power when the grid goes down — zero downtime, zero compromise.' },
+  'Outdoor events & camping': { icon: Tent, caption: 'Rugged, silent energy for off-grid adventures and large-scale outdoor events.' },
+  'Construction sites': { icon: HardHat, caption: 'Diesel-free jobsite power — tough enough for the harshest environments.' },
+  'Mobile offices': { icon: Briefcase, caption: 'Portable, plug-and-play energy for remote workstations anywhere.' },
+  'Film & photography sets': { icon: Camera, caption: 'Silent, clean power that keeps the cameras rolling without interruption.' },
+  'Medical equipment backup': { icon: HeartPulse, caption: 'Mission-critical backup for life-saving equipment — reliability you can trust.' },
+  'Factories & warehouses': { icon: Factory, caption: 'Eliminate downtime with industrial-grade power that never stops delivering.' },
+  'Data centers': { icon: Server, caption: 'Ultra-reliable energy backbone for always-on digital infrastructure.' },
+  'Commercial buildings': { icon: Building2, caption: 'Smart energy management that slashes costs and keeps operations seamless.' },
+  'EV charging stations': { icon: BatteryCharging, caption: 'High-power charging infrastructure that scales with electric mobility.' },
+  'Solar storage': { icon: Sun, caption: 'Capture every ray — store solar energy and deploy it when it matters most.' },
+  'Peak load management': { icon: BarChart3, caption: 'Shave peak demand charges and optimize your energy spend intelligently.' },
+  'Industrial microgrids': { icon: Radio, caption: 'Self-sufficient energy networks that operate independently from the grid.' },
+  'Telecom towers': { icon: Radio, caption: 'Unbreakable power for critical communication infrastructure — 24/7 uptime.' },
+  'Mining operations': { icon: HardHat, caption: 'Heavy-duty energy for remote, high-demand extraction operations.' },
+  'Grid-scale storage': { icon: Plug, caption: 'Massive energy reserves that stabilize and strengthen the power grid.' },
+  'Renewable integration': { icon: Wind, caption: 'Seamlessly bridge solar and wind intermittency with intelligent storage.' },
+  'Utility substations': { icon: Zap, caption: 'Grid-hardening energy storage for substations and distribution networks.' },
+  'Remote communities': { icon: Lightbulb, caption: 'Reliable, sustainable power for communities beyond the grid\'s reach.' },
+  'Hospitals & healthcare': { icon: Hospital, caption: 'Life-critical power continuity for healthcare facilities — no exceptions.' },
+};
+
+function getAppMeta(app) {
+  if (appMetaMap[app]) return appMetaMap[app];
+  return { icon: Zap, caption: 'Engineered for maximum performance and unwavering reliability.' };
+}
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -67,9 +96,9 @@ export default function ProductDetail() {
 
             {/* Right — Product info */}
             <Reveal animation="fade-left" delay={200} duration={800}>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/15 bg-accent/5 text-accent font-bold text-[10px] uppercase tracking-widest mb-4">
-                <Battery className="w-3 h-3" /> {product.series}
-              </div>
+              <p className="text-accent font-bold text-[10px] uppercase tracking-widest mb-4">
+                {product.series}
+              </p>
 
               <h1 className="text-3xl sm:text-4xl font-extrabold text-text-primary tracking-tight leading-[1.08] mb-3">
                 {product.name}
@@ -168,17 +197,25 @@ export default function ProductDetail() {
       {/* Applications */}
       <section className="py-12 sm:py-16 bg-[#f5f7fa]">
         <div className="max-w-5xl mx-auto px-6">
-          <Reveal animation="fade-up" className="text-center mb-8">
+          <Reveal animation="fade-up" className="text-center mb-10">
             <h2 className="text-2xl font-extrabold text-text-primary tracking-tight mb-2">Applications</h2>
-            <p className="text-sm text-text-secondary">Where the {product.name} excels</p>
+            <p className="text-sm text-text-secondary">Where the {product.name} delivers unstoppable performance</p>
           </Reveal>
-          <Reveal stagger staggerDelay={80} className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
-            {product.applications.map((app) => (
-              <RevealItem key={app} animation="zoom-in" className="flex items-center gap-3 px-4 py-3.5 bg-white shadow-sm rounded-xl border border-border hover:border-accent/20 hover:shadow-md transition-all group">
-                <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-accent to-brand-green shrink-0 group-hover:scale-125 transition-transform" />
-                <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{app}</span>
-              </RevealItem>
-            ))}
+          <Reveal stagger staggerDelay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {product.applications.map((app) => {
+              const { icon: Icon, caption } = getAppMeta(app);
+              return (
+                <RevealItem key={app} animation="fade-up">
+                  <div className="group bg-[rgb(58,88,129)] rounded-2xl border border-white/10 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-sm font-bold text-white mb-1">{app}</h3>
+                    <p className="text-xs text-white/60 leading-relaxed">{caption}</p>
+                  </div>
+                </RevealItem>
+              );
+            })}
           </Reveal>
         </div>
       </section>
@@ -211,23 +248,23 @@ export default function ProductDetail() {
       </section>
 
       {/* CTA */}
-      <Reveal as="section" animation="zoom-in" className="py-14 sm:py-16 bg-brand-blue-dark relative overflow-hidden">
+      <Reveal as="section" animation="zoom-in" className="py-14 sm:py-16 bg-[rgb(58,88,129)] relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:28px_28px]"></div>
         <div className="absolute -top-25 -right-12.5 w-75 h-75 bg-brand-green/8 rounded-full blur-[100px]"></div>
 
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-[1.1]">
-            Interested in the <span className="text-brand-green">{product.name}</span>?
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-3 tracking-tight leading-[1.1]">
+            Interested in the <span className="text-brand-blue-light">{product.name}</span>?
           </h2>
-          <p className="text-sm text-white/50 mb-8 leading-relaxed max-w-md mx-auto">
+          <p className="text-sm text-white mb-8 leading-relaxed max-w-md mx-auto">
             Get in touch for specialized pricing, technical consultation, and custom configuration options.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link to="/contact" className="btn-corporate btn-corp-green text-sm">
-              Contact Solutions Team <ArrowRight className="w-4 h-4" />
+            <Link to="/contact" className="btn-pill btn-unity text-sm">
+              Talk to Engineering <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/products" className="btn-corporate text-sm bg-transparent text-white/60 border-1.5 border-white/15 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all">
-              View All Products
+            <Link to="/products" className="btn-pill text-sm text-white border-1.5 border-white hover:bg-white/10 transition-all">
+              How It Works <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
