@@ -11,45 +11,45 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const formData = {
-    firstName,
-    phone,
-    email,
-    company,
-    message,
-  };
-  setLoading(true);
-  try {
-    // 1. Point this to your backend dynamically so it works on mobile devices!
-    const backendUrl = 'http://192.168.0.128:5000';
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      firstName,
+      phone,
+      email,
+      company,
+      message,
+    };
+    setLoading(true);
+    try {
+      // 1. Point this to your backend dynamically so it works on mobile devices!
+      const backendUrl = 'http://172.23.176.1:5000';
 
-    const response = await fetch(`${backendUrl}/api/send-query`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // 2. Change to application/json
-      },
-      body: JSON.stringify(formData),
-    });
-    const data = await response.json(); // 3. Parse JSON response
-    if (data.success) { // 4. Check for success from your backend
-      setFirstName("");
-      setPhone("");
-      setEmail("");
-      setCompany("");
-      setMessage("");
-      alert("Query submitted successfully to company email!");
-    } else {
-      alert("Submission failed. Please try again.");
+      const response = await fetch(`${backendUrl}/api/send-query`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // 2. Change to application/json
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json(); // 3. Parse JSON response
+      if (data.success) { // 4. Check for success from your backend
+        setFirstName("");
+        setPhone("");
+        setEmail("");
+        setCompany("");
+        setMessage("");
+        alert("Query submitted successfully to company email!");
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Network error occurred. Is your backend running?");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Network error occurred. Is your backend running?");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <div className="min-h-screen">
@@ -153,7 +153,7 @@ const handleSubmit = async (e) => {
                 </div>
               </Reveal>
 
-            
+
             </div>
           </div>
         </div>

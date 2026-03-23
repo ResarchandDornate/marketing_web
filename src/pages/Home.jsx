@@ -4,7 +4,7 @@ import { ArrowRight, ShieldCheck, ChevronRight, Activity, Building2, Sun, Trendi
 import { products } from '../data/products';
 import Reveal, { RevealItem } from '../components/Reveal';
 
-const featuredIds = ['unity-infinity', 'model-a', 'model-b', 'model-c'];
+const featuredIds = ['model-a', 'model-b', 'model-c', 'unity-infinity'];
 const featuredModels = featuredIds.map(id => products.find(p => p.id === id)).filter(Boolean);
 
 export default function Home() {
@@ -17,22 +17,20 @@ export default function Home() {
         <div className="absolute inset-0">
           <img src="/products/image.png" alt="" className="w-full h-full object-cover object-center sm:object-right animate-hero-zoom" />
         </div>
-        {/* Overlay — stronger on mobile for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20 sm:bg-none"></div>
-        <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-black/60 from-5% via-black/30 via-35% to-transparent"></div>
+        {/* Overlays removed to reduce dark theme on image */}
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 w-full">
           <div className="max-w-2xl">
             <Reveal animation="fade-up" duration={800}>
 
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-[1.12] tracking-tight mb-3 sm:mb-4">
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-[1.12] tracking-tight mb-3 sm:mb-4 drop-shadow-[0_4px_10px_rgba(0,0,0,1)]">
                 Solar Peaks at Noon <br /> Demands Peaks at Dusk
               </h1>
-              <p className="text-base sm:text-xl font-bold text-white mb-2 sm:mb-3">
+              <p className="text-base sm:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
                 The gap between them is where Unity lives
               </p>
-              <p className="text-xs sm:text-sm text-white/70 mb-6 sm:mb-8 leading-relaxed max-w-lg">
+              <p className="text-sm sm:text-sm text-white/90 font-medium mb-6 sm:mb-8 leading-relaxed max-w-lg drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
                 India's own BESS, built to deliver safe, sustainable and reliable energy.
               </p>
 
@@ -107,9 +105,9 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                    <p className="text-[9px] font-bold text-white uppercase tracking-[0.15em] mb-1">{product.series}</p>
-                    <h3 className="text-lg font-bold text-white mb-1">{product.name}</h3>
-                    <p className="text-sm text-white/70 font-medium">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
+                    <p className="text-[9px] font-bold text-white uppercase tracking-[0.15em] mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.series}</p>
+                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,1)]">{product.name}</h3>
+                    <p className="text-sm text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
                   </div>
                   <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ArrowRight className="w-3.5 h-3.5 text-white" />
@@ -139,7 +137,7 @@ export default function Home() {
             <h2 className="text-2xl font-extrabold text-gray-800 tracking-tight leading-[1.15] mb-2">
               Built with <span className="text-brand-blue-dark">intelligence</span> at every layer.
             </h2>
-           
+
           </Reveal>
 
           <Reveal stagger staggerDelay={150} className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
@@ -189,13 +187,13 @@ export default function Home() {
               <div>
                 <p className="flex items-center gap-1.5 text-[16px] font-bold text-text-tertiary uppercase tracking-widest mb-2"><Building2 className="w-5.5 h-5.5 text-accent" />Our Infrastructure</p>
                 <h2 className="text-lg font-extrabold text-brand-blue-dark tracking-tight leading-[1.15] mb-2">
-                   UnityESS <span className="text-gray-700">Manufacturing Facility</span>
+                  UnityESS <span className="text-gray-700">Manufacturing Facility</span>
                 </h2>
                 <p className="text-sm text-text-secondary leading-relaxed mb-3">
-                 UnityESS currently operates with an annual manufacturing
-capacity of +1 GWh and is developing an upcoming, fully
-automated giga-scale manufacturing facility in Ghilot,
-Alwar district, Rajasthan.
+                  UnityESS currently operates with an annual manufacturing
+                  capacity of +1 GWh and is developing an upcoming, fully
+                  automated giga-scale manufacturing facility in Ghilot,
+                  Alwar district, Rajasthan.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {[
@@ -208,7 +206,7 @@ Alwar district, Rajasthan.
                     </div>
                   ))}
                 </div>
-               
+
               </div>
             </Reveal>
             {/* Right — image */}
@@ -369,11 +367,10 @@ function AdvantagesSection() {
             <button
               key={t.id}
               onClick={() => setActive(i)}
-              className={`px-3.5 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-300 border ${
-                active === i
-                  ? 'bg-white text-[#070E1A] border-white shadow-[0_0_25px_rgba(255,255,255,0.12)]'
-                  : 'bg-white/[0.03] text-white/40 border-white/8 hover:text-white/70 hover:border-white/15 hover:bg-white/[0.05]'
-              }`}
+              className={`px-3.5 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-300 border ${active === i
+                ? 'bg-white text-[#070E1A] border-white shadow-[0_0_25px_rgba(255,255,255,0.12)]'
+                : 'bg-white/[0.03] text-white/40 border-white/8 hover:text-white/70 hover:border-white/15 hover:bg-white/[0.05]'
+                }`}
             >
               {t.label}
             </button>
@@ -464,9 +461,9 @@ function ProductCarousel({ products }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 from-5% via-transparent via-50% to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-          <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1.5 drop-shadow-lg">{product.series}</p>
-          <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">{product.name}</h3>
-          <p className="text-base text-white font-medium drop-shadow-lg">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
+          <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1.5 drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.series}</p>
+          <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,1)]">{product.name}</h3>
+          <p className="text-base text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
         </div>
         <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
           <ArrowRight className="w-4 h-4 text-white" />
@@ -479,9 +476,8 @@ function ProductCarousel({ products }) {
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              i === active ? 'bg-brand-blue-dark w-5' : 'bg-black/15'
-            }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === active ? 'bg-brand-blue-dark w-5' : 'bg-black/15'
+              }`}
           />
         ))}
       </div>
