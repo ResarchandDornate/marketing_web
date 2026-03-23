@@ -26,6 +26,12 @@ const appMetaMap = {
   'Utility substations': { icon: Zap, caption: 'Grid-hardening energy storage for substations and distribution networks.' },
   'Remote communities': { icon: Lightbulb, caption: 'Reliable, sustainable power for communities beyond the grid\'s reach.' },
   'Hospitals & healthcare': { icon: Hospital, caption: 'Life-critical power continuity for healthcare facilities — no exceptions.' },
+  'Outdoor emergency power supply (camping, rescue)': { icon: Tent, caption: 'Rugged, portable energy for off-grid adventures and emergency rescue operations.' },
+  'Blackout backup power': { icon: Zap, caption: 'Instant failover power when the grid goes down — keep your home running seamlessly.' },
+  'Mobile device charging (phones, cameras, laptops)': { icon: BatteryCharging, caption: 'Quick-charge your devices on the go with QC2.0 USB and AC outlets.' },
+  'Grid support & peak shaving/valley filling (5+1 system)': { icon: BarChart3, caption: 'Combine 5 units on a power base for household grid support and peak demand management.' },
+  'Household energy storage': { icon: Lightbulb, caption: 'Store solar or off-peak energy for everyday household use — reduce your electricity bills.' },
+  'Portable on-the-go power': { icon: Plug, caption: 'Lightweight, plug-and-play power you can take anywhere — indoors or outdoors.' },
 };
 
 function getAppMeta(app) {
@@ -85,13 +91,13 @@ export default function ProductDetail() {
                   alt={product.name}
                   className="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                {product.isNew && (
+                {/* {product.isNew && (
                   <div className="absolute top-4 left-4">
                     <span className="inline-flex items-center gap-1 text-[10px] font-bold tracking-widest uppercase bg-brand-green text-white px-3 py-1.5 rounded-full shadow-md shadow-brand-green/20">
                       New
                     </span>
                   </div>
-                )}
+                )} */}
               </div>
             </Reveal>
 
