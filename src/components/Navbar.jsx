@@ -1,11 +1,13 @@
+"use client";
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -14,19 +16,19 @@ export default function Navbar() {
   }, []);
 
   // Close mobile menu on route change
-  useEffect(() => setIsOpen(false), [location]);
+  useEffect(() => setIsOpen(false), [pathname]);
 
-  const isHome = location.pathname === '/';
+  const isHome = pathname === '/';
   // Only use transparent/white style on Home page (which has a dark hero)
   const isLight = scrolled || !isHome;
 
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/products', label: 'Products' },
-    { to: '/process', label: 'How It Works' },
+    { href: '/', label: 'Home' },
+    { href: '/products', label: 'Products' },
+    { href: '/process', label: 'How It Works' },
    
-    { to: '/contact', label: 'Contact' },
-     { to: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
+     { href: '/about', label: 'About' },
   ];
 
   return (
@@ -38,7 +40,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center shrink-0 group">
+          <Link href="/" className="flex items-center shrink-0 group">
             <img 
               src="/products/unityess-logo.svg" 
               alt="UnityESS" 
@@ -49,9 +51,9 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
-                key={link.to}
-                to={link.to}
-                className={`relative px-4 py-2 text-[14px] font-semibold tracking-wide transition-all duration-300 rounded-full ${isLight ? 'text-text-secondary hover:text-brand-blue-dark hover:bg-black/5' : 'text-white/80 hover:text-white hover:bg-white/10'} ${location.pathname === link.to && (isLight ? 'bg-black/5 text-brand-blue-dark font-bold' : 'bg-white/20 text-white font-bold')}`}
+                key={link.href}
+                href={link.href}
+                className={`relative px-4 py-2 text-[14px] font-semibold tracking-wide transition-all duration-300 rounded-full ${isLight ? 'text-text-secondary hover:text-brand-blue-dark hover:bg-black/5' : 'text-white/80 hover:text-white hover:bg-white/10'} ${pathname === link.href && (isLight ? 'bg-black/5 text-brand-blue-dark font-bold' : 'bg-white/20 text-white font-bold')}`}
               >
                 {link.label}
               </Link>
@@ -59,7 +61,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:block ml-4 text-right">
-            <Link to="/contact" className={`text-[13px] font-bold px-6 py-2.5 rounded-full transition-all shadow-sm border ${isLight ? 'bg-brand-blue-dark text-white hover:bg-brand-blue hover:shadow-md border-transparent' : 'bg-white text-brand-blue-dark hover:bg-white/90 border-transparent shadow-[0_0_20px_rgba(255,255,255,0.3)]'}`}>
+            <Link href="/contact" className={`text-[13px] font-bold px-6 py-2.5 rounded-full transition-all shadow-sm border ${isLight ? 'bg-brand-blue-dark text-white hover:bg-brand-blue hover:shadow-md border-transparent' : 'bg-white text-brand-blue-dark hover:bg-white/90 border-transparent shadow-[0_0_20px_rgba(255,255,255,0.3)]'}`}>
               Get A Quote
             </Link>
           </div>
@@ -75,15 +77,15 @@ export default function Navbar() {
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
-                key={link.to}
-                to={link.to}
-                className={`block py-3 px-4 text-base font-bold tracking-tight rounded-xl transition-all ${location.pathname === link.to ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'
+                key={link.href}
+                href={link.href}
+                className={`block py-3 px-4 text-base font-bold tracking-tight rounded-xl transition-all ${pathname === link.href ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'
                   }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link to="/contact" className="mt-4 block text-center bg-brand-blue-dark text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition-colors">
+            <Link href="/contact" className="mt-4 block text-center bg-brand-blue-dark text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition-colors">
               Get A Quote
             </Link>
           </div>

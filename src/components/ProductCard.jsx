@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export default function ProductCard({ product }) {
   return (
     <Link
-      to={`/products/${product.id}`}
+      href={`/products/${product.id}`}
       className="product-card group block bg-apple-bg rounded-2xl overflow-hidden text-center"
     >
       <div className="relative pt-8 px-6 pb-4">
