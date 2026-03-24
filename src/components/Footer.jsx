@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 /////////////changes 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-6">
               <img src="/products/unityess-logo.svg" alt="UnityESS" className="h-8 w-auto" />
             </Link>
             <p className="text-sm text-text-secondary leading-relaxed mb-6 max-w-sm">
@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Portable', 'Residential', 'Commercial', 'Industrial'].map(item => (
                 <li key={item}>
-                  <Link to="/products" className="text-sm text-text-secondary hover:text-accent transition-colors">{item}</Link>
+                  <Link href="/products" className="text-sm text-text-secondary hover:text-accent transition-colors">{item}</Link>
                 </li>
               ))}
             </ul>
@@ -46,7 +46,7 @@ export default function Footer() {
                 { name: 'Contact', path: '/contact' },
               ].map(item => (
                 <li key={item.name}>
-                  <Link to={item.path} className="text-sm text-text-secondary hover:text-accent transition-colors">{item.name}</Link>
+                  <Link href={item.path} className="text-sm text-text-secondary hover:text-accent transition-colors">{item.name}</Link>
                 </li>
               ))}
             </ul>
