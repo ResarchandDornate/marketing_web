@@ -135,9 +135,15 @@ export default function ProductDetail() {
                 <Link to="/contact" className="btn-pill btn-unity text-sm">
                   Request Consultation <ArrowRight className="w-4 h-4" />
                 </Link>
-                <button className="btn-pill btn-unity-outline text-sm">
-                  <Download className="w-4 h-4" /> Download Datasheet
-                </button>
+                {product.datasheet ? (
+                  <a href={product.datasheet} target="_blank" rel="noopener noreferrer" className="btn-pill btn-unity-outline text-sm flex items-center gap-1">
+                    <Download className="w-4 h-4" /> Download Datasheet
+                  </a>
+                ) : (
+                  <button className="btn-pill btn-unity-outline text-sm flex items-center gap-1 cursor-not-allowed opacity-50">
+                    <Download className="w-4 h-4" /> Datasheet Unavailable
+                  </button>
+                )}
               </div>
             </Reveal>
           </div>
@@ -214,13 +220,13 @@ export default function ProductDetail() {
             {product.applications.map((app) => {
               const { icon: Icon, caption } = getAppMeta(app);
               return (
-                <RevealItem key={app} animation="fade-up">
-                  <div className="group bg-[rgb(58,88,129)] rounded-2xl border border-white/10 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all">
+                <RevealItem key={app} animation="fade-up" className="h-full">
+                  <div className="group bg-[rgb(58,88,129)] rounded-2xl border border-white/10 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center mb-3 group-hover:bg-white/20 transition-all shrink-0">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
-                    <h3 className="text-sm font-bold text-white mb-1">{app}</h3>
-                    <p className="text-xs text-white/60 leading-relaxed">{caption}</p>
+                    <h3 className="text-sm font-bold text-white mb-1 shrink-0">{app}</h3>
+                    <p className="text-xs text-white/60 leading-relaxed grow">{caption}</p>
                   </div>
                 </RevealItem>
               );
