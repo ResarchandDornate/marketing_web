@@ -25,7 +25,7 @@ export default function Contact() {
     setStatus({ type: '', message: '' });
     try {
       // 1. Point this to your backend dynamically so it works on mobile devices!
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://10.189.2.123:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://192.168.0.126:5000';
 
       const response = await fetch(`${backendUrl}/api/send-query`, {
         method: "POST",
@@ -133,9 +133,8 @@ export default function Contact() {
                     </button>
                   </div>
                   {status.message && (
-                    <div className={`sm:col-span-2 p-3 rounded-xl text-center text-sm font-semibold transition-all ${
-                      status.type === 'success' ? 'bg-green-50 text-green-700 border border-green-100' : 'bg-red-50 text-red-700 border border-red-100'
-                    }`}>
+                    <div className={`sm:col-span-2 p-3 rounded-xl text-center text-sm font-semibold transition-all ${status.type === 'success' ? 'bg-green-50 text-green-700 border border-green-100' : 'bg-red-50 text-red-700 border border-red-100'
+                      }`}>
                       {status.message}
                     </div>
                   )}
