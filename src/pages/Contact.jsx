@@ -23,7 +23,7 @@ export default function Contact() {
     setLoading(true);
     try {
       // 1. Point this to your backend dynamically so it works on mobile devices!
-      const backendUrl = 'http://172.23.176.1:5000';
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://172.23.176.1:5000';
 
       const response = await fetch(`${backendUrl}/api/send-query`, {
         method: "POST",
