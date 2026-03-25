@@ -14,34 +14,37 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
-      firstName,
+    const payload = {
+      name: firstName,
       phone,
       email,
       company,
       message,
+      website_url: "ornatesolar.com",
+      lead_type: "Unityess",
     };
     setLoading(true);
     setStatus({ type: '', message: '' });
     try {
-      // 1. Point this to your backend dynamically so it works on mobile devices!
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://192.168.0.126:5000';
-
-      const response = await fetch(`${backendUrl}/api/send-query`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://backoffice-prod.ornatesolar.com/api/";
+      const response = await fetch(`${apiUrl}leads/website-lead/`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // 2. Change to application/json
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
-      const data = await response.json(); // 3. Parse JSON response
-      if (data.success) { // 4. Check for success from your backend
+      const data = await response.json();
+      if (data.success) {
         setFirstName("");
         setPhone("");
         setEmail("");
         setCompany("");
         setMessage("");
         setStatus({ type: 'success', message: 'Query submitted successfully!' });
+        setTimeout(() => {
+          setStatus({ type: '', message: '' });
+        }, 2000);
       } else {
         setStatus({ type: 'error', message: 'Submission failed. Please try again.' });
       }
