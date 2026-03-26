@@ -230,7 +230,7 @@ export const products = [
       'Portable on-the-go power',
     ],
     highlights: [
-      { label: 'Energy', value: '1,004.8 Wh' },
+      { label: 'Capacity', value: '5 kWh' },
       { label: 'AC Output', value: '300W' },
       { label: 'Cycles', value: '6,000+' },
       { label: 'Weight', value: '≤10 kg' },
