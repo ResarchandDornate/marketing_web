@@ -21,10 +21,10 @@ const milestones = [
 ];
 
 const team = [
-  { name: 'Dhatresh Patnam', role: 'Team Member', img: '/products/dhatresh patnam.jpg' },
-  { name: 'Fateh Brar', role: 'Team Member', img: '/products/fateh brar.jpg' },
-  { name: 'Kedar Balasubarmanayam', role: 'Team Member', img: '/products/kedar balasubarmanayam.jpg' },
-  { name: 'Vishal Pundir', role: 'Team Member', img: '/products/vishal pundir.png' },
+  { name: 'Dhatresh Patnam', role: 'Team Member', img: '/products/dhatresh patnam.webp' },
+  { name: 'Fateh Brar', role: 'Team Member', img: '/products/fateh brar.webp' },
+  { name: 'Kedar Balasubarmanayam', role: 'Team Member', img: '/products/kedar balasubarmanayam.webp' },
+  { name: 'Vishal Pundir', role: 'Team Member', img: '/products/vishal pundir.webp' },
 ];
 
 const certs = ['UL 9540', 'IEC 62619', 'UN38.3', 'CE', 'TUV', 'ISO 9001', 'ISO 14001', 'ISO 45001'];
@@ -55,7 +55,7 @@ export default function About() {
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
-                  src="/products/aditya sir 2.png"
+                  src="/products/aditya sir 2.webp"
                   alt="Aditya Goel"
                   className="w-full h-full object-cover md:min-h-[320px]"
                 />
@@ -84,7 +84,7 @@ export default function About() {
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
-                  src="/products/raghav jain.jpg"
+                  src="/products/raghav jain.webp"
                   alt="Raghav Jain"
                   className="w-full h-full object-cover md:min-h-[320px]"
                 />
@@ -113,7 +113,7 @@ export default function About() {
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
               <div className="md:w-[280px] shrink-0">
                 <img
-                  src="/products/rahul raj.jpg"
+                  src="/products/rahul raj.webp"
                   alt="Rahul Raj"
                   className="w-full h-full object-cover md:min-h-[320px]"
                 />
@@ -227,7 +227,7 @@ export default function About() {
                 <div className="pt-4 mt-2 border-t border-border/60">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <img
-                      src="/products/dsir-logo.jpg"
+                      src="/products/dsir-logo.webp"
                       alt="DSIR Logo"
                       className="h-10 w-auto grayscale group-hover:grayscale-0 transition-all opacity-80"
                       onError={(e) => { e.target.style.display = 'none'; }}
@@ -246,7 +246,7 @@ export default function About() {
             {/* Right Image */}
             <Reveal animation="zoom-in" delay={200} className="lg:w-[45%] relative min-h-[280px]">
               <img
-                src="/products/R&D image.png"
+                src="/products/R&D image.webp"
                 alt="Research and Development Lab"
                 className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
               />
