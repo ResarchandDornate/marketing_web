@@ -37,7 +37,7 @@ export default function About() {
         <div className="absolute top-[-80px] left-1/4 w-[500px] h-[500px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[-60px] right-1/4 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-ful  text-xs font-bold tracking-widest uppercase text-white mb-6">Our Story</div>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full  text-xs font-bold tracking-widest uppercase text-white mb-6">Our Story</div>
           <h1 className="text-2xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">Empowering with clean energy.</h1>
           <p className="text-sm text-white max-w-2xl mx-auto leading-relaxed">UnityESS is a global leader in energy storage solutions, delivering safe, reliable, and scalable systems for a sustainable future.</p>
         </Reveal>
@@ -197,6 +197,60 @@ export default function About() {
                   businesses, and infrastructure with sustainable technology.
                 </p>
               </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Research & Development */}
+      <section className="py-12 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="bg-[#f5f7fa] rounded-2xl border border-border shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col lg:flex-row overflow-hidden">
+            {/* Left Content */}
+            <Reveal animation="fade-right" className="lg:w-[55%] p-6 sm:p-8 lg:pr-10 flex flex-col justify-center">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full  text-[13px] font-bold tracking-widest uppercase text-brand-blue">
+                  Innovation Lab
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-extrabold text-brand-blue tracking-tight leading-tight">
+                  Research & Development
+                </h2>
+                <div className="space-y-3">
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    At Ornate, we dream of leading India one step closer to a sustainable future! In 2022, our in-house Research and Development facility received certification by the Department of Scientific and Industrial Research (DSIR), Government of India.
+                  </p>
+                  <p className="text-sm text-text-secondary leading-relaxed font-medium">
+                    We are collaborating closely with esteemed institutions such as <span className="text-text-primary">IIT-Delhi, IIT-BHU, FIIT & MAIT</span>, to build efficient, reliable, and cutting-edge solutions that solve the challenges of traditional electricity systems.
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-2 border-t border-border/60">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <img
+                      src="/products/dsir-logo.jpg"
+                      alt="DSIR Logo"
+                      className="h-10 w-auto grayscale group-hover:grayscale-0 transition-all opacity-80"
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                    <div>
+                      <p className="text-[11px] font-extrabold text-text-primary uppercase tracking-wider">India's First Solar R&D Centre</p>
+                      <p className="text-[11px] text-text-secondary mt-0.5 leading-relaxed">
+                        Recognised by the Department of Scientific & Industrial Research (DSIR), Ministry of Science and Technology, Govt. of India.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Right Image */}
+            <Reveal animation="zoom-in" delay={200} className="lg:w-[45%] relative min-h-[280px]">
+              <img
+                src="/products/R&D image.png"
+                alt="Research and Development Lab"
+                className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-black/5 to-transparent pointer-events-none"></div>
             </Reveal>
           </div>
         </div>

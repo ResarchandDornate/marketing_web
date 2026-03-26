@@ -7,7 +7,7 @@ export const products = [
     shortDesc: 'Power your operations with a BESS built for India\'s toughest industrial conditions. Delivers clean, reliable, and uninterrupted power — reducing diesel usage, cutting energy bills, and stabilizing your plant during peak loads.',
     category: 'commercial',
     isNew: true,
-    image: '/products/modalA00.png',
+    image: '/products/New peoduct A.png',
     datasheet: '/attachments/UNITY Model-A.pdf',
     specs: {
       ratedCapacity: '233 / 261 kWh',
@@ -63,7 +63,7 @@ export const products = [
     tagline: 'Hybrid Integrated System — DC-Coupled',
     shortDesc: 'Designed for solar-heavy C&I facilities, Model B unlocks true hybrid performance with seamless DC-coupling — minimizing conversion losses, increasing solar utilization, and guaranteeing stable power.',
     category: 'commercial',
-    image: '/products/product B.jpeg',
+    image: '/products/new product B.jpg',
     datasheet: '/attachments/Unity Model-B.pdf',
     specs: {
       variants: 'B-100-261 / B-250-522 / B-500-1044',
@@ -182,7 +182,7 @@ export const products = [
     specs: {
       cellType: 'LFP (Lithium Iron Phosphate)',
       cellNominalCapacity: '314 Ah',
-      cellNominalEnergy: '1004.8 Wh',
+      cellNominalEnergy: '5kWh ',
       cellNominalVoltage: '3.2V',
       configuration: '1P',
       nominalVoltage: '220V, 45~55 Hz',

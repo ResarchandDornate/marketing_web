@@ -11,7 +11,7 @@ const steps = [
   { icon: Cog, title: 'Manufacturing', desc: 'Precision cell matching & assembly with rigorous quality control at every stage.' },
   { icon: Truck, title: 'Delivery', desc: 'Safe, insured global shipping with real-time tracking. Systems arrive ready to install.' },
   { icon: Wrench, title: 'Installation', desc: 'Professional installation by certified technicians with full system commissioning.' },
-  { icon: Headphones, title: 'Ongoing Support', desc: '24/7 remote monitoring, predictive maintenance alerts, and firmware updates.' },
+  { icon: Headphones, title: 'Ongoing Support', desc: 'Remote monitoring, predictive maintenance alerts, and firmware updates.' },
 ];
 
 export default function Process() {
