@@ -7,7 +7,7 @@ export const products = [
     shortDesc: 'Power your operations with a BESS built for India\'s toughest industrial conditions. Delivers clean, reliable, and uninterrupted power — reducing diesel usage, cutting energy bills, and stabilizing your plant during peak loads.',
     category: 'commercial',
     isNew: true,
-    image: '/products/New peoduct A.png',
+    image: '/products/New peoduct A.webp',
     datasheet: '/attachments/UNITY Model-A.pdf',
     specs: {
       ratedCapacity: '233 / 261 kWh',
@@ -63,7 +63,7 @@ export const products = [
     tagline: 'Hybrid Integrated System — DC-Coupled',
     shortDesc: 'Designed for solar-heavy C&I facilities, Model B unlocks true hybrid performance with seamless DC-coupling — minimizing conversion losses, increasing solar utilization, and guaranteeing stable power.',
     category: 'commercial',
-    image: '/products/new product B.jpg',
+    image: '/products/new product B.webp',
     datasheet: '/attachments/Unity Model-B.pdf',
     specs: {
       variants: 'B-100-261 / B-250-522 / B-500-1044',
@@ -121,7 +121,7 @@ export const products = [
     tagline: 'Containerized Energy Storage — 20ft',
     shortDesc: 'Built for India\'s fast-growing utility-scale solar and hybrid projects — delivering high-density, 5 MWh storage in a single containerized unit. Plug-and-operate design minimizes civil work for faster commissioning.',
     category: 'industrial',
-    image: '/products/product C.jpeg',
+    image: '/products/product C.webp',
     datasheet: '/attachments/UNITY Model-C.pdf',
     specs: {
       variants: 'C-5.00 MWh / C-6.25 MWh',
@@ -178,7 +178,7 @@ export const products = [
     shortDesc: 'Modular 1 kWh portable energy storage with LFP cells, smart BMS, air cooling, and expandable 5+1 combination system (5024 Wh) with optional power base for grid support and peak shaving.',
     category: 'portable',
     isNew: true,
-    image: '/products/unity new pic.png',
+    image: '/products/unity new pic.webp',
     specs: {
       cellType: 'LFP (Lithium Iron Phosphate)',
       cellNominalCapacity: '314 Ah',
