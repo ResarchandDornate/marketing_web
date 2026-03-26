@@ -16,7 +16,7 @@ export default function Home() {
       <section className="relative w-full overflow-hidden pt-20 pb-10 sm:pt-32 sm:pb-28 min-h-[50vh] sm:min-h-screen flex items-end sm:items-center bg-white">
         {/* Full background image */}
         <div className="absolute inset-0">
-          <img src="/products/image.png" alt="" className="w-full h-full object-cover object-center sm:object-right animate-hero-zoom" />
+          <img src="/products/hero section image.png" alt="" className="w-full h-full object-cover object-center sm:object-right animate-hero-zoom" />
         </div>
         {/* Overlays removed to reduce dark theme on image */}
 
@@ -308,7 +308,7 @@ const advantageTabs = [
     label: 'Grid Stability',
     title: 'Grid Stability & Independence',
     desc: 'Stabilize voltage and frequency fluctuations while reducing reliance on unstable grid infrastructure. Autonomous energy reserves ensure operational continuity around the clock.',
-    img: '/products/pict2.jpeg',
+    img: '/products/Model C new.jpeg',
     features: ['Voltage & frequency regulation', 'Autonomous energy reserves', '<20ms grid switchover', ' real-time monitoring'],
     stats: [
       { val: '<20ms', label: 'Switchover' },
@@ -334,7 +334,7 @@ const advantageTabs = [
     label: 'Lower Costs',
     title: 'Lower Costs & Carbon Footprint',
     desc: 'Optimize energy usage with peak shaving and load shifting, dramatically cutting operational costs while reducing carbon emissions through stored renewable energy.',
-    img: '/products/new product B.jpg',
+    img: '/products/product B neww.jpeg',
     features: ['Peak shaving & demand response', '>94% round-trip efficiency', 'Diesel generator replacement', 'Multiple revenue streams'],
     stats: [
       { val: '>94%', label: 'RTE' },
