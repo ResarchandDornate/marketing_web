@@ -116,7 +116,7 @@ export default function Home() {
                   <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-500 group-hover:translate-y-[-4px]">
                     <h3 className="text-xl font-bold text-white mb-0.5 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
                     <p className="text-sm text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-                      {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '1,004.8 Wh Energy'}
+                      {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
                     </p>
                   </div>
                   
@@ -485,7 +485,7 @@ function ProductCarousel({ products }) {
         <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
           <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
           <p className="text-base text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-            {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '1,004.8 Wh Energy'}
+            {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
           </p>
         </div>
         <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
