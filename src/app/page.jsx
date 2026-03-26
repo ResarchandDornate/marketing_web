@@ -63,7 +63,7 @@ export default function Home() {
             <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">System Uptime</p>
           </div>
           <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
-            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">&lt;10ms</h3>
+            <h3 className="text-lg sm:text-2xl font-extrabold text-brand-blue-dark tracking-tight">&lt;20ms</h3>
             <p className="text-[10px] sm:text-sm font-semibold text-text-secondary uppercase tracking-wider mt-0.5">Switchover Speed</p>
           </div>
           <div className="bg-white rounded-xl p-3 sm:p-0 sm:bg-transparent border border-border sm:border-0">
@@ -92,12 +92,12 @@ export default function Home() {
           </Reveal>
 
           {/* Desktop grid */}
-          <Reveal stagger staggerDelay={120} className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <Reveal stagger staggerDelay={120} className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredModels.map((product) => (
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   href={`/products/${product.id}`}
-                  className="group relative block rounded-2xl overflow-hidden h-[320px] sm:h-[360px] cursor-pointer"
+                  className="group relative block rounded-2xl overflow-hidden h-[340px] sm:h-[380px] cursor-pointer"
                 >
                   <img
                     src={product.image}
@@ -105,13 +105,23 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                    <p className="text-[9px] font-bold text-white uppercase tracking-[0.15em] mb-1 drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.series}</p>
-                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,1)]">{product.name}</h3>
-                    <p className="text-sm text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
+                  
+                  {/* Category Tag Top Right */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
+                      {product.id === 'model-a' ? 'COMMERCIAL' : product.id === 'model-b' ? 'HYBRID' : product.id === 'model-c' ? 'UTILITY' : 'PORTABLE'}
+                    </span>
                   </div>
-                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ArrowRight className="w-3.5 h-3.5 text-white" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-500 group-hover:translate-y-[-4px]">
+                    <h3 className="text-xl font-bold text-white mb-0.5 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
+                    <p className="text-sm text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                      {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '1,004.8 Wh Energy'}
+                    </p>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </div>
                 </Link>
               </RevealItem>
@@ -143,7 +153,7 @@ export default function Home() {
 
           <Reveal stagger staggerDelay={150} className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
             {[
-              { icon: ShieldCheck, title: '3-Tiered BMS', subtitle: 'Advanced Battery Management Architecture', desc: 'Built with module-level, rack-level, and system-level protection to ensure real-time monitoring, thermal control, and fault isolation.', tag: 'Multi-Level Intelligence' },
+              { icon: ShieldCheck, title: '3-Tiered BMS', subtitle: 'Advanced Battery Management Architecture', desc: 'Built with cell-level, pack-level, and system-level protection to ensure real-time monitoring, thermal control, and fault isolation.', tag: 'Multi-Level Intelligence' },
               { icon: Activity, title: '314Ah LFP Cells', subtitle: 'High-Reliability Battery Core', desc: 'Powered by premium 314Ah LFP cells engineered for long cycle life, enhanced thermal stability, and consistent output.', tag: 'Engineered for Longevity' },
               { icon: Sun, title: 'Solar & Grid Ready', subtitle: 'Seamless Clean Energy Integration', desc: 'Integrate effortlessly with solar PV systems and grid infrastructure for reliable storage, peak shaving, and backup.', tag: 'Flexible Energy Deployment' },
             ].map((item) => (
@@ -192,7 +202,7 @@ export default function Home() {
                 </h2>
                 <p className="text-sm text-text-secondary leading-relaxed mb-3">
                   UnityESS currently operates with an annual manufacturing
-                  capacity of +1 GWh and is developing an upcoming, fully
+                  capacity of 1+ GWh and is developing an upcoming, fully
                   automated giga-scale manufacturing facility in Ghilot,
                   Alwar district, Rajasthan.
                 </p>
@@ -299,9 +309,9 @@ const advantageTabs = [
     title: 'Grid Stability & Independence',
     desc: 'Stabilize voltage and frequency fluctuations while reducing reliance on unstable grid infrastructure. Autonomous energy reserves ensure operational continuity around the clock.',
     img: '/products/pict2.jpeg',
-    features: ['Voltage & frequency regulation', 'Autonomous energy reserves', '<10ms grid switchover', '24/7 real-time monitoring'],
+    features: ['Voltage & frequency regulation', 'Autonomous energy reserves', '<20ms grid switchover', ' real-time monitoring'],
     stats: [
-      { val: '<10ms', label: 'Switchover' },
+      { val: '<20ms', label: 'Switchover' },
       { val: '99.99%', label: 'Uptime' },
       { val: '3-Tier', label: 'BMS' },
     ],
@@ -324,7 +334,7 @@ const advantageTabs = [
     label: 'Lower Costs',
     title: 'Lower Costs & Carbon Footprint',
     desc: 'Optimize energy usage with peak shaving and load shifting, dramatically cutting operational costs while reducing carbon emissions through stored renewable energy.',
-    img: '/products/product B.jpeg',
+    img: '/products/new product B.jpg',
     features: ['Peak shaving & demand response', '>94% round-trip efficiency', 'Diesel generator replacement', 'Multiple revenue streams'],
     stats: [
       { val: '>94%', label: 'RTE' },
@@ -339,7 +349,7 @@ function AdvantagesSection() {
   const tab = advantageTabs[active];
 
   return (
-    <section className="py-10 sm:py-14 bg-[rgb(58,88,129)] relative overflow-hidden">
+    <section className="py-6 sm:py-10 bg-[rgb(58,88,129)] relative overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-brand-blue-dark/12 blur-[200px] rounded-full"></div>
       <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-accent/8 blur-[180px] rounded-full"></div>
@@ -348,17 +358,19 @@ function AdvantagesSection() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <Reveal animation="fade-up">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5">
             <div>
-              <p className="text-[13px] font-bold text-white uppercase tracking-[0.2em] mb-2">Why Energy Storage</p>
-              <h2 className="text-2xl font-extrabold text-white tracking-tight leading-[1.1]">
+              <p className="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-white/10 text-[9px] font-bold text-white uppercase tracking-[0.2em] mb-2 border border-white/10">Why Energy Storage</p>
+              <h2 className="text-xl lg:text-2xl font-extrabold text-white tracking-tight leading-tight">
                 Intelligent, Powerful and<br />
-                <span className="text-brand-blue-light mt-2">Built for India</span>
+                <span className="text-brand-blue-light">Built for India</span>
               </h2>
             </div>
-            <Link href="/products" className="text-[10px] font-bold text-white border border-white rounded-full px-4 py-2 hover:text-white hover:border-white/25 transition-all whitespace-nowrap self-start sm:self-auto">
-              View full specs <ArrowRight className="w-3 h-3 inline ml-1" />
-            </Link>
+            <div className="flex items-center gap-3">
+               <Link href="/products" className="inline-flex items-center gap-2 bg-white text-brand-blue-dark text-[11px] font-bold px-4 py-1.5 rounded-full hover:bg-brand-blue-light hover:text-white transition-all shadow-lg">
+                View full specs <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
         </Reveal>
 
@@ -383,13 +395,14 @@ function AdvantagesSection() {
           <div className="grid grid-cols-1 lg:grid-cols-5">
 
             {/* Left — Product image (bigger, cover style) */}
-            <div className="relative lg:col-span-3 min-h-[280px] sm:min-h-[340px]">
+            <div className="relative lg:col-span-3 min-h-[200px] sm:min-h-[260px] overflow-hidden">
               <img
                 key={tab.id}
                 src={tab.img}
                 alt={tab.title}
                 className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
               />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/[0.05] to-transparent pointer-events-none"></div>
             </div>
 
             {/* Right — Content */}
@@ -452,21 +465,30 @@ function ProductCarousel({ products }) {
     <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <Link
         href={`/products/${product.id}`}
-        className="relative block rounded-2xl overflow-hidden h-[480px] cursor-pointer"
+        className="relative block rounded-2xl overflow-hidden h-[420px] cursor-pointer"
       >
         <img
           key={product.id}
           src={product.image}
           alt={product.name}
-          className="absolute inset-0 w-full h-full object-cover object-center animate-fadeIn brightness-110"
+          className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 from-5% via-transparent via-50% to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-          <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-[0.15em] mb-1.5 drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.series}</p>
-          <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,1)]">{product.name}</h3>
-          <p className="text-base text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">{product.highlights?.[0]?.value} {product.highlights?.[0]?.label}</p>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-all duration-500"></div>
+        
+        {/* Category Tag Top Right */}
+        <div className="absolute top-4 right-4 z-10">
+          <span className="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
+            {product.id === 'model-a' ? 'COMMERCIAL' : product.id === 'model-b' ? 'HYBRID' : product.id === 'model-c' ? 'UTILITY' : 'PORTABLE'}
+          </span>
         </div>
-        <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+          <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
+          <p className="text-base text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '1,004.8 Wh Energy'}
+          </p>
+        </div>
+        <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
           <ArrowRight className="w-4 h-4 text-white" />
         </div>
       </Link>

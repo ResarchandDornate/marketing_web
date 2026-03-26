@@ -17,7 +17,7 @@ export default function Reveal({
   className = '',
   stagger = false,
   staggerDelay = 100,
-  threshold = 0.15,
+  threshold = 0.05,
   as: Tag = 'div',
   ...props
 }) {
