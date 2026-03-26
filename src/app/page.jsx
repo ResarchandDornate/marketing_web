@@ -130,12 +130,18 @@ export default function Home() {
 
           {/* Mobile swipeable carousel */}
           <div className="sm:hidden">
-            <ProductCarousel products={featuredModels} />
+            {featuredModels && featuredModels.length > 0 ? (
+              <ProductCarousel products={featuredModels} />
+            ) : (
+              <div className="h-40 flex items-center justify-center text-text-secondary">
+                No featured products.
+              </div>
+            )}
           </div>
 
           <Reveal animation="fade-up" delay={200} className="mt-10 text-center">
             <Link href="/products" className="inline-flex items-center justify-center gap-2 text-[15px] font-bold text-text-secondary hover:text-brand-blue-dark transition-colors px-6 py-3 rounded-full border border-black/10 hover:bg-gray-50 hover:shadow-sm">
-              View Entire Hardware Lineup <ArrowRight className="w-3 h-3s" />
+              View Entire Hardware Lineup <ArrowRight className="w-3 h-3" />
             </Link>
           </Reveal>
         </div>

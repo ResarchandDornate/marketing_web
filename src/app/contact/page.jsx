@@ -72,7 +72,7 @@ export default function Contact() {
       {/* Quick Contact Strip */}
       <section className="py-6 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <Reveal stagger staggerDelay={100} className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <Reveal stagger staggerDelay={100} className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { icon: Mail, title: 'Email', val: 'info@ornatesolar.com' },
               { icon: Phone, title: 'Phone', val: '+91-1800-2026-252' },
@@ -85,7 +85,7 @@ export default function Contact() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[10px] font-bold text-text-tertiary uppercase tracking-widest">{item.title}</p>
-                  <p className="text-xs font-semibold text-text-primary truncate">{item.val}</p>
+                  <p className="text-xs font-semibold text-text-primary">{item.val}</p>
                 </div>
               </RevealItem>
             ))}

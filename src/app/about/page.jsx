@@ -68,7 +68,7 @@ export default function About() {
                   Aditya joined Business after completing his Engineering from IIT Varanasi in 2008, starting his career in the Automobile Trade with the coveted association with Tata Motors Ltd & Fiat India Automobiles in Delhi-NCR. He has first-hand experience of what goes into the 'Building of a Brand' and was interviewed by the Respected Dr. Kevin Frieberg to provide insights for his international publication "NANOVATION: How a Small car is teaching the World to Think Big". A keen follower of the evolving technological trends which are redefining business, and inspired by our Hon'ble Prime Minister Shri Narendra Modi's call to all citizens to 'Leave our Country better than we inherit it', he has embarked upon the mission to promote and establish Solar Energy as an affordable and cost-effective 'Plurality of Power' in the coming decade through Ornate Solar's "Future Energy Solutions"
                 </p>
                 <a
-                  href="https://www.linkedin.com/in/aditya-goel"
+                  href="https://www.linkedin.com/in/aditya-goel-7184368?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white hover:bg-brand-blue transition-colors mt-4"
@@ -97,7 +97,7 @@ export default function About() {
                   Raghav Jain is an entrepreneur and startup founder based in Delhi, currently serving as the Co-Founder of Inverted, a technology-driven venture. He is an alumnus of Indian Institute of Technology (BHU) and has a background in engineering and technology innovation. His professional focus lies in building products and businesses in the startup ecosystem, with interests in technology, growth, and digital platforms. Through his work, he engages with founders, investors, and operators to develop scalable solutions. Jain is also active in the startup community, contributing to discussions around product building and entrepreneurship.
                 </p>
                 <a
-                  href="https://www.linkedin.com/in/raghav-jain"
+                  href="https://www.linkedin.com/in/raghavjain1?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white hover:bg-brand-blue transition-colors mt-4"
@@ -126,7 +126,7 @@ export default function About() {
                   Rahul Raj is a professional with experience in business analytics, sales strategy, and marketing analytics, often working at the intersection of data and business decision-making. He has worked as a business analyst and consultant, including roles related to incentive compensation analytics and strategic insights. Alongside his corporate career, he describes himself as an engineer, poet, and energy enthusiast, reflecting a mix of analytical and creative interests. His work typically involves leveraging data to support organizational strategy and performance improvement.
                 </p>
                 <a
-                  href="https://www.linkedin.com/in/rahul-raj"
+                  href="https://www.linkedin.com/in/rajrahul?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent text-white hover:bg-brand-blue transition-colors mt-4"
