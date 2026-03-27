@@ -301,7 +301,7 @@ const advantageTabs = [
     label: 'Solar Capture',
     title: 'Solar Energy Capture & Backup',
     desc: 'Store excess solar generation during peak production hours and deploy stored energy during outages — with instant switchover and deep cycle reserves for uninterrupted power.',
-    img: '/products/pict1.webp',
+    img: '/products/pic11.png',
     features: ['Instant switchover during grid outages', 'Deep cycle reserves for 8,000+ cycles', 'Peak shaving & load shifting', 'Seamless solar integration'],
     stats: [
       { val: '8,000+', label: 'Cycle Life' },
