@@ -12,11 +12,12 @@ const values = [
 ];
 
 const milestones = [
-
+  { year: '2015', event: 'Ornate Agencies diversifies operations into renewable energy sector.' },
   { year: '2017', event: 'Inverted Energy founded by IIT engineers — Li-ion battery R&D begins' },
   { year: '2019', event: 'Rapid scale-up — becomes one of India\'s largest lithium battery companies' },
+  { year: '2020', event: 'Ornate Agencies recognized as an AEO-T3 certified organisation for 2020' },
   { year: '2021', event: 'Portfolio expands from 12V to MW-scale battery systems' },
-  { year: '2023', event: 'Strategic partnership with Ornate Solar for integrated storage solutions' },
+  { year: '2023', event: 'Ornate Agencies R&D lab becomes DSIR-certified by the Government of India' },
   { year: '2024', event: 'Unity ESS launched — integrated BESS platform for C&I, utility & residential' },
   { year: '2025', event: '6.5 GWh manufacturing facility — 1.25 lakh sq. ft., 100km from Delhi' },
 ];
@@ -282,33 +283,57 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <Reveal animation="fade-up" className="text-center mb-14">
-            <p className="text-[10px] font-bold text-accent uppercase tracking-[0.2em] mb-2">Our Evolution</p>
-            <h2 className="text-2xl font-extrabold text-text-primary tracking-tight">From Battery Startup to Integrated BESS Platform</h2>
+      <section className="py-16 bg-[#f0f4f8] relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
+
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <Reveal animation="fade-up" className="text-center mb-12">
+            <p className="text-[10px] font-bold text-accent uppercase tracking-[0.25em] mb-3">Our Evolution</p>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-text-primary tracking-tight">From Battery Startup to Integrated BESS Platform</h2>
           </Reveal>
 
           {/* Timeline */}
           <div className="relative">
-            {/* Horizontal line */}
-            <div className="hidden lg:block absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+            {/* Center line - desktop */}
+            <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-accent/30 to-transparent"></div>
+            {/* Left line - mobile */}
+            <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-accent/30 to-transparent"></div>
 
-            <Reveal stagger staggerDelay={100} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {milestones.map((m) => (
-                <RevealItem key={m.year} animation="fade-up" className="group relative">
-                  {/* Dot on line */}
-                  <div className="hidden lg:flex items-center justify-center mb-6">
-                    <div className="w-3 h-3 rounded-full bg-accent ring-4 ring-accent/10 group-hover:ring-accent/25 transition-all"></div>
-                  </div>
-                  {/* Card */}
-                  <div className="bg-gradient-to-b from-bg-deep to-white border border-border rounded-xl  p-5 h-full group-hover:border-accent/30 group-hover:shadow-lg group-hover:shadow-accent/5 transition-all duration-300">
-                    <span className="text-lg font-extrabold text-accent block mb-1.5">{m.year}</span>
-                    <p className="text-sm text-text-secondary leading-relaxed">{m.event}</p>
-                  </div>
-                </RevealItem>
-              ))}
-            </Reveal>
+            <div className="space-y-6 md:space-y-0">
+              {milestones.map((m, idx) => {
+                const isLeft = idx % 2 === 0;
+                return (
+                  <Reveal key={m.year} animation={isLeft ? "fade-right" : "fade-left"} delay={idx * 80} className="relative">
+                    <div className={`flex items-start md:items-center ${isLeft ? '' : 'md:flex-row-reverse'}`}>
+
+                      {/* Dot */}
+                      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2 z-20">
+                        <div className="w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,119,182,0.3)] flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        </div>
+                      </div>
+
+                      {/* Card */}
+                      <div className={`w-full md:w-[calc(50%-32px)] pl-14 md:pl-0 ${isLeft ? 'md:pr-0' : 'md:pl-0'}`}>
+                        <div className="relative bg-white border border-border/60 rounded-2xl p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 group">
+                          {/* Connector line to dot */}
+                          <div className={`hidden md:block absolute top-1/2 -translate-y-px ${isLeft ? '-right-8 w-8' : '-left-8 w-8'} h-px bg-accent/20`}></div>
+
+                          <div className={`flex items-center gap-3 mb-2 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
+                            <span className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-wide">{m.year}</span>
+                          </div>
+                          <p className={`text-[13px] text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors ${isLeft ? '' : 'md:text-right'}`}>{m.event}</p>
+                        </div>
+                      </div>
+
+                      {/* Spacer */}
+                      <div className="hidden md:block w-[calc(50%+32px)]"></div>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
