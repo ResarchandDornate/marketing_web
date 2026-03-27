@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-B6Z6KT0BET" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
