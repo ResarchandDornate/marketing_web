@@ -151,7 +151,7 @@ export function SolarIntegrationFlow() {
       <rect x="357" y="69" width="32" height="6" rx="2" fill="#006BA6" fillOpacity="0.4">
         <animate attributeName="width" values="18;36;18" dur="2s" repeatCount="indefinite"/>
       </rect>
-      <text x="375" y="98" textAnchor="middle" fill="#006BA6" fontSize="10" fontWeight="800">BESS</text>
+      <text x="375" y="110" textAnchor="middle" fill="#006BA6" fontSize="10" fontWeight="800">BESS</text>
 
       {/* Flow down to Building */}
       <line x1="272" y1="78" x2="272" y2="105" stroke="#006BA6" strokeWidth="1.5" strokeOpacity="0.25"/>
