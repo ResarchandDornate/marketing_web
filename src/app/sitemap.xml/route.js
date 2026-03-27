@@ -2,8 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { products } from '../../data/products';
 
-export async function GET() {
-  const baseUrl = 'https://unityess.com';
+export async function GET(request) {
+  const host = request.headers.get('host');
+  const protocol = host.includes('localhost') || host.includes('10.189') || host.includes('192.168') ? 'http' : 'https';
+  const baseUrl = `${protocol}://${host}`;
   const appDirectory = path.join(process.cwd(), 'src', 'app');
 
   // Function to recursively find all page.jsx/page.js files
