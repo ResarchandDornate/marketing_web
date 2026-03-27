@@ -12,6 +12,7 @@ const values = [
 ];
 
 const milestones = [
+
   { year: '2017', event: 'Inverted Energy founded by IIT engineers — Li-ion battery R&D begins' },
   { year: '2019', event: 'Rapid scale-up — becomes one of India\'s largest lithium battery companies' },
   { year: '2021', event: 'Portfolio expands from 12V to MW-scale battery systems' },
@@ -65,7 +66,11 @@ export default function About() {
                 <div className="w-12 h-0.5 bg-brand-orange rounded-full my-3"></div>
                 <p className="text-sm font-bold text-brand-green mb-3">Executive Director</p>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  Aditya joined Business after completing his Engineering from IIT Varanasi in 2008, starting his career in the Automobile Trade with the coveted association with Tata Motors Ltd & Fiat India Automobiles in Delhi-NCR. He has first-hand experience of what goes into the 'Building of a Brand' and was interviewed by the Respected Dr. Kevin Frieberg to provide insights for his international publication "NANOVATION: How a Small car is teaching the World to Think Big". A keen follower of the evolving technological trends which are redefining business, and inspired by our Hon'ble Prime Minister Shri Narendra Modi's call to all citizens to 'Leave our Country better than we inherit it', he has embarked upon the mission to promote and establish Solar Energy as an affordable and cost-effective 'Plurality of Power' in the coming decade through Ornate Solar's "Future Energy Solutions"
+                  Aditya joined Business after completing his Engineering from IIT Varanasi in 2008, starting his career in the Automobile Trade with the coveted association with Tata Motors Ltd & Fiat India Automobiles in Delhi-NCR.
+
+                  A keen follower of the evolving technological trends which are redefining business, he founded Ornate Solar in 2014 - Future Energy Solutions in 2015, which has annual turnover of over 500 crores and is dedicated to creating innovative solar solutions.
+
+                  Following his passion to be part of India's journey in Energy Independence, he co-founded Inverted Energy Pvt Ltd in 2018 which is amongst the most respected Lithium battery manufacturing companies in India. He is also among the founding members of ClenHedge Verde Pvt Ltd which does Captive and Open Access Projects.
                 </p>
                 <a
                   href="https://www.linkedin.com/in/aditya-goel-7184368?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
