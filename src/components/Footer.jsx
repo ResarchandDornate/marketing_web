@@ -86,9 +86,16 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-bold text-text-primary uppercase tracking-widest mb-5">Solutions</h4>
             <ul className="space-y-3">
-              {['Portable', 'Residential', 'Commercial', 'Industrial'].map(item => (
-                <li key={item}>
-                  <Link href="/products" className="text-sm text-text-secondary hover:text-accent transition-colors">{item}</Link>
+              {[
+                { name: 'Portable', path: '/products/unity-infinity' },
+                { name: 'Residential', path: '/products/unity-infinity' },
+                { name: 'Commercial', path: '/products/model-a' },
+                { name: 'Industrial', path: '/products/model-c' },
+              ].map(item => (
+                <li key={item.name}>
+                  <Link href={item.path} className="text-sm text-text-secondary hover:text-accent transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
