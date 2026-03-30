@@ -16,7 +16,7 @@ export default function Home() {
       <section className="relative w-full overflow-hidden pt-20 pb-10 sm:pt-32 sm:pb-28 min-h-[50vh] sm:min-h-screen flex items-end sm:items-center bg-white">
         {/* Full background image */}
         <div className="absolute inset-0">
-          <img src="/products/hero section image.webp" alt="" className="w-full h-full object-cover object-center sm:object-right animate-hero-zoom" />
+          <img src="/products/unityess-energy-storage-hero.webp" alt="UnityESS Solar Energy Storage System - Reliable BESS for India" className="w-full h-full object-cover object-center sm:object-right animate-hero-zoom" />
         </div>
         {/* Overlays removed to reduce dark theme on image */}
 
@@ -229,7 +229,7 @@ export default function Home() {
             {/* Right — image */}
             <Reveal animation="fade-left" delay={200} duration={800}>
               <div className="rounded-xl overflow-hidden border border-border mx-auto lg:ml-auto">
-                <img src="/products/infrastructure.webp" alt="UnityESS Manufacturing Facility" className="w-full h-auto object-cover" />
+                <img src="/products/unityess-manufacturing-facility-rajasthan.webp" alt="UnityESS Manufacturing Facility" className="w-full h-auto object-cover" />
               </div>
             </Reveal>
           </div>
@@ -301,7 +301,7 @@ const advantageTabs = [
     label: 'Solar Capture',
     title: 'Solar Energy Capture & Backup',
     desc: 'Store excess solar generation during peak production hours and deploy stored energy during outages — with instant switchover and deep cycle reserves for uninterrupted power.',
-    img: '/products/pic11.png',
+    img: '/products/unity-model-c-solar-storage.webp',
     features: ['Instant switchover during grid outages', 'Deep cycle reserves for 8,000+ cycles', 'Peak shaving & load shifting', 'Seamless solar integration'],
     stats: [
       { val: '8,000+', label: 'Cycle Life' },
@@ -314,7 +314,7 @@ const advantageTabs = [
     label: 'Grid Stability',
     title: 'Grid Stability & Independence',
     desc: 'Stabilize voltage and frequency fluctuations while reducing reliance on unstable grid infrastructure. Autonomous energy reserves ensure operational continuity around the clock.',
-    img: '/products/Model C new.webp',
+    img: '/products/unity-model-c-system.webp',
     features: ['Voltage & frequency regulation', 'Autonomous energy reserves', '<20ms grid switchover', ' real-time monitoring'],
     stats: [
       { val: '<20ms', label: 'Switchover' },
@@ -327,7 +327,7 @@ const advantageTabs = [
     label: 'Scalability',
     title: 'Scalable & Future-Ready',
     desc: 'Modular architecture allows seamless expansion from kilowatt to megawatt scale. Millisecond-fast automatic transfer switching ensures zero downtime during scaling.',
-    img: '/products/pict3.webp',
+    img: '/products/unity-bess-container-scale.webp',
     features: ['kW to MW seamless expansion', '20ft containerized form factor', 'Plug-and-operate deployment', 'C4 corrosion resistance'],
     stats: [
       { val: '6.25', label: 'MWh Max' },
@@ -340,7 +340,7 @@ const advantageTabs = [
     label: 'Lower Costs',
     title: 'Lower Costs & Carbon Footprint',
     desc: 'Optimize energy usage with peak shaving and load shifting, dramatically cutting operational costs while reducing carbon emissions through stored renewable energy.',
-    img: '/products/product B neww.webp',
+    img: '/products/unity-model-b-commercial-system.webp',
     features: ['Peak shaving & demand response', '>94% round-trip efficiency', 'Diesel generator replacement', 'Multiple revenue streams'],
     stats: [
       { val: '>94%', label: 'RTE' },

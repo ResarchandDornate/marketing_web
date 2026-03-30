@@ -4,10 +4,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export const metadata = {
-  title: 'UnityESS',
-  description: 'Unity Energy Storage Solutions',
+  title: "UnityESS - India's leading bess manufacturer company",
+  description: 'UnityESS is a leading BESS manufacturer in India, delivering advanced battery energy storage systems for solar, industrial, and grid applications. Reliable, scalable, and future-ready energy solutions.',
+  keywords: ['UnityESS', 'BESS manufacturer', 'energy storage', 'India'],
   icons: {
-    icon: '/favicon.svg',
+    icon: '/favicon.png',
   },
 };
 
