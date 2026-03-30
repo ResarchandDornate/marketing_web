@@ -105,7 +105,7 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                  
+
                   {/* Category Tag Top Right */}
                   <div className="absolute top-4 right-4 z-10">
                     <span className="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
@@ -119,7 +119,7 @@ export default function Home() {
                       {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
                     </p>
                   </div>
-                  
+
                   <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ArrowRight className="w-4 h-4 text-white" />
                   </div>
@@ -366,14 +366,14 @@ function AdvantagesSection() {
         <Reveal animation="fade-up">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5">
             <div>
-              <p className="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-white/10 text-[9px] font-bold text-white uppercase tracking-[0.2em] mb-2 border border-white/10">Why Energy Storage</p>
+              <p className="inline-flex items-center gap-2  rounded-full  text-[11px] font-bold text-white uppercase   mb-2 ">Why Energy Storage</p>
               <h2 className="text-xl lg:text-2xl font-extrabold text-white tracking-tight leading-tight">
                 Intelligent, Powerful and<br />
                 <span className="text-brand-blue-light">Built for India</span>
               </h2>
             </div>
             <div className="flex items-center gap-3">
-               <Link href="/products" className="inline-flex items-center gap-2 bg-white text-brand-blue-dark text-[11px] font-bold px-4 py-1.5 rounded-full hover:bg-brand-blue-light hover:text-white transition-all shadow-lg">
+              <Link href="/products" className="inline-flex items-center gap-2 bg-white text-brand-blue-dark text-[11px] font-bold px-4 py-1.5 rounded-full hover:bg-brand-blue-light hover:text-white transition-all shadow-lg">
                 View full specs <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
@@ -480,7 +480,7 @@ function ProductCarousel({ products }) {
           className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-all duration-500"></div>
-        
+
         {/* Category Tag Top Right */}
         <div className="absolute top-4 right-4 z-10">
           <span className="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
