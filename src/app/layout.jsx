@@ -9,6 +9,7 @@ export const metadata = {
   keywords: ['UnityESS', 'BESS manufacturer', 'energy storage', 'India'],
   icons: {
     icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
