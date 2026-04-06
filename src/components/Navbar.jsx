@@ -26,24 +26,25 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/products', label: 'Products' },
     { href: '/process', label: 'How It Works' },
-   
+
     { href: '/contact', label: 'Contact' },
-     { href: '/about', label: 'About' },
+    { href: '/about', label: 'About' },
+    { href: '/blog/unityess-energy-storage-system-india', label: 'Blog' },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isLight
-          ? 'bg-white/90 backdrop-blur-xl border-black/5 shadow-sm py-3'
-          : 'bg-transparent border-transparent py-5'
+        ? 'bg-white/90 backdrop-blur-xl border-black/5 shadow-sm py-3'
+        : 'bg-transparent border-transparent py-5'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center shrink-0 group">
-            <img 
-              src="/products/unityess-logo.svg" 
-              alt="UnityESS" 
+            <img
+              src="/products/unityess-logo.svg"
+              alt="UnityESS"
               className={`h-6 sm:h-7 w-auto transition-all duration-500 ${isLight ? '' : 'brightness-0 invert'}`}
             />
           </Link>
