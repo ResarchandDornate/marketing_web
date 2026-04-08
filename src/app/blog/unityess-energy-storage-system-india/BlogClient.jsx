@@ -332,10 +332,10 @@ export default function BlogClient() {
           {/* Sidebar Images */}
           <div className="space-y-5 mt-6 mb-4">
             <Link href="/products/model-b" className="block transition-transform hover:scale-[1.02]">
-              <img src="/blog/unityess-model-b-hybrid-bess-manufacturer-india.webp" alt="UnityESS Model B Hybrid BESS - Battery Energy Storage System Manufacturer in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
+              <img src="/blog/modular-energy-storage-at-night.webp" alt="UnityESS Model B Hybrid BESS - Battery Energy Storage System Manufacturer in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
             </Link>
             <Link href="/products/model-a" className="block transition-transform hover:scale-[1.02]">
-              <img src="/blog/unityess-model-a-ci-bess-solution-india.webp" alt="UnityESS Model A Commercial Energy Storage System - C&I BESS Solution in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
+              <img src="/blog/renewable-energy-solutions-at-twilight.webp" alt="UnityESS Model A Commercial Energy Storage System - C&I BESS Solution in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
             </Link>
           </div>
         </aside>
