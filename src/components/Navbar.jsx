@@ -29,7 +29,7 @@ export default function Navbar() {
 
     { href: '/contact', label: 'Contact' },
     { href: '/about', label: 'About' },
-    { href: '/blog/unityess-energy-storage-system-india', label: 'Blog' },
+    { href: '/blog', label: 'Blog' },
   ];
 
   return (

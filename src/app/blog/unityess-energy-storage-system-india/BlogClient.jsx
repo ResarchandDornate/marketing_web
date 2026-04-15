@@ -45,14 +45,19 @@ export default function BlogClient() {
 
   return (
     <div className="bg-white min-h-screen pt-24">
-      <div className="max-w-[1084px] mx-auto px-6 py-10 flex flex-col lg:flex-row gap-10">
+      <div className="max-w-271 mx-auto px-6 py-10 flex flex-col lg:flex-row gap-10">
         {/* Main Content */}
         <article className="lg:w-2/3 text-[15px] text-[#333] leading-[1.8]">
           {/* Banner */}
           <img
-            src="/blog/unityess-energy-storage-system-india-banner.webp"
-            alt="UnityESS Smart Energy Storage System in India - Reliable BESS Solution by Ornate Solar"
-            className="w-full h-[230px] rounded-lg mb-6"
+            src="/blog/unityess-smart-energy-storage-system-india-hero.webp"
+            alt="UnityESS Smart Energy Storage System in India - Reliable BESS Solution by Ornate Solar and Inverted Energy"
+            width="900"
+            height="300"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="w-full h-57.5 rounded-lg mb-6 object-cover"
           />
 
           <header>
@@ -135,7 +140,7 @@ export default function BlogClient() {
               </ul>
             </div>
             <div className="w-full flex justify-start">
-              <Link href="/products/model-a" className="w-full max-w-[500px] block transition-transform hover:scale-[1.02]">
+              <Link href="/products/model-a" className="w-full max-w-125 block transition-transform hover:scale-[1.02]">
                 <img src="/blog/unityess-model-a-commercial-industrial-energy-storage-system.webp" alt="UnityESS Model A - Commercial and Industrial Energy Storage System in India for Offices and Businesses" className="w-full h-auto rounded-lg object-contain shadow-sm border border-gray-100" />
               </Link>
             </div>
@@ -164,7 +169,7 @@ export default function BlogClient() {
               </ul>
             </div>
             <div className="w-full flex justify-start">
-              <Link href="/products/model-b" className="w-full max-w-[500px] block transition-transform hover:scale-[1.02]">
+              <Link href="/products/model-b" className="w-full max-w-125 block transition-transform hover:scale-[1.02]">
                 <img src="/blog/unityess-model-b-hybrid-battery-energy-storage-system.webp" alt="UnityESS Model B - Hybrid Battery Energy Storage System BESS in India for Industries and Factories" className="w-full h-auto rounded-lg object-contain shadow-sm border border-gray-100" />
               </Link>
             </div>
@@ -193,7 +198,7 @@ export default function BlogClient() {
               </ul>
             </div>
             <div className="w-full flex justify-start">
-              <Link href="/products/model-c" className="w-full max-w-[500px] block transition-transform hover:scale-[1.02]">
+              <Link href="/products/model-c" className="w-full max-w-125 block transition-transform hover:scale-[1.02]">
                 <img src="/blog/unityess-model-c-utility-scale-energy-storage-system.webp" alt="UnityESS Model C - Utility Scale Energy Storage System in India for Solar and Wind Power Plants" className="w-full h-auto rounded-lg object-contain shadow-sm border border-gray-100" />
               </Link>
             </div>
@@ -222,7 +227,7 @@ export default function BlogClient() {
               </ul>
             </div>
             <div className="w-full flex justify-start">
-              <Link href="/products/unity-infinity" className="w-full max-w-[500px] block transition-transform hover:scale-[1.02]">
+              <Link href="/products/unity-infinity" className="w-full max-w-125 block transition-transform hover:scale-[1.02]">
                 <img src="/blog/unityess-bess-product-overview.webp" alt="Unity Infinity - 5 kWh Portable Energy Storage System in India for Residential and Small Business Use" className="w-full h-auto rounded-lg object-contain shadow-sm border border-gray-100" />
               </Link>
             </div>
@@ -298,7 +303,7 @@ export default function BlogClient() {
               </div>
               <h3 className="text-[15px] font-bold text-text-primary">Get a Free Quote</h3>
             </div>
-            <p className="text-xs text-text-tertiary mb-4 ml-[42px]">Talk to our energy experts</p>
+            <p className="text-xs text-text-tertiary mb-4 ml-10.5">Talk to our energy experts</p>
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
                 <label className="text-xs font-semibold text-text-primary mb-1 block">Name <span className="text-red-500">*</span></label>
