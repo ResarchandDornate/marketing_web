@@ -19,7 +19,7 @@ export const metadata = {
     authors: ['UnityESS'],
     images: [
       {
-        url: 'https://unityess.ai/blog/unityess-energy-storage-system-india-banner.webp',
+        url: 'https://unityess.ai/blog/unityess-smart-energy-storage-system-india-hero.webp',
         width: 1200,
         height: 630,
         alt: 'UnityESS Smart Energy Storage System in India - Reliable BESS Solution',
@@ -31,7 +31,7 @@ export const metadata = {
     title: 'UnityESS Energy Storage System in India | Reliable BESS Solution',
     description:
       'UnityESS is a smart energy storage system in India by Ornate Solar and Inverted Energy. It stores excess solar energy, reduces electricity costs, and provides reliable power backup.',
-    images: ['https://unityess.ai/blog/unityess-energy-storage-system-india-banner.webp'],
+    images: ['https://unityess.ai/blog/unityess-smart-energy-storage-system-india-hero.webp'],
   },
   robots: {
     index: true,
@@ -52,7 +52,7 @@ const jsonLd = {
   headline: 'Introducing UnityESS Smart Energy Storage System in India',
   description:
     'UnityESS is a smart energy storage system in India by Ornate Solar and Inverted Energy. It stores excess solar energy, reduces electricity costs, and provides reliable power backup.',
-  image: 'https://unityess.ai/blog/unityess-energy-storage-system-india-banner.webp',
+  image: 'https://unityess.ai/blog/unityess-smart-energy-storage-system-india-hero.webp',
   datePublished: '2025-04-03T00:00:00.000Z',
   dateModified: '2025-04-03T00:00:00.000Z',
   author: {
