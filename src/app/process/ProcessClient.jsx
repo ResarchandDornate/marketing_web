@@ -19,8 +19,8 @@ export default function ProcessClient() {
     <div className="min-h-screen">
       {/* Hero — dark */}
       <section className="relative bg-[rgb(58,88,129)] pt-20 pb-14 overflow-hidden">
-        <div className="absolute top-[-60px] left-1/4 w-[500px] h-[500px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-40px] right-1/4 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -top-15 left-1/4 w-125 h-125 bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-10 right-1/4 w-100 h-100 bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <Reveal animation="fade-up" className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full  text-xs font-bold tracking-widest uppercase text-white mb-6">Our Process</div>
           <h1 className="text-2xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">How it works.</h1>
@@ -99,7 +99,7 @@ export default function ProcessClient() {
 
       {/* CTA — dark */}
       <Reveal as="section" animation="zoom-in" className="relative py-20 bg-[rgb(58,88,129)] overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/8 blur-[160px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-accent/8 blur-[160px] rounded-full pointer-events-none"></div>
         <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold tracking-tight mb-4 text-white">Ready to <span className="text-gray">get started</span>?</h2>
           <p className="text-sm text-white mb-8 leading-relaxed">Let our engineering experts design a custom energy storage solution tailored to your specific infrastructure.</p>

@@ -65,7 +65,7 @@ function AppCarousel({ applications }) {
 
   return (
     <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-      <div className="bg-[rgb(58,88,129)] rounded-2xl border border-white/10 p-6 min-h-[160px] transition-all duration-300">
+      <div className="bg-[rgb(58,88,129)] rounded-2xl border border-white/10 p-6 min-h-40 transition-all duration-300">
         <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center mb-3">
           <Icon className="w-5 h-5 text-white" />
         </div>
@@ -159,7 +159,7 @@ export default function ProductDetailClient() {
               {/* Highlight cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-6">
                 {product.highlights.map((h) => (
-                  <div key={h.label} className="bg-gradient-to-br from-white to-[#f5f7fa] px-3 py-3 rounded-xl border border-border text-center shadow-sm hover:shadow-md hover:border-accent/20 transition-all">
+                  <div key={h.label} className="bg-linear-to-br from-white to-[#f5f7fa] px-3 py-3 rounded-xl border border-border text-center shadow-sm hover:shadow-md hover:border-accent/20 transition-all">
                     <span className="text-lg font-extrabold text-accent block leading-tight">{h.value}</span>
                     <span className="text-[9px] text-text-tertiary uppercase tracking-widest font-bold mt-0.5 block">{h.label}</span>
                   </div>
@@ -167,7 +167,7 @@ export default function ProductDetailClient() {
               </div>
 
               {/* Short description */}
-              <div className="bg-gradient-to-r from-accent/5 to-transparent rounded-xl p-4 border border-border mb-6">
+              <div className="bg-linear-to-r from-accent/5 to-transparent rounded-xl p-4 border border-border mb-6">
                 <p className="text-xs text-text-secondary leading-relaxed italic">
                   &ldquo;{product.shortDesc}&rdquo;
                 </p>
@@ -236,7 +236,7 @@ export default function ProductDetailClient() {
                 {product.features.map((feature) => (
                   <div
                     key={feature}
-                    className="flex items-start gap-3 bg-gradient-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
+                    className="flex items-start gap-3 bg-linear-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
                   >
                     <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5 border border-brand-green/15 group-hover:bg-brand-green group-hover:border-brand-green transition-all">
                       <Check className="w-3 h-3 text-brand-green group-hover:text-white transition-colors" />
@@ -295,10 +295,10 @@ export default function ProductDetailClient() {
               <RevealItem key={p.id} animation="fade-up">
                 <Link
                   href={`/products/${p.id}`}
-                  className="group relative block rounded-2xl overflow-hidden h-[240px] cursor-pointer"
+                  className="group relative block rounded-2xl overflow-hidden h-60 cursor-pointer"
                 >
                   <img src={p.image} alt={p.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
                     <h3 className="text-xs font-bold text-white group-hover:text-cyan-200 transition-colors">{p.name}</h3>
                     <p className="text-[8px] text-white/50 font-bold uppercase tracking-widest mt-0.5">{p.series}</p>
@@ -312,7 +312,7 @@ export default function ProductDetailClient() {
 
       {/* CTA */}
       <Reveal as="section" animation="zoom-in" className="py-14 sm:py-16 bg-[rgb(58,88,129)] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:28px_28px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[28px_28px]"></div>
         <div className="absolute -top-25 -right-12.5 w-75 h-75 bg-brand-green/8 rounded-full blur-[100px]"></div>
 
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">

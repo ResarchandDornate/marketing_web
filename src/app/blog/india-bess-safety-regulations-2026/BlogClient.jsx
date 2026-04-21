@@ -48,7 +48,7 @@ export default function BlogClient() {
       <div className="max-w-271 mx-auto px-6 py-10 flex flex-col lg:flex-row gap-10">
         {/* Main Content */}
         <article className="lg:w-2/3 text-[15px] text-[#333] leading-[1.8]">
-          {/* Banner */}
+          {/* Banner - Desktop */}
           <img
             src="/blog/india-bess-safety-regulations-2026-hero.webp"
             alt="India BESS Safety Regulations 2026 by CEA - Chapter XA Rules, Mandatory Fire Audit & April 2027 Compliance Framework for Battery Energy Storage Systems"
@@ -56,7 +56,15 @@ export default function BlogClient() {
             height="300"
             loading="eager"
             fetchPriority="high"
-            className="w-full h-57.5 rounded-lg mb-6 object-cover"
+            className="hidden md:block w-full h-57.5 rounded-lg mb-6 object-cover"
+          />
+          {/* Banner - Mobile */}
+          <img
+            src="/blog/india-bess-safety-regulations-2026-mobile.webp"
+            alt="India BESS Safety Regulations 2026 by CEA - Chapter XA Rules, Mandatory Fire Audit & April 2027 Compliance Framework for Battery Energy Storage Systems"
+            loading="eager"
+            fetchPriority="high"
+            className="md:hidden w-full rounded-lg mb-6 object-cover"
           />
 
           <header>

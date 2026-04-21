@@ -143,9 +143,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} UnityESS. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {['Privacy Policy', 'Terms of Service', ].map(item => (
-              <a key={item} href="#" className="text-xs text-text-tertiary hover:text-text-primary transition-colors">{item}</a>
-            ))}
+            <Link href="/privacy-policy" className="text-xs text-text-tertiary hover:text-text-primary transition-colors">Privacy Policy</Link>
+            
           </div>
         </div>
       </div>
