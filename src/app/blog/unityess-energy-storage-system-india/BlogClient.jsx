@@ -48,7 +48,7 @@ export default function BlogClient() {
       <div className="max-w-271 mx-auto px-6 py-10 flex flex-col lg:flex-row gap-10">
         {/* Main Content */}
         <article className="lg:w-2/3 text-[15px] text-[#333] leading-[1.8]">
-          {/* Banner */}
+          {/* Banner - Desktop */}
           <img
             src="/blog/unityess-smart-energy-storage-system-india-hero.webp"
             alt="UnityESS Smart Energy Storage System in India - Reliable BESS Solution by Ornate Solar and Inverted Energy"
@@ -57,7 +57,16 @@ export default function BlogClient() {
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full h-57.5 rounded-lg mb-6 object-cover"
+            className="hidden md:block w-full h-57.5 rounded-lg mb-6 object-cover"
+          />
+          {/* Banner - Mobile */}
+          <img
+            src="/blog/unityess-smart-energy-storage-system-india-mobile.webp"
+            alt="UnityESS Smart Energy Storage System in India - Reliable BESS Solution by Ornate Solar and Inverted Energy"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="md:hidden w-full rounded-lg mb-6 object-cover"
           />
 
           <header>

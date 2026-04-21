@@ -81,7 +81,7 @@ export default function BlogIndexPage() {
       />
 
       <div className="bg-white min-h-screen pt-12">
-        <div className="max-w-[1000px] mx-auto px-6 py-10">
+        <div className="max-w-250 mx-auto px-6 py-10">
           {/* Page Header */}
           <header className="text-center mb-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent mb-2">
@@ -105,7 +105,7 @@ export default function BlogIndexPage() {
                   href={`/blog/${post.slug}`}
                   className="group flex flex-col rounded-xl overflow-hidden border border-gray-100 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-50">
+                  <div className="relative aspect-16/10 overflow-hidden bg-gray-50">
                     <img
                       src={post.image}
                       alt={post.imageAlt || post.title}

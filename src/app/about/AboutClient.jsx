@@ -36,8 +36,8 @@ export default function AboutClient() {
     <div className="bg-bg-deep min-h-screen pt-8">
       {/* Hero */}
       <section className="relative bg-[rgb(58,88,129)] pt-15 pb-14 overflow-hidden">
-        <div className="absolute top-[-80px] left-1/4 w-[500px] h-[500px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-60px] right-1/4 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -top-20 left-1/4 w-125 h-125 bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-15 right-1/4 w-100 h-100 bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full  text-xs font-bold tracking-widest uppercase text-white mb-6">Our Story</div>
           <h1 className="text-2xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">Empowering with clean energy.</h1>
@@ -55,11 +55,11 @@ export default function AboutClient() {
           {/* Aditya Goel */}
           <Reveal animation="fade-right" duration={800} className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-              <div className="md:w-[280px] shrink-0">
+              <div className="md:w-70 shrink-0">
                 <img
                   src="/products/aditya-goel-unityess-executive-director.webp"
                   alt="Aditya Goel"
-                  className="w-full h-full object-cover md:min-h-[320px]"
+                  className="w-full h-full object-cover md:min-h-80"
                 />
               </div>
               <div className="p-6 md:py-8 md:pr-8 md:pl-6">
@@ -88,11 +88,11 @@ export default function AboutClient() {
           {/* Raghav Jain */}
           <Reveal animation="fade-left" delay={100} duration={800} className="max-w-4xl mx-auto mt-6">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-              <div className="md:w-[280px] shrink-0">
+              <div className="md:w-70 shrink-0">
                 <img
                   src="/products/raghav-jain-unityess-co-founder.webp"
                   alt="Raghav Jain"
-                  className="w-full h-full object-cover md:min-h-[320px]"
+                  className="w-full h-full object-cover md:min-h-80"
                 />
               </div>
               <div className="p-6 md:py-8 md:pr-8 md:pl-6">
@@ -117,11 +117,11 @@ export default function AboutClient() {
           {/* Rahul Raj */}
           <Reveal animation="fade-right" delay={100} duration={800} className="max-w-4xl mx-auto mt-6">
             <div className="flex flex-col md:flex-row items-start bg-bg-deep rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] overflow-hidden">
-              <div className="md:w-[280px] shrink-0">
+              <div className="md:w-70 shrink-0">
                 <img
                   src="/products/rahul-raj-unityess-business-analyst.webp"
                   alt="Rahul Raj"
-                  className="w-full h-full object-cover md:min-h-[320px]"
+                  className="w-full h-full object-cover md:min-h-80"
                 />
               </div>
               <div className="p-6 md:py-8 md:pr-8 md:pl-6">
@@ -250,13 +250,13 @@ export default function AboutClient() {
             </Reveal>
 
             {/* Right Image */}
-            <Reveal animation="zoom-in" delay={200} className="lg:w-[45%] relative min-h-[280px]">
+            <Reveal animation="zoom-in" delay={200} className="lg:w-[45%] relative min-h-70">
               <img
                 src="/products/unityess-research-and-development-lab.webp"
                 alt="Research and Development Lab"
                 className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-black/5 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-l from-black/5 to-transparent pointer-events-none"></div>
             </Reveal>
           </div>
         </div>
@@ -285,7 +285,7 @@ export default function AboutClient() {
       {/* Timeline */}
       <section className="py-16 bg-[#f0f4f8] relative overflow-hidden">
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <Reveal animation="fade-up" className="text-center mb-12">
@@ -296,9 +296,9 @@ export default function AboutClient() {
           {/* Timeline */}
           <div className="relative">
             {/* Center line - desktop */}
-            <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-accent/30 to-transparent"></div>
+            <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-accent/30 to-transparent"></div>
             {/* Left line - mobile */}
-            <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-accent/30 to-transparent"></div>
+            <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-accent/30 to-transparent"></div>
 
             <div className="space-y-6 md:space-y-0">
               {milestones.map((m, idx) => {
@@ -341,7 +341,7 @@ export default function AboutClient() {
 
       {/* CTA */}
       <Reveal as="section" animation="zoom-in" className="relative py-20 bg-[rgb(58,88,129)] overflow-hidden">
-        <div className="absolute bottom-[-80px] right-1/3 w-[400px] h-[400px] bg-[#00b853]/8 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-20 right-1/3 w-100 h-100 bg-[#00b853]/8 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="max-w-xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-2xl font-bold tracking-tight mb-4 text-white">Partner with <span className=" text-brand-blue-light">UnityESS.</span></h2>
           <p className="text-sm text-white mb-8 leading-relaxed">Join our global network of distributors and energy partners to shape the future of power.</p>
