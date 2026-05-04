@@ -233,7 +233,7 @@ export default function WhitePaperDetail() {
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
-              {loading ? 'SUBMITTING...' : 'DOWNLOAD'}
+              {loading ? 'SUBMITTING...' : 'SUBMIT'}
             </button>
             {status.message && (
               <div className={`p-3 rounded-lg text-center text-sm font-semibold ${

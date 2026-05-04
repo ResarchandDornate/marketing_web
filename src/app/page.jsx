@@ -97,14 +97,14 @@ export default function Home() {
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   href={`/products/${product.id}`}
-                  className="group relative block rounded-2xl overflow-hidden h-[340px] sm:h-[380px] cursor-pointer"
+                  className="group relative block rounded-2xl overflow-hidden h-85 sm:h-95 cursor-pointer"
                 >
                   <img
                     src={product.image}
                     alt={product.name}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
 
                   {/* Category Tag Top Right */}
                   <div className="absolute top-4 right-4 z-10">
@@ -113,7 +113,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-500 group-hover:translate-y-[-4px]">
+                  <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-500 group-hover:-translate-y-1">
                     <h3 className="text-xl font-bold text-white mb-0.5 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
                     <p className="text-sm text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                       {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
@@ -357,9 +357,9 @@ function AdvantagesSection() {
   return (
     <section className="py-6 sm:py-10 bg-[rgb(58,88,129)] relative overflow-hidden">
       {/* Ambient glows */}
-      <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-brand-blue-dark/12 blur-[200px] rounded-full"></div>
-      <div className="absolute bottom-[-10%] right-[10%] w-[500px] h-[500px] bg-accent/8 blur-[180px] rounded-full"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:32px_32px]"></div>
+      <div className="absolute top-[-10%] left-[20%] w-150 h-150 bg-brand-blue-dark/12 blur-[200px] rounded-full"></div>
+      <div className="absolute bottom-[-10%] right-[10%] w-125 h-125 bg-accent/8 blur-[180px] rounded-full"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[32px_32px]"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
@@ -388,7 +388,7 @@ function AdvantagesSection() {
               onClick={() => setActive(i)}
               className={`px-3.5 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-300 border ${active === i
                 ? 'bg-white text-[#070E1A] border-white shadow-[0_0_25px_rgba(255,255,255,0.12)]'
-                : 'bg-white/[0.03] text-white/40 border-white/8 hover:text-white/70 hover:border-white/15 hover:bg-white/[0.05]'
+                : 'bg-white/3 text-white/40 border-white/8 hover:text-white/70 hover:border-white/15 hover:bg-white/5'
                 }`}
             >
               {t.label}
@@ -401,14 +401,14 @@ function AdvantagesSection() {
           <div className="grid grid-cols-1 lg:grid-cols-5">
 
             {/* Left — Product image (bigger, cover style) */}
-            <div className="relative lg:col-span-3 min-h-[200px] sm:min-h-[260px] overflow-hidden">
+            <div className="relative lg:col-span-3 min-h-50 sm:min-h-65 overflow-hidden">
               <img
                 key={tab.id}
                 src={tab.img}
                 alt={tab.title}
                 className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-black/[0.05] to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-black/5 to-transparent pointer-events-none"></div>
             </div>
 
             {/* Right — Content */}
@@ -420,7 +420,7 @@ function AdvantagesSection() {
               <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-5">
                 {tab.features.map((f) => (
                   <div key={f} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] shrink-0"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-blue-light shrink-0"></div>
                     <span className="text-sm text-white/60 font-medium">{f}</span>
                   </div>
                 ))}
@@ -429,7 +429,7 @@ function AdvantagesSection() {
               {/* Stats row */}
               <div className="flex gap-2.5">
                 {tab.stats.map((s) => (
-                  <div key={s.label} className="flex-1 bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-2 text-center">
+                  <div key={s.label} className="flex-1 bg-white/4 border border-white/6 rounded-lg px-3 py-2 text-center">
                     <p className="text-base font-extrabold text-white leading-tight">{s.val}</p>
                     <p className="text-[8px] font-bold text-white/30 uppercase tracking-widest mt-0.5">{s.label}</p>
                   </div>
@@ -471,7 +471,7 @@ function ProductCarousel({ products }) {
     <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <Link
         href={`/products/${product.id}`}
-        className="relative block rounded-2xl overflow-hidden h-[420px] cursor-pointer"
+        className="relative block rounded-2xl overflow-hidden h-105 cursor-pointer"
       >
         <img
           key={product.id}
@@ -479,7 +479,7 @@ function ProductCarousel({ products }) {
           alt={product.name}
           className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-all duration-500"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent transition-all duration-500"></div>
 
         {/* Category Tag Top Right */}
         <div className="absolute top-4 right-4 z-10">
