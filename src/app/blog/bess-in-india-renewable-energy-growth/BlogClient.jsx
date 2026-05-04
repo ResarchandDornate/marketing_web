@@ -60,7 +60,7 @@ export default function BlogClient() {
           />
           {/* Banner - Mobile */}
           <img
-            src="/blog/bess-in-india-renewable-energy-growth-mobile.webp"
+            src="/blog/bess-in-india-renewable-energy-growth-mobile.webp?v=2"
             alt="BESS in India - UnityESS Battery Energy Storage Systems Powering Rajasthan Solar Farms for Renewable Energy Growth and Grid Stability"
             loading="eager"
             fetchPriority="high"
