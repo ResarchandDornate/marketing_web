@@ -18,7 +18,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns on outside click
+  // Close dropdowns on outside click / tap
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (resourcesRef.current && !resourcesRef.current.contains(e.target)) {
@@ -26,7 +26,11 @@ export default function Navbar() {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   // Close mobile menu on route change
@@ -89,12 +93,16 @@ export default function Navbar() {
               onMouseEnter={() => setResourcesOpen(true)}
               onMouseLeave={() => setResourcesOpen(false)}
             >
-              <span
-                className={`flex items-center gap-1 px-4 py-2 text-[14px] font-semibold tracking-wide transition-all duration-300 rounded-full cursor-default ${isLight ? 'text-text-secondary hover:text-brand-blue-dark hover:bg-black/5' : 'text-white/80 hover:text-white hover:bg-white/10'} ${isResourceActive && (isLight ? 'bg-black/5 text-brand-blue-dark font-bold' : 'bg-white/20 text-white font-bold')}`}
+              <button
+                type="button"
+                onClick={() => setResourcesOpen((prev) => !prev)}
+                aria-expanded={resourcesOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 px-4 py-2 text-[14px] font-semibold tracking-wide transition-all duration-300 rounded-full cursor-pointer ${isLight ? 'text-text-secondary hover:text-brand-blue-dark hover:bg-black/5' : 'text-white/80 hover:text-white hover:bg-white/10'} ${isResourceActive && (isLight ? 'bg-black/5 text-brand-blue-dark font-bold' : 'bg-white/20 text-white font-bold')}`}
               >
                 Resources
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
-              </span>
+              </button>
 
               {resourcesOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
@@ -103,6 +111,7 @@ export default function Navbar() {
                       <Link
                         key={link.href}
                         href={link.href}
+                        onClick={() => setResourcesOpen(false)}
                         className={`block px-4 py-2.5 text-sm font-medium transition-colors ${pathname.startsWith(link.href)
                           ? 'text-brand-blue-dark bg-brand-blue/5'
                           : 'text-text-secondary hover:text-brand-blue-dark hover:bg-gray-50'

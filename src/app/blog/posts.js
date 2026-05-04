@@ -4,13 +4,27 @@
 
 export const posts = [
   {
+    slug: 'bess-in-india-renewable-energy-growth',
+    title: "Why BESS Is No Longer Optional for India's Renewable Energy Growth",
+    description:
+      'BESS in India is essential to manage solar curtailment, balance demand-supply gaps, and improve grid stability as renewable capacity rapidly grows.',
+    image: '/blog/bess-in-india-renewable-energy-growth-card.webp',
+    imageAlt:
+      'BESS in India - Battery Energy Storage Systems Powering Rajasthan Solar Farms for Renewable Energy Growth and Grid Stability by UnityESS',
+    date: '2026-04-20',
+    dateLabel: 'April 20, 2026',
+    author: 'UnityESS Team',
+    readTime: '7 min read',
+    category: 'Industry Insights',
+  },
+  {
     slug: 'india-bess-safety-regulations-2026',
     title: "India's BESS Safety Regulations 2026: Key Rules, Fire Audit Mandate & What Changes from April 2027",
     description:
       "Detailed guide to India's BESS safety regulations 2026 by CEA. Covers key rules, fire audit requirements, and compliance from April 2027.",
     image: '/blog/india-bess-safety-regulations-2026-card.webp',
     imageAlt:
-      "India BESS Safety Regulations 2026 - CEA Chapter XA rules, fire audit mandate and April 2027 compliance framework for battery energy storage systems",
+      'India BESS Safety Regulations 2026 - UnityESS Battery Energy Storage Systems Compliant with CEA Chapter XA Rules, Fire Audit and April 2027 Compliance Framework',
     date: '2026-04-10',
     dateLabel: 'April 10, 2026',
     author: 'UnityESS Team',
@@ -24,7 +38,7 @@ export const posts = [
       'UnityESS is a smart energy storage system in India by Ornate Solar and Inverted Energy. It stores excess solar energy, reduces electricity costs, and provides reliable power backup.',
     image: '/blog/unityess-smart-energy-storage-system-india-card.webp',
     imageAlt:
-      'UnityESS Smart Energy Storage System in India - reliable BESS solution by Ornate Solar and Inverted Energy for solar power backup',
+      'UnityESS Smart Energy Storage System in India - Reliable BESS Solution with Solar Integration by Ornate Solar and Inverted Energy for Renewable Energy Backup',
     date: '2025-04-03',
     dateLabel: 'April 3, 2025',
     author: 'UnityESS Team',
