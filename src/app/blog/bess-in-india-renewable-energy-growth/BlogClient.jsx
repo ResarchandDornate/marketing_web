@@ -84,13 +84,21 @@ export default function BlogClient() {
           <p className="mb-4">
             This is where <strong>bess in india</strong> is becoming increasingly critical, not just for the state, but as a model for India.
           </p>
-          <p className="mb-6">
-            BESS in Rajasthan is no longer optional, it is a blueprint for why storage is essential for India&apos;s renewable energy future.
+          <p className="mb-6  text-[20px]">
+            <strong>BESS in Rajasthan is no longer optional, it is a blueprint for why storage is essential for India&apos;s renewable energy future.</strong>
           </p>
+
+          <img
+            src="/blog/rajasthan-renewable-curtailment-crisis.webp"
+            alt="BESS in India - Rajasthan Renewable Energy Curtailment Crisis and Grid Stability Challenges"
+            className="w-full rounded-lg mb-6 shadow-md border border-gray-200"
+            loading="lazy"
+          />
 
           <hr className="my-6 border-gray-200" />
 
           <h2 className="text-[20px] font-bold text-[#191919] mb-3 mt-8">Rajasthan&apos;s Curtailment Crisis: A Warning Signal</h2>
+
           <p className="mb-3">
             Between January and March 2026, renewable energy curtailment in Rajasthan reached a staggering <strong>11.5 GW cumulatively</strong>. What&apos;s more alarming is how sharply the situation escalated:
           </p>
@@ -157,6 +165,12 @@ export default function BlogClient() {
             <li><strong>Peak demand:</strong> evening hours</li>
           </ul>
           <p className="mb-6">This mismatch results in excess daytime generation, which the grid is unable to absorb.</p>
+          <img
+            src="/blog/solar-demand-supply-mismatch-india.webp"
+            alt="Solar Energy Demand-Supply Timing Mismatch in India - Why BESS in India is Essential for Grid Balancing"
+            className="w-full rounded-lg mb-6 shadow-md border border-gray-200"
+            loading="lazy"
+          />
 
           <h3 className="text-[17px] font-bold text-[#191919] mb-2 mt-6">3. Thermal Generation Inflexibility</h3>
           <p className="mb-3">Coal-based plants continue to operate due to technical and contractual constraints:</p>
@@ -206,6 +220,12 @@ export default function BlogClient() {
             </li>
           </ul>
           <p className="mb-6">These developments indicate a clear policy and market shift toward storage-backed renewable systems.</p>
+          <img
+            src="/blog/india-renewable-energy-policy-shift.webp"
+            alt="India Renewable Energy Policy Shift - Transitioning to Storage-Backed Solar and BESS Integration in Rajasthan"
+            className="w-full rounded-lg mb-6 shadow-md border border-gray-200"
+            loading="lazy"
+          />
 
           <hr className="my-6 border-gray-200" />
 
