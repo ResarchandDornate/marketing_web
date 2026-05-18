@@ -26,7 +26,7 @@ export const metadata = {
     url: 'https://unityess.ai/blog/energy-storage-for-ev-charging-in-india',
     siteName: 'UnityESS',
     type: 'article',
-    publishedTime: '2026-04-22T00:00:00.000Z',
+    publishedTime: '2026-05-18T00:00:00.000Z',
     authors: ['UnityESS'],
     images: [
       {
@@ -64,8 +64,8 @@ const jsonLd = {
   description:
     'UnityESS enables energy storage for EV charging in India with scalable BESS solutions. Improve fast charging performance, reduce costs, and build reliable EV charging infrastructure.',
   image: 'https://unityess.ai/blog/energy-storage-for-ev-charging-in-india-hero.webp',
-  datePublished: '2026-04-22T00:00:00.000Z',
-  dateModified: '2026-04-22T00:00:00.000Z',
+  datePublished: '2026-05-18T00:00:00.000Z',
+  dateModified: '2026-05-18T00:00:00.000Z',
   author: {
     '@type': 'Organization',
     name: 'UnityESS',
