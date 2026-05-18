@@ -72,7 +72,7 @@ export default function BlogClient() {
               Powering the Future of EV Charging Stations in India with UnityESS
             </h1>
             <div className="flex items-center gap-3 text-xs text-gray-500 mb-5">
-              <time dateTime="2026-04-22">April 22, 2026</time>
+              <time dateTime="2026-05-18">May 18, 2026</time>
               <span>•</span>
               <span>By UnityESS Team</span>
             </div>

@@ -11,8 +11,8 @@ export const posts = [
     image: '/blog/energy-storage-for-ev-charging-in-india-card.webp?v=2',
     imageAlt:
       'Energy Storage for EV Charging in India - UnityESS BESS Solution Powering Electric Vehicle Fast Charging Stations and Reducing Grid Dependency',
-    date: '2026-04-22',
-    dateLabel: 'April 22, 2026',
+    date: '2026-05-18',
+    dateLabel: 'May 18, 2026',
     author: 'UnityESS Team',
     readTime: '8 min read',
     category: 'EV Charging',
