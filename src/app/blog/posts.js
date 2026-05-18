@@ -4,6 +4,20 @@
 
 export const posts = [
   {
+    slug: 'energy-storage-for-ev-charging-in-india',
+    title: 'Powering the Future of EV Charging Stations in India with UnityESS',
+    description:
+      'UnityESS enables energy storage for EV charging in India with scalable BESS solutions. Improve fast charging performance, reduce costs, and build reliable EV charging infrastructure.',
+    image: '/blog/energy-storage-for-ev-charging-in-india-card.webp?v=2',
+    imageAlt:
+      'Energy Storage for EV Charging in India - UnityESS BESS Solution Powering Electric Vehicle Fast Charging Stations and Reducing Grid Dependency',
+    date: '2026-04-22',
+    dateLabel: 'April 22, 2026',
+    author: 'UnityESS Team',
+    readTime: '8 min read',
+    category: 'EV Charging',
+  },
+  {
     slug: 'bess-in-india-renewable-energy-growth',
     title: "Why BESS Is No Longer Optional for India's Renewable Energy Growth",
     description:
