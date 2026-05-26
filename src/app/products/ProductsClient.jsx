@@ -9,24 +9,24 @@ import Reveal, { RevealItem } from '../../components/Reveal';
 function ProductCarousel({ products }) {
   // Simple check to prevent errors
   if (!products || products.length === 0) return null;
-  
+
   const [active, setActive] = useState(0);
   const total = products.length;
 
   const next = () => setActive((prev) => (prev + 1) % total);
-  
+
   return (
     <div className="relative">
       <Link
         href={`/products/${products[active].id}`}
-        className="relative block rounded-2xl overflow-hidden h-[300px] cursor-pointer"
+        className="relative block rounded-2xl overflow-hidden h-75 cursor-pointer"
       >
         <img
           src={products[active].image}
           alt={products[active].name}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <h3 className="text-lg font-bold text-white">{products[active].name}</h3>
         </div>
@@ -53,12 +53,12 @@ export default function ProductsClient() {
 
       {/* Compact Header */}
       <section className="relative bg-[rgb(58,88,129)] pt-13 pb-14 overflow-hidden">
-        <div className="absolute top-[-60px] left-1/3 w-[450px] h-[450px]  rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-40px] right-1/4 w-[350px] h-[350px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -top-15 left-1/3 w-112.5 h-112.5  rounded-full pointer-events-none"></div>
+        <div className="absolute -bottom-10 right-1/4 w-87.5 h-87.5 bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <Reveal animation="fade-up" className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5   text-xs font-bold tracking-widest uppercase text-white mb-6">All Products</div>
           <h1 className="text-2xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
-            Energy Storage <span className="text-[#60a5fa]">Solutions</span>
+            Energy Storage <span className="text-brand-blue-light">Solutions</span>
           </h1>
           <p className="text-sm text-white max-w-2xl mx-auto leading-relaxed">
             From portable power stations to utility-scale containerized systems — engineered for absolute reliability.
@@ -96,7 +96,7 @@ export default function ProductsClient() {
               <RevealItem key={product.id} animation="fade-up">
                 <Link
                   href={`/products/${product.id}`}
-                  className="group relative block rounded-2xl overflow-hidden h-[280px] sm:h-[340px] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-400"
+                  className="group relative block rounded-2xl overflow-hidden h-70 sm:h-85 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-400"
                 >
                   {/* Full cover image */}
                   <img
@@ -105,7 +105,7 @@ export default function ProductsClient() {
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/25 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
                   {/* Category badge */}
                   <span className="absolute top-3 right-3 text-[7px] font-bold tracking-wider uppercase text-white/80 bg-white/15 backdrop-blur-sm px-2.5 py-1 rounded-full">
                     {product.series.replace(' Series', '')}
@@ -142,7 +142,7 @@ export default function ProductsClient() {
 
       {/* Bottom CTA */}
       <Reveal as="section" animation="zoom-in" className="relative py-10 bg-[rgb(58,88,129)] overflow-hidden">
-        <div className="absolute top-[-60px] left-1/3 w-[400px] h-[400px] bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute -top-15 left-1/3 w-100 h-100 bg-accent/6 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="max-w-2xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-2xl font-extrabold text-white tracking-tight mb-2 leading-[1.1]">
             Need help choosing the right <span className="text-brand-blue-light">system?</span>
