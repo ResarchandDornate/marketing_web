@@ -1,9 +1,14 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Mail, Phone, MapPin, ArrowRight, Send, Shield, Zap, Globe } from 'lucide-react';
 import Reveal, { RevealItem } from '../../components/Reveal';
 
 export default function ContactClient() {
+  const searchParams = useSearchParams();
+  const datasheetUrl = searchParams.get('datasheet');
+  const datasheetName = searchParams.get('product');
+
   const [firstName, setFirstName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -11,6 +16,28 @@ export default function ContactClient() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
+
+  // Scroll to form when arriving with a datasheet request
+  useEffect(() => {
+    if (datasheetUrl) {
+      setTimeout(() => {
+        const form = document.getElementById('contact-form');
+        if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  }, [datasheetUrl]);
+
+  const triggerDatasheetDownload = () => {
+    if (!datasheetUrl) return;
+    const link = document.createElement('a');
+    link.href = datasheetUrl;
+    link.download = '';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +48,7 @@ export default function ContactClient() {
       company,
       message,
       website_url: "unityess.ai",
-      lead_type: "Unityess",
+      lead_type: datasheetUrl ? "Unityess-Datasheet-Download" : "Unityess",
     };
     setLoading(true);
     setStatus({ type: '', message: '' });
@@ -41,10 +68,15 @@ export default function ContactClient() {
         setEmail("");
         setCompany("");
         setMessage("");
-        setStatus({ type: 'success', message: 'Query submitted successfully!' });
+        if (datasheetUrl) {
+          triggerDatasheetDownload();
+          setStatus({ type: 'success', message: 'Thank you! Your datasheet is downloading.' });
+        } else {
+          setStatus({ type: 'success', message: 'Query submitted successfully!' });
+        }
         setTimeout(() => {
           setStatus({ type: '', message: '' });
-        }, 2000);
+        }, 3000);
       } else {
         setStatus({ type: 'error', message: 'Submission failed. Please try again.' });
       }
@@ -105,11 +137,18 @@ export default function ContactClient() {
                     <Send className="w-4 h-4 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-text-primary tracking-tight">Send us a message</h3>
-                    <p className="text-xs text-text-tertiary">We'll get back to you within 2 business hours.</p>
+                    <h3 className="text-base font-bold text-text-primary tracking-tight">
+                      {datasheetUrl ? `Download ${datasheetName || 'Datasheet'}` : 'Send us a message'}
+                    </h3>
+                    <p className="text-xs text-text-tertiary">
+                      {datasheetUrl
+                        ? 'Share your details below and the datasheet will download automatically.'
+                        : "We'll get back to you within 2 business hours."}
+                    </p>
                   </div>
                 </div>
-                <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <form id="contact-form" onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-sm font-semibold text-text-primary">Your Name <span className="text-red-500">*</span></label>
                     <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Enter your name" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />

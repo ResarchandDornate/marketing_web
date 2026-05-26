@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download, Factory, Server, Building2, Sun, Plug, HeartPulse, Camera, Tent, HardHat, Briefcase, Truck, Radio, BarChart3, BatteryCharging, Warehouse, Hospital, Lightbulb, Wind } from 'lucide-react';
+import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download, Factory, Server, Building2, Sun, Plug, HeartPulse, Camera, Tent, HardHat, Briefcase, Truck, Radio, BarChart3, BatteryCharging, Warehouse, Hospital, Lightbulb, Wind, X, Layers, Box, Mountain, Cpu, ShieldCheck } from 'lucide-react';
 import { getProductById, products } from '../../../data/products';
 import Reveal, { RevealItem } from '../../../components/Reveal';
 
@@ -38,6 +39,292 @@ const appMetaMap = {
 function getAppMeta(app) {
   if (appMetaMap[app]) return appMetaMap[app];
   return { icon: Zap, caption: 'Engineered for maximum performance and unwavering reliability.' };
+}
+
+/* ═══════ Model A Variants Datasheet (shown only on Model A detail page) ═══════ */
+const modelA4 = {
+  name: 'UNITY Model A4',
+  series: 'Commercial Series',
+  capacity: '261 kWh & 522 kWh',
+  image: '/products/unity-model-a4-bess.webp',
+  description: 'The UNITYESS Model A4 series is a compact low-voltage C&I energy storage solution operating at 400V AC, available in 261 kWh and 522 kWh configurations with 2-hour and 4-hour charge/discharge durations.',
+  detail: 'Designed for flexible commercial applications with liquid-cooled LFP batteries, intelligent BMS, integrated PCS, and advanced safety architecture.',
+  variants: ['A4-261-0.5C', 'A4-522-0.25C'],
+  specs: {
+    ac: {
+      'Rated Capacity': '261 kWh / 522 kWh',
+      'AC Rated Power': '125 kW',
+      'Nominal Voltage (AC)': '400 V',
+      'Rated Voltage (AC)': '380 - 420 Vac',
+      'Frequency': '49.5 - 50.5 Hz',
+      'THDi': '≤ 3%',
+      'Power Factor': '1.0 leading - 1.0 lagging',
+    },
+    dc: {
+      'Cell': 'LFP 314 Ah',
+      'Battery Pack': '1P52S',
+      'Battery Rack': '1P260S',
+      'Nominal DC Voltage': '832 V',
+      'DC Voltage Range': '754 - 936 V',
+      'Cooling Method': 'Liquid Cooled',
+    },
+    general: {
+      'Communication': 'RS485 / CAN / Ethernet',
+      'DC RTE': '> 94%',
+      'Lifetime': '8,000 cycles',
+      'Fire Fighting System': 'Temperature/Smoke Detection, Aerosol, Flooding',
+      'Noise': '< 80 dB',
+      'Operating Temperature': '-30 to 55 °C',
+      'Rating': 'IP54',
+      'Dimension (W x D x H)': '1100 x 1320 x 2560 mm',
+      'Weight': '2,600 kg',
+      'Standard': 'IEC62619, IEC61000, UL9540(A), UN38.3',
+    },
+  },
+};
+
+/* ═══════ Model C Series Variants (shown only on Model C detail page) ═══════ */
+const modelCSeries = {
+  name: 'UNITY Model C314 / C350 / C587',
+  series: 'Utility Series',
+  capacity: '3.34 MWh – 6.23 MWh',
+  image: '/products/unity-model-c-series-bess.webp',
+  description: 'The UNITYESS Model C series is a containerized utility-scale energy storage system available in multiple configurations with different battery rack capacities and LFP 314 Ah, 350 Ah, or 587 Ah cells.',
+  detail: 'C314 — 3.340, 4.180 & 5.016 MWh · C350 — 3.440, 4.300 & 5.161 MWh · C587 — 4.690, 5.470 & 6.230 MWh. Engineered for utility-scale renewable integration, grid services, and high-capacity industrial deployments.',
+  variants: ['C314-3340', 'C314-4180', 'C314-5016', 'C350-3440', 'C350-4300', 'C350-5161', 'C587-4690', 'C587-5470', 'C587-6230'],
+  specs: {
+    ac: {
+      'Rated Capacity (C314)': '3.340 / 4.180 / 5.016 MWh',
+      'Rated Capacity (C350)': '3.440 / 4.300 / 5.161 MWh',
+      'Rated Capacity (C587)': '4.690 / 5.470 / 6.230 MWh',
+      'AC Rated Power': '2.5 MVA',
+      'Nominal Voltage (AC)': '690 V',
+      'Rated Voltage (AC)': '655 - 724 Vac',
+      'Frequency': '49.5 - 50.5 Hz',
+      'THDi': '≤ 3%',
+      'Power Factor': '1.0 leading - 1.0 lagging',
+    },
+    dc: {
+      'Cell (C314 / C350 / C587)': 'LFP 314 Ah / 350 Ah / 587 Ah',
+      'Battery Pack': '1P52S',
+      'Battery Rack': '8P384S / 10P384S / 12P384S',
+      'Nominal DC Voltage': '1331 V',
+      'DC Voltage Range': '1100 - 1500 V',
+      'Cooling Method': 'Liquid Cooled',
+    },
+    general: {
+      'Communication': 'RS485 / CAN / Ethernet',
+      'DC RTE': '> 94%',
+      'Lifetime': '8,000 cycles',
+      'Fire Fighting System': 'Temperature/Smoke Detection, Aerosol, Flooding, Alarm Bell & Strobe',
+      'Operating Temperature': '-30 to 55 °C',
+      'Corrosion Rating': 'C4',
+      'Dimension (W x D x H)': '6058 x 2436 x 2896 mm',
+      'Weight': '40 - 49 tons',
+      'Standard': 'IEC62619, IEC61000, UL9540(A), UN38.3',
+    },
+  },
+};
+
+const modelA6 = {
+  name: 'UNITY Model A6/A8',
+  series: 'Commercial Series',
+  capacity: '418 kWh & 836 kWh',
+  image: '/products/unity-model-a6-bess.webp?v=2',
+  description: 'The UNITYESS Model A6 series is a medium-voltage C&I energy storage solution operating at 690V AC/800V AC, available in 418 kWh and 836 kWh configurations with 2-hour and 4-hour charge/discharge durations.',
+  detail: 'Built for high-performance industrial applications with efficient liquid cooling, scalable battery architecture, and integrated fire protection systems.',
+  variants: ['A6-418-0.5C', 'A6-836-0.25C'],
+  specs: {
+    ac: {
+      'Rated Capacity': '418 kWh / 836 kWh',
+      'AC Rated Power': '215 kW',
+      'Nominal Voltage (AC)': '690 V',
+      'Rated Voltage (AC)': '655 - 724 Vac',
+      'Frequency': '49.5 - 50.5 Hz',
+      'THDi': '≤ 3%',
+      'Power Factor': '1.0 leading - 1.0 lagging',
+    },
+    dc: {
+      'Cell': 'LFP 314 Ah',
+      'Battery Pack': '1P52S',
+      'Battery Rack': '1P416S / 2P416S',
+      'Nominal DC Voltage': '1331 V',
+      'DC Voltage Range': '1100 - 1500 V',
+      'Cooling Method': 'Liquid Cooled',
+    },
+    general: {
+      'Communication': 'RS485 / CAN / Ethernet',
+      'DC RTE': '> 88%',
+      'Lifetime': '8,000 cycles',
+      'Fire Fighting System': 'Temperature/Smoke Detection, Aerosol, Flooding',
+      'Noise': '< 80 dB',
+      'Operating Temperature': '-30 to 55 °C',
+      'Rating': 'IP54',
+      'Dimension (W x D x H)': '1690 x 1350 x 2400 mm / 3400 x 1350 x 2400 mm',
+      'Weight': '3,800 kg / 6,600 kg',
+      'Standard': 'IEC62619, IEC61000, UL9540(A), UN38.3',
+    },
+  },
+};
+
+function DatasheetModal({ product, onClose }) {
+  const [mounted, setMounted] = useState(false);
+
+  // Lock body scroll while modal is open + close on ESC
+  useEffect(() => {
+    setMounted(true);
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = original;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [onClose]);
+
+  if (!mounted) return null;
+
+  const modalContent = (
+    <div
+      className="fixed inset-0 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
+      style={{ zIndex: 9999 }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col modal-scroll"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors shadow-sm"
+        >
+          <X className="w-4 h-4 text-gray-700" />
+        </button>
+
+        <div className="overflow-y-auto modal-scroll">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div className="bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center p-8 md:p-10">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full max-w-sm h-auto object-contain rounded-xl"
+              />
+            </div>
+
+            <div className="p-6 md:p-8 flex flex-col justify-center bg-white">
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-3">
+                {product.series}
+              </p>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight mb-1">
+                {product.name}
+              </h2>
+              {product.capacity && (
+                <p className="text-base font-semibold text-[rgb(58,88,129)] mb-3">
+                  {product.capacity}
+                </p>
+              )}
+              {product.description && (
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  {product.description}
+                </p>
+              )}
+              {product.detail && (
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                  {product.detail}
+                </p>
+              )}
+              {product.tagline && !product.description && (
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  {product.tagline}
+                </p>
+              )}
+              <div className="flex flex-wrap gap-2 mb-5">
+                {product.variants.map((v) => (
+                  <span
+                    key={v}
+                    className="text-xs font-bold px-3 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/15"
+                  >
+                    {v}
+                  </span>
+                ))}
+              </div>
+              <Link
+                href="/contact"
+                onClick={onClose}
+                className="inline-flex items-center gap-2 bg-[rgb(58,88,129)] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[rgb(48,75,110)] transition-colors w-fit"
+              >
+                Request Quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="px-6 md:px-8 pb-8 pt-2">
+            <h3 className="text-lg font-bold text-gray-900 mb-5 mt-2 pb-2 border-b border-gray-200">
+              Technical Specifications
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <p className="text-xs font-bold tracking-widest uppercase text-accent mb-4">AC Side</p>
+                <dl className="space-y-3">
+                  {Object.entries(product.specs.ac).slice(0, 3).map(([k, v]) => (
+                    <div key={k} className="text-sm">
+                      <dt className="text-gray-500 mb-1">{k}</dt>
+                      <dd className="font-semibold text-gray-900">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              <div>
+                <p className="text-xs font-bold tracking-widest uppercase text-accent mb-4">DC Side</p>
+                <dl className="space-y-3">
+                  {Object.entries(product.specs.dc).slice(0, 3).map(([k, v]) => (
+                    <div key={k} className="text-sm">
+                      <dt className="text-gray-500 mb-1">{k}</dt>
+                      <dd className="font-semibold text-gray-900">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              <div>
+                <p className="text-xs font-bold tracking-widest uppercase text-accent mb-4">General Parameters</p>
+                <dl className="space-y-3">
+                  {Object.entries(product.specs.general).slice(0, 3).map(([k, v]) => (
+                    <div key={k} className="text-sm">
+                      <dt className="text-gray-500 mb-1">{k}</dt>
+                      <dd className="font-semibold text-gray-900">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+
+            {/* CTA Bar - shown after datasheet inside scroll area */}
+            <div className="mt-8 rounded-xl bg-linear-to-r from-[rgb(58,88,129)] to-[rgb(48,75,110)] px-5 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <p className="text-sm text-white font-medium text-center sm:text-left">
+                Need full specs, custom configurations?
+              </p>
+              <Link
+                href="/contact"
+                onClick={onClose}
+                className="inline-flex items-center gap-2 bg-white text-[rgb(58,88,129)] text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap shadow-sm shrink-0"
+              >
+                Contact Us for Datasheets <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return createPortal(modalContent, document.body);
 }
 
 /* ═══════ Mobile App Carousel ═══════ */
@@ -92,6 +379,7 @@ function AppCarousel({ applications }) {
 export default function ProductDetailClient() {
   const { id } = useParams();
   const product = getProductById(id);
+  const [activeVariant, setActiveVariant] = useState(null);
 
   if (!product) {
     return (
@@ -179,9 +467,12 @@ export default function ProductDetailClient() {
                   Request Consultation <ArrowRight className="w-4 h-4" />
                 </Link>
                 {product.datasheet ? (
-                  <a href={product.datasheet} target="_blank" rel="noopener noreferrer" className="btn-pill btn-unity-outline text-sm flex items-center gap-1">
+                  <Link
+                    href={`/contact?datasheet=${encodeURIComponent(product.datasheet)}&product=${encodeURIComponent(product.name)}`}
+                    className="btn-pill btn-unity-outline text-sm flex items-center gap-1"
+                  >
                     <Download className="w-4 h-4" /> Download Datasheet
-                  </a>
+                  </Link>
                 ) : (
                   <button className="btn-pill btn-unity-outline text-sm flex items-center gap-1 cursor-not-allowed opacity-50">
                     <Download className="w-4 h-4" /> Datasheet Unavailable
@@ -193,60 +484,203 @@ export default function ProductDetailClient() {
         </div>
       </section>
 
-      {/* Specs & Features */}
+      {/* Features */}
       <section className="py-12 sm:py-16 bg-white border-y border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-            {/* Specs */}
-            <Reveal animation="fade-right">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-accent" />
-                </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Technical Specifications</h2>
+          <Reveal animation="fade-up">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center">
+                <Shield className="w-4 h-4 text-brand-green" />
               </div>
-              <div className="bg-white rounded-2xl overflow-hidden border border-border">
-                {Object.entries(product.specs).map(([key, value], i) => {
-                  const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase());
-                  return (
-                    <div
-                      key={key}
-                      className={`flex items-center justify-between py-3.5 px-5 hover:bg-accent/5 transition-colors ${
-                        i % 2 === 0 ? 'bg-[#f5f7fa]' : 'bg-white'
-                      } ${i < Object.entries(product.specs).length - 1 ? 'border-b border-border' : ''}`}
-                    >
-                      <span className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">{label}</span>
-                      <span className="text-sm text-text-primary font-bold text-right">{value}</span>
-                    </div>
-                  );
-                })}
+              <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Key Features</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {product.features.map((feature) => (
+                <div
+                  key={feature}
+                  className="flex items-start gap-3 bg-linear-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
+                >
+                  <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5 border border-brand-green/15 group-hover:bg-brand-green group-hover:border-brand-green transition-all">
+                    <Check className="w-3 h-3 text-brand-green group-hover:text-white transition-colors" />
+                  </div>
+                  <span className="text-sm text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Design Highlights — only shown on Model A detail page */}
+          {product.id === 'model-a' && (
+            <Reveal animation="fade-up" className="mt-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Layers className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Engineered for Performance &amp; Safety</h2>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                {/* Left — image */}
+                <div className="lg:col-span-7">
+                  <img
+                    src="/products/unity-model-a-engineered.webp"
+                    alt="UNITY Model A engineering highlights"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                {/* Right — feature list */}
+                <div className="lg:col-span-5">
+                  <div className="grid grid-cols-1 gap-4">
+                    {[
+                      { icon: Layers, text: 'Normalized, high-protection grade construction design' },
+                      { icon: Box, text: 'Batteries are designed to be completely self-contained' },
+                      { icon: Mountain, text: 'Suitable for installations and use in a variety of environments' },
+                      { icon: Cpu, text: 'Advanced BMS control for maximum DC output efficiency' },
+                      { icon: ShieldCheck, text: 'Separate space for batteries & electrics enhances fire safety' },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center shrink-0">
+                          <item.icon className="w-5 h-5 text-accent" strokeWidth={1.8} />
+                        </div>
+                        <p className="text-sm text-text-primary leading-snug font-medium pt-1.5">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Reveal>
+          )}
 
-            {/* Features */}
-            <Reveal animation="fade-left" delay={150}>
+          {/* Model A4 / A6 Variant Cards — only shown on Model A detail page */}
+          {product.id === 'model-a' && (
+            <Reveal animation="fade-up" className="mt-12">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center">
-                  <Shield className="w-4 h-4 text-brand-green" />
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Battery className="w-4 h-4 text-accent" />
                 </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Key Features</h2>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Other Variants</h2>
               </div>
-              <div className="space-y-2.5">
-                {product.features.map((feature) => (
-                  <div
-                    key={feature}
-                    className="flex items-start gap-3 bg-linear-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {[modelA4, modelA6].map((variant) => (
+                  <button
+                    key={variant.name}
+                    type="button"
+                    onClick={() => setActiveVariant(variant)}
+                    className="group w-full bg-white rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-left flex flex-col sm:flex-row gap-5 items-center"
                   >
-                    <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5 border border-brand-green/15 group-hover:bg-brand-green group-hover:border-brand-green transition-all">
-                      <Check className="w-3 h-3 text-brand-green group-hover:text-white transition-colors" />
+                    <div className="relative w-full sm:w-56 h-56 rounded-xl overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
+                      <img
+                        src={variant.image}
+                        alt={variant.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <span className="text-sm text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors">{feature}</span>
-                  </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-1.5">
+                        {variant.series}
+                      </p>
+                      <h3 className="text-lg font-extrabold text-text-primary tracking-tight mb-1 group-hover:text-accent transition-colors">
+                        {variant.name}
+                      </h3>
+                      {variant.capacity && (
+                        <p className="text-sm font-semibold text-accent mb-2">{variant.capacity}</p>
+                      )}
+                      <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-3">
+                        {variant.description || variant.tagline}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent">
+                        View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </button>
                 ))}
               </div>
             </Reveal>
-          </div>
+          )}
+
+          {/* Design Highlights — only shown on Model C detail page */}
+          {product.id === 'model-c' && (
+            <Reveal animation="fade-up" className="mt-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Layers className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Engineered for Utility-Scale Deployment</h2>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                {/* Left — image */}
+                <div className="lg:col-span-7">
+                  <img
+                    src="/products/unity-model-c-engineered.webp"
+                    alt="UNITY Model C utility-scale containerized BESS"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                {/* Right — feature list */}
+                <div className="lg:col-span-5">
+                  <div className="grid grid-cols-1 gap-4">
+                    {[
+                      { icon: Layers, text: 'Intelligent Liquid Cooling System balances temp. & extends battery life' },
+                      { icon: Box, text: 'High expansion flexibility upto 6.25 MWh with Modular design' },
+                      { icon: Mountain, text: 'Suitable for installation and use in a variety of environments' },
+                      { icon: ShieldCheck, text: 'BMS, fire protection system, real-time monitoring system' },
+                      { icon: Cpu, text: 'Intelligent control, cloud monitoring & EMS integration for anti-backflow function and battery status management' },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center shrink-0">
+                          <item.icon className="w-5 h-5 text-accent" strokeWidth={1.8} />
+                        </div>
+                        <p className="text-sm text-text-primary leading-snug font-medium pt-1.5">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          )}
+
+          {/* Model C Series Variant Card — only shown on Model C detail page */}
+          {product.id === 'model-c' && (
+            <Reveal animation="fade-up" className="mt-12">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Battery className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Other Variants</h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveVariant(modelCSeries)}
+                className="group w-full max-w-2xl bg-white rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-left flex flex-col sm:flex-row gap-5 items-center"
+              >
+                <div className="relative w-full sm:w-56 h-56 rounded-xl overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
+                  <img
+                    src={modelCSeries.image}
+                    alt={modelCSeries.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-1.5">
+                    {modelCSeries.series}
+                  </p>
+                  <h3 className="text-lg font-extrabold text-text-primary tracking-tight mb-1 group-hover:text-accent transition-colors">
+                    {modelCSeries.name}
+                  </h3>
+                  <p className="text-sm font-semibold text-accent mb-2">{modelCSeries.capacity}</p>
+                  <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-3">
+                    {modelCSeries.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent">
+                    View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
+              </button>
+            </Reveal>
+          )}
         </div>
       </section>
 
@@ -332,6 +766,9 @@ export default function ProductDetailClient() {
           </div>
         </div>
       </Reveal>
+
+      {/* Model A Variant Datasheet Modal */}
+      {activeVariant && <DatasheetModal product={activeVariant} onClose={() => setActiveVariant(null)} />}
     </div>
   );
 }

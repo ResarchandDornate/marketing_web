@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, ChevronRight, Activity, Building2, Sun, TrendingDown, BarChart3, PlugZap, Radio } from 'lucide-react';
+import { ArrowRight, ShieldCheck, ChevronRight, Activity, Building2, Sun, TrendingDown, BarChart3, PlugZap, Radio, Leaf, Zap } from 'lucide-react';
 import { products } from '../data/products';
 import Reveal, { RevealItem } from '../components/Reveal';
 
@@ -262,6 +262,35 @@ export default function Home() {
                   <h3 className="text-base font-bold text-brand-blue-dark group-hover:text-white mb-2 leading-snug transition-colors">{item.title}</h3>
                   <p className="text-sm text-text-secondary group-hover:text-white/70 leading-relaxed transition-colors">{item.desc}</p>
                 </div>
+              </RevealItem>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 8. WHY CHOOSE UNITYESS */}
+      <section className="py-14 sm:py-20 bg-[#1e6091] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[28px_28px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <Reveal animation="fade-up" className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Why Choose <span className="text-brand-blue-light">UnityESS</span>?
+            </h2>
+          </Reveal>
+          <Reveal stagger staggerDelay={120} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { icon: Sun, text: 'Capture surplus solar energy for future use' },
+              { icon: PlugZap, text: 'Reduce grid dependency and operational downtime' },
+              { icon: Leaf, text: 'Lower carbon footprint and electricity expenses' },
+              { icon: Zap, text: 'Ensure seamless power availability during outages' },
+            ].map((item) => (
+              <RevealItem key={item.text} animation="fade-up" className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4">
+                  <item.icon className="w-12 h-12 sm:w-14 sm:h-14 text-white" strokeWidth={1.5} />
+                </div>
+                <p className="text-sm sm:text-base font-bold text-white leading-snug max-w-44">
+                  {item.text}
+                </p>
               </RevealItem>
             ))}
           </Reveal>
