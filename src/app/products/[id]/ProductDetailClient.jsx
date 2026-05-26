@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download, Factory, Server, Building2, Sun, Plug, HeartPulse, Camera, Tent, HardHat, Briefcase, Truck, Radio, BarChart3, BatteryCharging, Warehouse, Hospital, Lightbulb, Wind, X } from 'lucide-react';
+import { Check, ChevronRight, ArrowRight, Shield, Zap, Battery, Download, Factory, Server, Building2, Sun, Plug, HeartPulse, Camera, Tent, HardHat, Briefcase, Truck, Radio, BarChart3, BatteryCharging, Warehouse, Hospital, Lightbulb, Wind, X, Layers, Box, Mountain, Cpu, ShieldCheck } from 'lucide-react';
 import { getProductById, products } from '../../../data/products';
 import Reveal, { RevealItem } from '../../../components/Reveal';
 
@@ -315,7 +315,7 @@ function DatasheetModal({ product, onClose }) {
                 onClick={onClose}
                 className="inline-flex items-center gap-2 bg-white text-[rgb(58,88,129)] text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap shadow-sm shrink-0"
               >
-                Contact Us for More Details <ArrowRight className="w-4 h-4" />
+                Contact Us for Datasheets <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -467,9 +467,12 @@ export default function ProductDetailClient() {
                   Request Consultation <ArrowRight className="w-4 h-4" />
                 </Link>
                 {product.datasheet ? (
-                  <a href={product.datasheet} target="_blank" rel="noopener noreferrer" className="btn-pill btn-unity-outline text-sm flex items-center gap-1">
+                  <Link
+                    href={`/contact?datasheet=${encodeURIComponent(product.datasheet)}&product=${encodeURIComponent(product.name)}`}
+                    className="btn-pill btn-unity-outline text-sm flex items-center gap-1"
+                  >
                     <Download className="w-4 h-4" /> Download Datasheet
-                  </a>
+                  </Link>
                 ) : (
                   <button className="btn-pill btn-unity-outline text-sm flex items-center gap-1 cursor-not-allowed opacity-50">
                     <Download className="w-4 h-4" /> Datasheet Unavailable
@@ -481,60 +484,73 @@ export default function ProductDetailClient() {
         </div>
       </section>
 
-      {/* Specs & Features */}
+      {/* Features */}
       <section className="py-12 sm:py-16 bg-white border-y border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-            {/* Specs */}
-            <Reveal animation="fade-right">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-accent" />
-                </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Technical Specifications</h2>
+          <Reveal animation="fade-up">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center">
+                <Shield className="w-4 h-4 text-brand-green" />
               </div>
-              <div className="bg-white rounded-2xl overflow-hidden border border-border">
-                {Object.entries(product.specs).map(([key, value], i) => {
-                  const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase());
-                  return (
-                    <div
-                      key={key}
-                      className={`flex items-center justify-between py-3.5 px-5 hover:bg-accent/5 transition-colors ${
-                        i % 2 === 0 ? 'bg-[#f5f7fa]' : 'bg-white'
-                      } ${i < Object.entries(product.specs).length - 1 ? 'border-b border-border' : ''}`}
-                    >
-                      <span className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">{label}</span>
-                      <span className="text-sm text-text-primary font-bold text-right">{value}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </Reveal>
-
-            {/* Features */}
-            <Reveal animation="fade-left" delay={150}>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center">
-                  <Shield className="w-4 h-4 text-brand-green" />
-                </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Key Features</h2>
-              </div>
-              <div className="space-y-2.5">
-                {product.features.map((feature) => (
-                  <div
-                    key={feature}
-                    className="flex items-start gap-3 bg-linear-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5 border border-brand-green/15 group-hover:bg-brand-green group-hover:border-brand-green transition-all">
-                      <Check className="w-3 h-3 text-brand-green group-hover:text-white transition-colors" />
-                    </div>
-                    <span className="text-sm text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors">{feature}</span>
+              <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Key Features</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {product.features.map((feature) => (
+                <div
+                  key={feature}
+                  className="flex items-start gap-3 bg-linear-to-r from-[#f8f9fa] to-white p-4 rounded-xl border border-border group hover:bg-white hover:border-brand-green/20 hover:shadow-sm transition-all"
+                >
+                  <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center shrink-0 mt-0.5 border border-brand-green/15 group-hover:bg-brand-green group-hover:border-brand-green transition-all">
+                    <Check className="w-3 h-3 text-brand-green group-hover:text-white transition-colors" />
                   </div>
-                ))}
+                  <span className="text-sm text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Design Highlights — only shown on Model A detail page */}
+          {product.id === 'model-a' && (
+            <Reveal animation="fade-up" className="mt-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Layers className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Engineered for Performance &amp; Safety</h2>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                {/* Left — image */}
+                <div className="lg:col-span-7">
+                  <img
+                    src="/products/unity-model-a-engineered.webp"
+                    alt="UNITY Model A engineering highlights"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                {/* Right — feature list */}
+                <div className="lg:col-span-5">
+                  <div className="grid grid-cols-1 gap-4">
+                    {[
+                      { icon: Layers, text: 'Normalized, high-protection grade construction design' },
+                      { icon: Box, text: 'Batteries are designed to be completely self-contained' },
+                      { icon: Mountain, text: 'Suitable for installations and use in a variety of environments' },
+                      { icon: Cpu, text: 'Advanced BMS control for maximum DC output efficiency' },
+                      { icon: ShieldCheck, text: 'Separate space for batteries & electrics enhances fire safety' },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center shrink-0">
+                          <item.icon className="w-5 h-5 text-accent" strokeWidth={1.8} />
+                        </div>
+                        <p className="text-sm text-text-primary leading-snug font-medium pt-1.5">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Reveal>
-          </div>
+          )}
 
           {/* Model A4 / A6 Variant Cards — only shown on Model A detail page */}
           {product.id === 'model-a' && (
@@ -579,6 +595,49 @@ export default function ProductDetailClient() {
                     </div>
                   </button>
                 ))}
+              </div>
+            </Reveal>
+          )}
+
+          {/* Design Highlights — only shown on Model C detail page */}
+          {product.id === 'model-c' && (
+            <Reveal animation="fade-up" className="mt-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Layers className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Engineered for Utility-Scale Deployment</h2>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                {/* Left — image */}
+                <div className="lg:col-span-7">
+                  <img
+                    src="/products/unity-model-c-engineered.webp"
+                    alt="UNITY Model C utility-scale containerized BESS"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                {/* Right — feature list */}
+                <div className="lg:col-span-5">
+                  <div className="grid grid-cols-1 gap-4">
+                    {[
+                      { icon: Layers, text: 'Intelligent Liquid Cooling System balances temp. & extends battery life' },
+                      { icon: Box, text: 'High expansion flexibility upto 6.25 MWh with Modular design' },
+                      { icon: Mountain, text: 'Suitable for installation and use in a variety of environments' },
+                      { icon: ShieldCheck, text: 'BMS, fire protection system, real-time monitoring system' },
+                      { icon: Cpu, text: 'Intelligent control, cloud monitoring & EMS integration for anti-backflow function and battery status management' },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-accent/8 border border-accent/15 flex items-center justify-center shrink-0">
+                          <item.icon className="w-5 h-5 text-accent" strokeWidth={1.8} />
+                        </div>
+                        <p className="text-sm text-text-primary leading-snug font-medium pt-1.5">
+                          {item.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Reveal>
           )}
