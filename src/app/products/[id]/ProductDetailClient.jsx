@@ -487,6 +487,53 @@ export default function ProductDetailClient() {
       {/* Features */}
       <section className="py-12 sm:py-16 bg-white border-y border-border">
         <div className="max-w-6xl mx-auto px-6">
+
+          {/* About / Overview — only shown on Model A detail page */}
+          {product.id === 'model-a' && (
+            <Reveal animation="fade-up" className="mb-12 max-w-4xl">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Battery className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">About Unity Model A</h2>
+              </div>
+              <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
+                <p>
+                  Unity Model A is a compact and reliable energy storage system made for commercial and industrial use. It comes with advanced battery technology, smart BMS, efficient cooling, and built-in fire safety for smooth and safe performance.
+                </p>
+                <p>
+                  The system has separate battery and electrical sections, which helps improve safety, cooling, and overall reliability. Its outdoor cabinet design makes it suitable for different environments and weather conditions.
+                </p>
+                <p>
+                  Unity Model A is easy to install and maintain, making it a practical solution for backup power, peak load management, and renewable energy support. It is designed for businesses looking for a safe, efficient, and scalable energy storage solution.
+                </p>
+              </div>
+            </Reveal>
+          )}
+
+          {/* About / Overview — only shown on Model C detail page */}
+          {product.id === 'model-c' && (
+            <Reveal animation="fade-up" className="mb-12 max-w-4xl">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
+                  <Battery className="w-4 h-4 text-accent" />
+                </div>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">About Unity Model C</h2>
+              </div>
+              <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
+                <p>
+                  Unity Model C is a fully integrated and containerized energy storage solution designed for utility and large-scale renewable energy projects. Each container includes batteries, PCS, intelligent cooling, thermal management, and advanced fire protection systems, creating a safe, reliable, and ready-to-use setup.
+                </p>
+                <p>
+                  Built with a modular and transportable design, Unity Model C allows quick installation, easy scalability, and smooth operation. Its high-protection outdoor structure ensures dependable performance in different environmental conditions while keeping maintenance simple.
+                </p>
+                <p>
+                  With support for grid stabilization, peak load management, renewable energy integration, frequency regulation, and backup power, Unity Model C is an ideal solution for modern energy infrastructure and large solar projects requiring high performance, safety, and flexibility.
+                </p>
+              </div>
+            </Reveal>
+          )}
+
           <Reveal animation="fade-up">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-9 h-9 rounded-xl bg-brand-green/8 border border-brand-green/15 flex items-center justify-center">
