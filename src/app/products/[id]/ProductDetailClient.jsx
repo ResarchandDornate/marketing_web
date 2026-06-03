@@ -83,20 +83,18 @@ const modelA4 = {
   },
 };
 
-/* ═══════ Model C Series Variants (shown only on Model C detail page) ═══════ */
-const modelCSeries = {
-  name: 'UNITY Model C314 / C350 / C587',
+/* ═══════ Model C Variants (shown only on Model C detail page) ═══════ */
+const modelC350 = {
+  name: 'UNITY Model C350',
   series: 'Utility Series',
-  capacity: '3.34 MWh – 6.23 MWh',
-  image: '/products/unity-model-c-series-bess.webp',
-  description: 'The UNITYESS Model C series is a containerized utility-scale energy storage system available in multiple configurations with different battery rack capacities and LFP 314 Ah, 350 Ah, or 587 Ah cells.',
-  detail: 'C314 — 3.340, 4.180 & 5.016 MWh · C350 — 3.440, 4.300 & 5.161 MWh · C587 — 4.690, 5.470 & 6.230 MWh. Engineered for utility-scale renewable integration, grid services, and high-capacity industrial deployments.',
-  variants: ['C314-3340', 'C314-4180', 'C314-5016', 'C350-3440', 'C350-4300', 'C350-5161', 'C587-4690', 'C587-5470', 'C587-6230'],
+  capacity: '3.44 MWh, 4.30 MWh & 5.16 MWh',
+  image: '/products/unity-model-c350-bess.webp',
+  description: 'The UNITYESS Model C350 series is a containerized utility-scale energy storage system available in three configurations powered by LFP 350 Ah cells, ideal for high-density renewable integration and grid services.',
+  detail: 'Three variants: C350-3440 (3.440 MWh), C350-4300 (4.300 MWh), C350-5161 (5.161 MWh). Liquid-cooled, 2.5 MVA AC rated power, with C4 corrosion rating for harsh environments.',
+  variants: ['C350-3440', 'C350-4300', 'C350-5161'],
   specs: {
     ac: {
-      'Rated Capacity (C314)': '3.340 / 4.180 / 5.016 MWh',
-      'Rated Capacity (C350)': '3.440 / 4.300 / 5.161 MWh',
-      'Rated Capacity (C587)': '4.690 / 5.470 / 6.230 MWh',
+      'Rated Capacity': '3.440 / 4.300 / 5.161 MWh',
       'AC Rated Power': '2.5 MVA',
       'Nominal Voltage (AC)': '690 V',
       'Rated Voltage (AC)': '655 - 724 Vac',
@@ -105,7 +103,87 @@ const modelCSeries = {
       'Power Factor': '1.0 leading - 1.0 lagging',
     },
     dc: {
-      'Cell (C314 / C350 / C587)': 'LFP 314 Ah / 350 Ah / 587 Ah',
+      'Cell': 'LFP 350 Ah',
+      'Battery Pack': '1P52S',
+      'Battery Rack': '8P384S / 10P384S / 12P384S',
+      'Nominal DC Voltage': '1331 V',
+      'DC Voltage Range': '1100 - 1500 V',
+      'Cooling Method': 'Liquid Cooled',
+    },
+    general: {
+      'Communication': 'RS485 / CAN / Ethernet',
+      'DC RTE': '> 94%',
+      'Lifetime': '8,000 cycles',
+      'Fire Fighting System': 'Temperature/Smoke Detection, Aerosol, Flooding, Alarm Bell & Strobe',
+      'Operating Temperature': '-30 to 55 °C',
+      'Corrosion Rating': 'C4',
+      'Dimension (W x D x H)': '6058 x 2436 x 2896 mm',
+      'Weight': '40 - 49 tons',
+      'Standard': 'IEC62619, IEC61000, UL9540(A), UN38.3',
+    },
+  },
+};
+
+const modelC587 = {
+  name: 'UNITY Model C587',
+  series: 'Utility Series',
+  capacity: '4.69 MWh, 5.47 MWh & 6.23 MWh',
+  image: '/products/unity-model-c587-bess.webp',
+  description: 'The UNITYESS Model C587 series is a high-density containerized utility-scale energy storage system available in three configurations powered by LFP 587 Ah cells, delivering the highest capacity in the Model C lineup.',
+  detail: 'Three variants: C587-4690 (4.690 MWh), C587-5470 (5.470 MWh), C587-6230 (6.230 MWh). Liquid-cooled, 2.5 MVA AC rated power, with C4 corrosion rating for harsh environments.',
+  variants: ['C587-4690', 'C587-5470', 'C587-6230'],
+  specs: {
+    ac: {
+      'Rated Capacity': '4.690 / 5.470 / 6.230 MWh',
+      'AC Rated Power': '2.5 MVA',
+      'Nominal Voltage (AC)': '690 V',
+      'Rated Voltage (AC)': '655 - 724 Vac',
+      'Frequency': '49.5 - 50.5 Hz',
+      'THDi': '≤ 3%',
+      'Power Factor': '1.0 leading - 1.0 lagging',
+    },
+    dc: {
+      'Cell': 'LFP 587 Ah',
+      'Battery Pack': '1P52S',
+      'Battery Rack': '8P384S / 10P384S / 12P384S',
+      'Nominal DC Voltage': '1331 V',
+      'DC Voltage Range': '1100 - 1500 V',
+      'Cooling Method': 'Liquid Cooled',
+    },
+    general: {
+      'Communication': 'RS485 / CAN / Ethernet',
+      'DC RTE': '> 94%',
+      'Lifetime': '8,000 cycles',
+      'Fire Fighting System': 'Temperature/Smoke Detection, Aerosol, Flooding, Alarm Bell & Strobe',
+      'Operating Temperature': '-30 to 55 °C',
+      'Corrosion Rating': 'C4',
+      'Dimension (W x D x H)': '6058 x 2436 x 2896 mm',
+      'Weight': '40 - 49 tons',
+      'Standard': 'IEC62619, IEC61000, UL9540(A), UN38.3',
+    },
+  },
+};
+
+const modelC314 = {
+  name: 'UNITY Model C314',
+  series: 'Utility Series',
+  capacity: '3.34 MWh, 4.18 MWh & 5.02 MWh',
+  image: '/products/unity-model-c-series-bess.webp',
+  description: 'The UNITYESS Model C314 series is a containerized utility-scale energy storage system available in three configurations powered by LFP 314 Ah cells, ideal for grid services and large-scale renewable integration.',
+  detail: 'Three variants: C314-3340 (3.340 MWh), C314-4180 (4.180 MWh), C314-5016 (5.016 MWh). Liquid-cooled, 2.5 MVA AC rated power, with C4 corrosion rating for harsh environments.',
+  variants: ['C314-3340', 'C314-4180', 'C314-5016'],
+  specs: {
+    ac: {
+      'Rated Capacity': '3.340 / 4.180 / 5.016 MWh',
+      'AC Rated Power': '2.5 MVA',
+      'Nominal Voltage (AC)': '690 V',
+      'Rated Voltage (AC)': '655 - 724 Vac',
+      'Frequency': '49.5 - 50.5 Hz',
+      'THDi': '≤ 3%',
+      'Power Factor': '1.0 leading - 1.0 lagging',
+    },
+    dc: {
+      'Cell': 'LFP 314 Ah',
       'Battery Pack': '1P52S',
       'Battery Rack': '8P384S / 10P384S / 12P384S',
       'Nominal DC Voltage': '1331 V',
@@ -488,48 +566,94 @@ export default function ProductDetailClient() {
       <section className="py-12 sm:py-16 bg-white border-y border-border">
         <div className="max-w-6xl mx-auto px-6">
 
-          {/* About / Overview — only shown on Model A detail page */}
+          {/* Model A4 / A6 Variant Cards — only shown on Model A detail page (before Key Features) */}
           {product.id === 'model-a' && (
-            <Reveal animation="fade-up" className="mb-12 max-w-4xl">
+            <Reveal animation="fade-up" className="mb-12">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
                   <Battery className="w-4 h-4 text-accent" />
                 </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">About Unity Model A</h2>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Other Variants</h2>
               </div>
-              <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
-                <p>
-                  Unity Model A is a compact and reliable energy storage system made for commercial and industrial use. It comes with advanced battery technology, smart BMS, efficient cooling, and built-in fire safety for smooth and safe performance.
-                </p>
-                <p>
-                  The system has separate battery and electrical sections, which helps improve safety, cooling, and overall reliability. Its outdoor cabinet design makes it suitable for different environments and weather conditions.
-                </p>
-                <p>
-                  Unity Model A is easy to install and maintain, making it a practical solution for backup power, peak load management, and renewable energy support. It is designed for businesses looking for a safe, efficient, and scalable energy storage solution.
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {[modelA4, modelA6].map((variant) => (
+                  <button
+                    key={variant.name}
+                    type="button"
+                    onClick={() => setActiveVariant(variant)}
+                    className="group w-full bg-white rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-left flex flex-col sm:flex-row gap-5 items-center"
+                  >
+                    <div className="relative w-full sm:w-56 h-56 rounded-xl overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
+                      <img
+                        src={variant.image}
+                        alt={variant.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-1.5">
+                        {variant.series}
+                      </p>
+                      <h3 className="text-lg font-extrabold text-text-primary tracking-tight mb-1 group-hover:text-accent transition-colors">
+                        {variant.name}
+                      </h3>
+                      {variant.capacity && (
+                        <p className="text-sm font-semibold text-accent mb-2">{variant.capacity}</p>
+                      )}
+                      <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-3">
+                        {variant.description || variant.tagline}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent">
+                        View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </button>
+                ))}
               </div>
             </Reveal>
           )}
 
-          {/* About / Overview — only shown on Model C detail page */}
+          {/* Model C Variant Cards — only shown on Model C detail page (before Key Features) */}
           {product.id === 'model-c' && (
-            <Reveal animation="fade-up" className="mb-12 max-w-4xl">
+            <Reveal animation="fade-up" className="mb-12">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
                   <Battery className="w-4 h-4 text-accent" />
                 </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">About Unity Model C</h2>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Other Variants</h2>
               </div>
-              <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
-                <p>
-                  Unity Model C is a fully integrated and containerized energy storage solution designed for utility and large-scale renewable energy projects. Each container includes batteries, PCS, intelligent cooling, thermal management, and advanced fire protection systems, creating a safe, reliable, and ready-to-use setup.
-                </p>
-                <p>
-                  Built with a modular and transportable design, Unity Model C allows quick installation, easy scalability, and smooth operation. Its high-protection outdoor structure ensures dependable performance in different environmental conditions while keeping maintenance simple.
-                </p>
-                <p>
-                  With support for grid stabilization, peak load management, renewable energy integration, frequency regulation, and backup power, Unity Model C is an ideal solution for modern energy infrastructure and large solar projects requiring high performance, safety, and flexibility.
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {[modelC314, modelC350, modelC587].map((variant) => (
+                  <button
+                    key={variant.name}
+                    type="button"
+                    onClick={() => setActiveVariant(variant)}
+                    className="group w-full bg-white rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-left flex flex-col sm:flex-row gap-5 items-center"
+                  >
+                    <div className="relative w-full sm:w-56 h-56 rounded-xl overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
+                      <img
+                        src={variant.image}
+                        alt={variant.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-1.5">
+                        {variant.series}
+                      </p>
+                      <h3 className="text-lg font-extrabold text-text-primary tracking-tight mb-1 group-hover:text-accent transition-colors">
+                        {variant.name}
+                      </h3>
+                      <p className="text-sm font-semibold text-accent mb-2">{variant.capacity}</p>
+                      <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-3">
+                        {variant.description}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent">
+                        View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </button>
+                ))}
               </div>
             </Reveal>
           )}
@@ -599,49 +723,25 @@ export default function ProductDetailClient() {
             </Reveal>
           )}
 
-          {/* Model A4 / A6 Variant Cards — only shown on Model A detail page */}
+          {/* About Unity Model A — only shown on Model A detail page */}
           {product.id === 'model-a' && (
-            <Reveal animation="fade-up" className="mt-12">
+            <Reveal animation="fade-up" className="mt-12 max-w-4xl">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
                   <Battery className="w-4 h-4 text-accent" />
                 </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Other Variants</h2>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">About Unity Model A</h2>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {[modelA4, modelA6].map((variant) => (
-                  <button
-                    key={variant.name}
-                    type="button"
-                    onClick={() => setActiveVariant(variant)}
-                    className="group w-full bg-white rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-left flex flex-col sm:flex-row gap-5 items-center"
-                  >
-                    <div className="relative w-full sm:w-56 h-56 rounded-xl overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
-                      <img
-                        src={variant.image}
-                        alt={variant.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="flex-1 text-center sm:text-left">
-                      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-1.5">
-                        {variant.series}
-                      </p>
-                      <h3 className="text-lg font-extrabold text-text-primary tracking-tight mb-1 group-hover:text-accent transition-colors">
-                        {variant.name}
-                      </h3>
-                      {variant.capacity && (
-                        <p className="text-sm font-semibold text-accent mb-2">{variant.capacity}</p>
-                      )}
-                      <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-3">
-                        {variant.description || variant.tagline}
-                      </p>
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent">
-                        View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </div>
-                  </button>
-                ))}
+              <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
+                <p>
+                  Unity Model A is a compact and reliable energy storage system made for commercial and industrial use. It comes with advanced battery technology, smart BMS, efficient cooling, and built-in fire safety for smooth and safe performance.
+                </p>
+                <p>
+                  The system has separate battery and electrical sections, which helps improve safety, cooling, and overall reliability. Its outdoor cabinet design makes it suitable for different environments and weather conditions.
+                </p>
+                <p>
+                  Unity Model A is easy to install and maintain, making it a practical solution for backup power, peak load management, and renewable energy support. It is designed for businesses looking for a safe, efficient, and scalable energy storage solution.
+                </p>
               </div>
             </Reveal>
           )}
@@ -689,43 +789,26 @@ export default function ProductDetailClient() {
             </Reveal>
           )}
 
-          {/* Model C Series Variant Card — only shown on Model C detail page */}
+          {/* About Unity Model C — only shown on Model C detail page */}
           {product.id === 'model-c' && (
-            <Reveal animation="fade-up" className="mt-12">
+            <Reveal animation="fade-up" className="mt-12 max-w-4xl">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-9 h-9 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center">
                   <Battery className="w-4 h-4 text-accent" />
                 </div>
-                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">Other Variants</h2>
+                <h2 className="text-xl font-extrabold text-text-primary tracking-tight">About Unity Model C</h2>
               </div>
-              <button
-                type="button"
-                onClick={() => setActiveVariant(modelCSeries)}
-                className="group w-full max-w-2xl bg-white rounded-2xl border border-border p-4 sm:p-5 hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-left flex flex-col sm:flex-row gap-5 items-center"
-              >
-                <div className="relative w-full sm:w-56 h-56 rounded-xl overflow-hidden bg-linear-to-br from-gray-50 to-gray-100 shrink-0">
-                  <img
-                    src={modelCSeries.image}
-                    alt={modelCSeries.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-1.5">
-                    {modelCSeries.series}
-                  </p>
-                  <h3 className="text-lg font-extrabold text-text-primary tracking-tight mb-1 group-hover:text-accent transition-colors">
-                    {modelCSeries.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-accent mb-2">{modelCSeries.capacity}</p>
-                  <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-3">
-                    {modelCSeries.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent">
-                    View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-              </button>
+              <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
+                <p>
+                  Unity Model C is a fully integrated and containerized energy storage solution designed for utility and large-scale renewable energy projects. Each container includes batteries, PCS, intelligent cooling, thermal management, and advanced fire protection systems, creating a safe, reliable, and ready-to-use setup.
+                </p>
+                <p>
+                  Built with a modular and transportable design, Unity Model C allows quick installation, easy scalability, and smooth operation. Its high-protection outdoor structure ensures dependable performance in different environmental conditions while keeping maintenance simple.
+                </p>
+                <p>
+                  With support for grid stabilization, peak load management, renewable energy integration, frequency regulation, and backup power, Unity Model C is an ideal solution for modern energy infrastructure and large solar projects requiring high performance, safety, and flexibility.
+                </p>
+              </div>
             </Reveal>
           )}
         </div>

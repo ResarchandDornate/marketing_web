@@ -157,35 +157,6 @@ export default function BlogClient() {
 
           <hr className="my-6 border-gray-200" />
 
-          {/* Model B + Image */}
-          <div className="flex flex-col gap-5 mb-8">
-            <div>
-              <h3 className="text-[17px] font-bold text-[#191919] mb-2">Model B – Hybrid Battery Energy Storage System (BESS)</h3>
-              <p className="mb-3">
-                Model B is a <Link href="/products/model-b" className="text-accent font-bold hover:underline">hybrid battery energy storage system in India</Link> designed for larger commercial and industrial facilities. It supports capacities from 261 kWh to 1 MWh+ and enables direct solar integration.
-              </p>
-              <p className="font-semibold text-[#191919] mb-1">Best suited for:</p>
-              <ul className="list-disc pl-6 mb-3 space-y-1">
-                <li>Manufacturing units and factories</li>
-                <li>Warehouses and logistics hubs</li>
-                <li>High energy consumption facilities</li>
-              </ul>
-              <p className="font-semibold text-[#191919] mb-1">Key benefits:</p>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Peak load management and demand charge reduction</li>
-                <li>Higher efficiency through DC coupling</li>
-                <li>Better utilization of large solar installations</li>
-              </ul>
-            </div>
-            <div className="w-full flex justify-start">
-              <Link href="/products/model-b" className="w-full max-w-125 block transition-transform hover:scale-[1.02]">
-                <img src="/blog/unityess-model-b-hybrid-battery-energy-storage-system.webp" alt="UnityESS Model B - Hybrid Battery Energy Storage System BESS in India for Industries and Factories" className="w-full h-auto rounded-lg object-contain shadow-sm border border-gray-100" />
-              </Link>
-            </div>
-          </div>
-
-          <hr className="my-6 border-gray-200" />
-
           {/* Model C + Image */}
           <div className="flex flex-col gap-5 mb-8">
             <div>
@@ -345,8 +316,8 @@ export default function BlogClient() {
 
           {/* Sidebar Images */}
           <div className="space-y-5 mt-6 mb-4">
-            <Link href="/products/model-b" className="block transition-transform hover:scale-[1.02]">
-              <img src="/blog/modular-energy-storage-at-night.webp" alt="UnityESS Model B Hybrid BESS - Battery Energy Storage System Manufacturer in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
+            <Link href="/products/model-a" className="block transition-transform hover:scale-[1.02]">
+              <img src="/blog/modular-energy-storage-at-night.webp" alt="UnityESS Model A Commercial BESS - Battery Energy Storage System Manufacturer in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
             </Link>
             <Link href="/products/model-a" className="block transition-transform hover:scale-[1.02]">
               <img src="/blog/renewable-energy-solutions-at-twilight.webp" alt="UnityESS Model A Commercial Energy Storage System - C&I BESS Solution in India" className="w-full rounded-lg shadow-sm border border-gray-100" />
