@@ -11,11 +11,6 @@ const metadataMap = {
     description: 'Unity Model A is a energy storage system for commercial and industrial applications in India. Reliable, scalable power for high-demand energy needs.',
     keywords: ['Unity Model A', 'C&I energy storage', 'Commercial BESS'],
   },
-  'model-b': {
-    title: 'Unity Model B | DC-couple energy storage system in india',
-    description: 'UnityESS Model B is a DC-coupled energy storage system designed for large facilities, able to manage peak load, and scalable storage up to 1 MWh.',
-    keywords: ['Unity Model B', 'DC-coupled BESS', 'Industrial Storage'],
-  },
   'model-c': {
     title: 'Unity Model C | Containerized energy storage system India',
     description: 'Unity Model C is a containerized energy storage system for utility and grid-scale projects in India. Scalable & high-capacity system for reliable power.',

@@ -8,8 +8,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const resourcesRef = useRef(null);
+  const productsRef = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,6 +27,9 @@ export default function Navbar() {
       if (resourcesRef.current && !resourcesRef.current.contains(e.target)) {
         setResourcesOpen(false);
       }
+      if (productsRef.current && !productsRef.current.contains(e.target)) {
+        setProductsOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('touchstart', handleClickOutside);
@@ -37,7 +43,9 @@ export default function Navbar() {
   useEffect(() => {
     setIsOpen(false);
     setResourcesOpen(false);
+    setProductsOpen(false);
     setMobileResourcesOpen(false);
+    setMobileProductsOpen(false);
   }, [pathname]);
 
   const isHome = pathname === '/';
@@ -45,10 +53,14 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/products', label: 'Products' },
     { href: '/process', label: 'How It Works' },
-    { href: '/contact', label: 'Contact' },
     { href: '/about', label: 'About' },
+  ];
+
+  const productLinks = [
+    { href: '/products/model-a', label: 'Model A' },
+    { href: '/products/model-c', label: 'Model C' },
+    { href: '/products/unity-infinity', label: 'Unity Infinity' },
   ];
 
   const resourceLinks = [
@@ -56,6 +68,7 @@ export default function Navbar() {
     { href: '/white-paper', label: 'White Paper' },
   ];
 
+  const isProductActive = pathname.startsWith('/products');
   const isResourceActive = resourceLinks.some((r) => pathname.startsWith(r.href));
 
   return (
@@ -76,7 +89,55 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {/* Home */}
+            <Link
+              href="/"
+              className={`relative px-4 py-2 text-[14px] font-semibold tracking-wide transition-all duration-300 rounded-full ${isLight ? 'text-text-secondary hover:text-brand-blue-dark hover:bg-black/5' : 'text-white/80 hover:text-white hover:bg-white/10'} ${pathname === '/' && (isLight ? 'bg-black/5 text-brand-blue-dark font-bold' : 'bg-white/20 text-white font-bold')}`}
+            >
+              Home
+            </Link>
+
+            {/* Products dropdown */}
+            <div
+              ref={productsRef}
+              className="relative"
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+            >
+              <Link
+                href="/products"
+                onClick={() => setProductsOpen(false)}
+                aria-expanded={productsOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 px-4 py-2 text-[14px] font-semibold tracking-wide transition-all duration-300 rounded-full ${isLight ? 'text-text-secondary hover:text-brand-blue-dark hover:bg-black/5' : 'text-white/80 hover:text-white hover:bg-white/10'} ${isProductActive && (isLight ? 'bg-black/5 text-brand-blue-dark font-bold' : 'bg-white/20 text-white font-bold')}`}
+              >
+                Products
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+              </Link>
+
+              {productsOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
+                  <div className="w-48 bg-white rounded-xl shadow-lg border border-black/5 py-2 animate-fadeIn">
+                    {productLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setProductsOpen(false)}
+                        className={`block px-4 py-2.5 text-sm font-medium transition-colors ${pathname === link.href
+                          ? 'text-brand-blue-dark bg-brand-blue/5'
+                          : 'text-text-secondary hover:text-brand-blue-dark hover:bg-gray-50'
+                          }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* How It Works + About */}
+            {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -141,12 +202,48 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-t border-black/5 animate-fadeIn shadow-2xl py-6 px-6">
           <div className="flex flex-col gap-2">
-            {navLinks.map((link) => (
+            {/* Home */}
+            <Link
+              href="/"
+              className={`block py-3 px-4 text-base font-bold tracking-tight rounded-xl transition-all ${pathname === '/' ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'}`}
+            >
+              Home
+            </Link>
+
+            {/* Mobile Products accordion */}
+            <button
+              onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              className={`flex items-center justify-between py-3 px-4 text-base font-bold tracking-tight rounded-xl transition-all ${isProductActive ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'}`}
+            >
+              Products
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileProductsOpen && (
+              <div className="ml-4 flex flex-col gap-1">
+                <Link
+                  href="/products"
+                  className={`block py-2.5 px-4 text-sm font-semibold rounded-lg transition-all ${pathname === '/products' ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'}`}
+                >
+                  All Products
+                </Link>
+                {productLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block py-2.5 px-4 text-sm font-semibold rounded-lg transition-all ${pathname === link.href ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'}`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* How It Works + About */}
+            {navLinks.slice(1).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-3 px-4 text-base font-bold tracking-tight rounded-xl transition-all ${pathname === link.href ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'
-                  }`}
+                className={`block py-3 px-4 text-base font-bold tracking-tight rounded-xl transition-all ${pathname === link.href ? 'bg-brand-blue/5 text-brand-blue-dark' : 'text-text-secondary hover:bg-gray-50 hover:text-brand-blue-dark'}`}
               >
                 {link.label}
               </Link>

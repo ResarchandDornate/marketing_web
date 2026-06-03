@@ -5,7 +5,7 @@ import { ArrowRight, ShieldCheck, ChevronRight, Activity, Building2, Sun, Trendi
 import { products } from '../data/products';
 import Reveal, { RevealItem } from '../components/Reveal';
 
-const featuredIds = ['model-a', 'model-b', 'model-c', 'unity-infinity'];
+const featuredIds = ['model-a', 'model-c', 'unity-infinity'];
 const featuredModels = featuredIds.map(id => products.find(p => p.id === id)).filter(Boolean);
 
 export default function Home() {
@@ -109,14 +109,14 @@ export default function Home() {
                   {/* Category Tag Top Right */}
                   <div className="absolute top-4 right-4 z-10">
                     <span className="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
-                      {product.id === 'model-a' ? 'COMMERCIAL' : product.id === 'model-b' ? 'HYBRID' : product.id === 'model-c' ? 'UTILITY' : 'PORTABLE'}
+                      {product.id === 'model-a' ? 'COMMERCIAL' : product.id === 'model-c' ? 'UTILITY' : 'PORTABLE'}
                     </span>
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-5 z-10 transition-transform duration-500 group-hover:-translate-y-1">
                     <h3 className="text-xl font-bold text-white mb-0.5 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
                     <p className="text-sm text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-                      {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
+                      {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
                     </p>
                   </div>
 
@@ -513,14 +513,14 @@ function ProductCarousel({ products }) {
         {/* Category Tag Top Right */}
         <div className="absolute top-4 right-4 z-10">
           <span className="px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[9px] font-bold text-white uppercase tracking-widest border border-white/10">
-            {product.id === 'model-a' ? 'COMMERCIAL' : product.id === 'model-b' ? 'HYBRID' : product.id === 'model-c' ? 'UTILITY' : 'PORTABLE'}
+            {product.id === 'model-a' ? 'COMMERCIAL' : product.id === 'model-c' ? 'UTILITY' : 'PORTABLE'}
           </span>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
           <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">{product.name}</h3>
           <p className="text-base text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-            {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-b' ? '522 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
+            {product.id === 'model-a' ? '261 kWh Capacity' : product.id === 'model-c' ? 'Up to 6.25 MWh Capacity' : '5 kWh Capacity'}
           </p>
         </div>
         <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
