@@ -92,7 +92,7 @@ export default function Home() {
           </Reveal>
 
           {/* Desktop grid */}
-          <Reveal stagger staggerDelay={120} className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <Reveal stagger staggerDelay={120} className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {featuredModels.map((product) => (
               <RevealItem key={product.id} animation="fade-up">
                 <Link
