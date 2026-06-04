@@ -114,6 +114,16 @@ export default function Footer() {
                   <Link href={item.path} className="text-sm text-text-secondary hover:text-accent transition-colors">{item.name}</Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://service.unityess.cloud/report?brand=unityess"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-text-secondary hover:text-accent transition-colors"
+                >
+                  File a Complaint
+                </a>
+              </li>
             </ul>
           </div>
 
