@@ -13,6 +13,7 @@ export default function ContactClient() {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
+  const [useCase, setUseCase] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
@@ -46,6 +47,7 @@ export default function ContactClient() {
       phone,
       email,
       company,
+      remark: useCase,
       message,
       website_url: "unityess.ai",
       lead_type: datasheetUrl ? "Unityess-Datasheet-Download" : "Unityess",
@@ -67,6 +69,7 @@ export default function ContactClient() {
         setPhone("");
         setEmail("");
         setCompany("");
+        setUseCase("");
         setMessage("");
         if (datasheetUrl) {
           triggerDatasheetDownload();
@@ -164,6 +167,10 @@ export default function ContactClient() {
                   <div className="space-y-1">
                     <label className="text-sm font-semibold text-text-primary">Organization</label>
                     <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Your company name" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
+                  </div>
+                  <div className="sm:col-span-2 space-y-1">
+                    <label className="text-sm font-semibold text-text-primary">Remarks / Use Case</label>
+                    <input type="text" value={useCase} onChange={(e) => setUseCase(e.target.value)} placeholder="e.g. Factory / Office / Hospitality" className="w-full bg-[#f5f7fa] border border-border rounded-xl px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/8 transition-all placeholder:text-text-tertiary" />
                   </div>
                   <div className="sm:col-span-2 space-y-1">
                     <label className="text-sm font-semibold text-text-primary">Requirement</label>
