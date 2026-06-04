@@ -128,6 +128,29 @@ export default function ContactClient() {
         </div>
       </section>
 
+      {/* Complaint banner */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 pb-4">
+          <a
+            href="https://service.unityess.cloud/report?brand=unityess"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-linear-to-r from-[rgb(58,88,129)] to-[rgb(48,75,110)] rounded-xl px-5 py-3.5 text-white hover:shadow-lg transition-all group"
+          >
+            <div className="flex items-center gap-3">
+              <Shield className="w-5 h-5 text-white/90 shrink-0" />
+              <div>
+                <p className="text-sm font-bold">Have a service issue?</p>
+                <p className="text-xs text-white/75">File a complaint and our support team will get back to you.</p>
+              </div>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-[rgb(58,88,129)] px-4 py-2 rounded-full whitespace-nowrap group-hover:bg-gray-100 transition-colors">
+              File a Complaint <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </a>
+        </div>
+      </section>
+
       {/* Form + Side Info */}
       <section className="py-10 bg-[#f5f7fa]">
         <div className="max-w-5xl mx-auto px-6">

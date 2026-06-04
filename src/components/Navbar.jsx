@@ -187,8 +187,16 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="hidden lg:block ml-4 text-right">
-            <Link href="/contact" className={`text-[13px] font-bold px-6 py-2.5 rounded-full transition-all shadow-sm border ${isLight ? 'bg-brand-blue-dark text-white hover:bg-brand-blue hover:shadow-md border-transparent' : 'bg-white text-brand-blue-dark hover:bg-white/90 border-transparent shadow-[0_0_20px_rgba(255,255,255,0.3)]'}`}>
+          <div className="hidden lg:flex items-center gap-3 ml-4">
+            <a
+              href="https://service.unityess.cloud/report?brand=unityess"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-[13px] font-semibold transition-colors whitespace-nowrap ${isLight ? 'text-text-secondary hover:text-brand-blue-dark' : 'text-white/80 hover:text-white'}`}
+            >
+              Complaint
+            </a>
+            <Link href="/contact" className={`text-[13px] font-bold px-6 py-2.5 rounded-full transition-all shadow-sm border whitespace-nowrap ${isLight ? 'bg-brand-blue-dark text-white hover:bg-brand-blue hover:shadow-md border-transparent' : 'bg-white text-brand-blue-dark hover:bg-white/90 border-transparent shadow-[0_0_20px_rgba(255,255,255,0.3)]'}`}>
               Get A Quote
             </Link>
           </div>
@@ -271,7 +279,15 @@ export default function Navbar() {
               </div>
             )}
 
-            <Link href="/contact" className="mt-4 block text-center bg-brand-blue-dark text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition-colors">
+            <a
+              href="https://service.unityess.cloud/report?brand=unityess"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 block text-center text-text-secondary hover:text-brand-blue-dark py-2 text-sm font-semibold transition-colors"
+            >
+              Complaint
+            </a>
+            <Link href="/contact" className="block text-center bg-brand-blue-dark text-white hover:bg-brand-blue py-3 rounded-xl font-bold transition-colors">
               Get A Quote
             </Link>
           </div>
